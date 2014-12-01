@@ -1,0 +1,23 @@
+## Gradle stuff
+/.gradle
+/build
+
+## ForgeGradle stuff
+/run
+
+## Eclipse stuff
+/eclipse
+/.settings
+/.metadata
+/.classpath
+/.project
+/bin
+
+## My TODO-Reminder
+/UPDATE README!.txt
+
+
+
+
+
+
