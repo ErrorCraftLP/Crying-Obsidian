@@ -1,0 +1,6 @@
+{
+    "parent": "cryingobsidian:block/CubeAll",
+    "textures": {
+        "all": "cryingobsidian:blocks/CryingObsidianBlock"
+    }
+}

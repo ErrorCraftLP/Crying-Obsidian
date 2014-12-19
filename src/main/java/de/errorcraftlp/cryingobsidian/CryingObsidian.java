@@ -2,13 +2,17 @@ package de.errorcraftlp.cryingobsidian;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -38,12 +42,19 @@ public class CryingObsidian {
     /**The version of the Crying Obsidian-Mod*/
     public static final String MOD_VERSION = "1.0.0";
     
+    /**The instance of the Crying Obsidian-Mod*/
+    @Instance(MOD_ID)
+    public static CryingObsidian instance;
+    
+    /**An instance of the Configuration-class*/
+    public static Configuration configuration;
+    
     /**The creative tab of the Sugar+ Mod*/
     public static CreativeTabs tabCryingObsidian = new CreativeTabs(CreativeTabs.getNextID(), "tabCryingObsidian") {
     	
 		public Item getTabIconItem() {
 			
-			return Item.getItemFromBlock(null);
+			return Item.getItemFromBlock(CryingObsidianBlock);
 			
 		}
     	
@@ -70,7 +81,7 @@ public class CryingObsidian {
     	GameRegistry.registerBlock(CryingObsidianBlock, "CryingObsidianBlock");
     	
 		//Load the config file
-		Configuration configuration = new Configuration(event.getSuggestedConfigurationFile());
+		configuration = new Configuration(event.getSuggestedConfigurationFile());
 		
 		//Show a message when the Crying Obsidian-Mod is loading the config
 		if(enableDebugMessages) {
@@ -78,12 +89,9 @@ public class CryingObsidian {
 			CryingObsidianUtils.info("Loading config file: " + event.getSuggestedConfigurationFile());
 			
 		}
-		configuration.load();
 		
-		enableDebugMessages = configuration.get("MISC", "enableDebugMessages", true).getBoolean(enableDebugMessages);
+		loadConfig(); 
 		
-		configuration.save();
-    	
     }
     
     @EventHandler
@@ -96,11 +104,14 @@ public class CryingObsidian {
     		
     	}
     	
+    	//HACK: Register all event handlers in the event bus of the Forge Mod Loader
+    	FMLCommonHandler.instance().bus().register(instance);
+    	
     	//Load the crafting recipes
     	CraftingRecipes();
     	
     	//Render the crying obsidian block
-    	//TODO
+    	Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(CryingObsidianBlock), 0, new ModelResourceLocation(MOD_ID + ":CryingObsidianBlock"));
     	
     }
     
@@ -136,5 +147,17 @@ public class CryingObsidian {
     		Character.valueOf('o'), Blocks.obsidian
     	});
     	
+    }
+    
+    public static void loadConfig() {
+    	
+		enableDebugMessages = configuration.get(Configuration.CATEGORY_GENERAL, "enableDebugMessages", true).getBoolean(enableDebugMessages);
+		
+		if(configuration.hasChanged()) {
+			
+			configuration.save();
+			
+		}
+		
     }
 }
