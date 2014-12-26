@@ -16,8 +16,10 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import de.errorcraftlp.cryingobsidian.block.*;
+import de.errorcraftlp.cryingobsidian.commands.CryingObsidianCommand;
 
 /**
  * 
@@ -124,6 +126,13 @@ public class CryingObsidian {
     		CryingObsidianUtils.info(String.format("Intialized the Crying Obsidian-Mod sucessfully!"));
     		
     	}
+    	
+    }
+    
+    @EventHandler
+    public void serverStarting(FMLServerStartingEvent event) {
+    	
+    	event.registerServerCommand(new CryingObsidianCommand());
     	
     }
     

@@ -12,6 +12,7 @@ import net.minecraftforge.fml.client.config.IConfigElement;
 public class CryingObsidianConfigGui extends GuiConfig {
 
 	public CryingObsidianConfigGui(GuiScreen guiScreen) {
+		
 		super(guiScreen, new ConfigElement(CryingObsidian.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), CryingObsidian.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(CryingObsidian.configuration.toString()));
 		
 	}
