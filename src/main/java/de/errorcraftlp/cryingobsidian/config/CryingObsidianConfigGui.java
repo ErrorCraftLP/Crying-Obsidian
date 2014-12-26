@@ -1,14 +1,24 @@
 package de.errorcraftlp.cryingobsidian.config;
 
-import java.util.List;
-
-import de.errorcraftlp.cryingobsidian.CryingObsidian;
 import net.minecraft.client.gui.GuiScreen;
+
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.config.GuiConfig;
-import net.minecraftforge.fml.client.config.IConfigElement;
 
+import de.errorcraftlp.cryingobsidian.CryingObsidian;
+
+/**
+ * 
+ * This is the {@link GuiConfig} class of the Crying Obsidian-Mod.
+ * 
+ * @see GuiConfig
+ * 
+ * @author ErrorCraftLP
+ * 
+ * @since 1.0.0
+ *
+ */
 public class CryingObsidianConfigGui extends GuiConfig {
 
 	public CryingObsidianConfigGui(GuiScreen guiScreen) {

@@ -3,13 +3,25 @@ package de.errorcraftlp.cryingobsidian.commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.errorcraftlp.cryingobsidian.CryingObsidian;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
 
+import de.errorcraftlp.cryingobsidian.CryingObsidian;
+
+/**
+ * 
+ * This is the class of the /cryingobsidian command.
+ * 
+ * @see ICommand
+ * 
+ * @author ErrorCraftLP
+ * 
+ * @since 1.0.0
+ *
+ */
 public class CryingObsidianCommand implements ICommand {
 	
 	/** A list of the command aliases */
