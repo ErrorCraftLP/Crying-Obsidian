@@ -1,21 +1,23 @@
-package de.errorcraftlp.cryingobsidian;
+package de.errorcraftlp.cryingobsidian.utils;
 
 import net.minecraftforge.fml.common.FMLLog;
 
 import org.apache.logging.log4j.Level;
 
+import de.errorcraftlp.cryingobsidian.CryingObsidian;
+
 import static org.apache.logging.log4j.Level.*;
 
 /**
  * 
- * This class stores all utils I use in the Crying Obsidian-Mod.
+ * This class stores some log utils that I use in the Crying Obsidian Mod.
  * 
  * @author ErrorCraftLP
  * 
  * @since 1.0.0
  *
  */
-public class CryingObsidianUtils {
+public class LogUtils {
 	
 	public static void log(Level logLevel, Object object) {
 		

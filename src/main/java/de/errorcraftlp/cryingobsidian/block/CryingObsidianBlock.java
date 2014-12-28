@@ -57,7 +57,7 @@ public class CryingObsidianBlock extends Block {
             }
             
             world.setSpawnPoint(blockPos);
-            entityPlayer.addChatComponentMessage(new ChatComponentTranslation("Set spawn point to " + blockPos.toString()));
+            entityPlayer.addChatComponentMessage(new ChatComponentTranslation("Set spawn point to coordinates: x = " + blockPos.getX() + ", y = " + blockPos.getY() + ", z = " + blockPos.getY()));
             
             return true;
             

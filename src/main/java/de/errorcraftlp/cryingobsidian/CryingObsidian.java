@@ -20,40 +20,41 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import de.errorcraftlp.cryingobsidian.block.*;
+import de.errorcraftlp.cryingobsidian.block.CryingObsidianBlock;
 import de.errorcraftlp.cryingobsidian.commands.CryingObsidianCommand;
+import de.errorcraftlp.cryingobsidian.utils.LogUtils;
 
 /**
  * 
- * This is the main class of the Crying Obsidian-Mod.
+ * This is the main class of the Crying Obsidian Mod.
  * 
  * @author ErrorCraftLP
  * 
  * @since 1.0.0
  * 
- * @version 1.0.0
+ * @version 1.0.0-SNAPSHOT
  *
  */
 @Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION)
 public class CryingObsidian {
 	
-	/**The id of the Crying Obsidian-Mod*/
+	/**The id of the Crying Obsidian Mod*/
     public static final String MOD_ID = "cryingobsidian";
     
-    /**The official name of the Crying Obsidian-Mod which is showed in the mcmod.info file*/
-    public static final String MOD_NAME = "Crying Obsidian-Mod";
+    /**The official name of the Crying Obsidian Mod which is showed in the mcmod.info file*/
+    public static final String MOD_NAME = "Crying Obsidian Mod";
     
-    /**The version of the Crying Obsidian-Mod*/
-    public static final String MOD_VERSION = "1.0.0";
+    /**The version of the Crying Obsidian Mod*/
+    public static final String MOD_VERSION = "1.0.0-SNAPSHOT";
     
-    /**The instance of the Crying Obsidian-Mod*/
+    /**The instance of the Crying Obsidian Mod*/
     @Instance(MOD_ID)
     public static CryingObsidian instance;
     
-    /**An instance of the Configuration-class*/
+    /**An instance of the {@link Configuration} class*/
     public static Configuration configuration;
     
-    /**The creative tab of the Sugar+ Mod*/
+    /**The creative tab of the Crying Obsidian Mod*/
     public static CreativeTabs tabCryingObsidian = new CreativeTabs(CreativeTabs.getNextID(), "tabCryingObsidian") {
     	
 		public Item getTabIconItem() {
@@ -73,27 +74,30 @@ public class CryingObsidian {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	
-    	//Show a message when the Crying Obsidian-Mod is going to load
+    	//Show a message when the Crying Obsidian Mod is going to load
     	if(enableDebugMessages) {
     		
-    		CryingObsidianUtils.info(String.format("Getting ready to load the Crying Obsidian-Mod!"));
+    		LogUtils.info(String.format("Getting ready to load the Crying Obsidian Mod!"));
     		
     	}
     	
+    	//Set the material and the unlocalized name of the crying obsidian block
     	CryingObsidianBlock = new CryingObsidianBlock(Material.rock).setUnlocalizedName("CryingObsidianBlock");
     	
+    	//Register the crying obsidian block
     	GameRegistry.registerBlock(CryingObsidianBlock, "CryingObsidianBlock");
     	
-		//Load the config file
+		//Create/Load the config file
 		configuration = new Configuration(event.getSuggestedConfigurationFile());
 		
-		//Show a message when the Crying Obsidian-Mod is loading the config
+		//Show a message when the Crying Obsidian Mod is loading the config
 		if(enableDebugMessages) {
 			
-			CryingObsidianUtils.info("Loading config file: " + event.getSuggestedConfigurationFile());
+			LogUtils.info("Loading config file: " + event.getSuggestedConfigurationFile());
 			
 		}
 		
+		//Load the config
 		loadConfig(); 
 		
     }
@@ -101,10 +105,10 @@ public class CryingObsidian {
     @EventHandler
     public void init(FMLInitializationEvent event) {
   
-    	//Show a message when the Crying Obsidian-Mod is loading
+    	//Show a message when the Crying Obsidian Mod is loading
     	if(enableDebugMessages) {
     		
-    		CryingObsidianUtils.info(String.format("Loading the Crying Obsidian-Mod!"));
+    		LogUtils.info(String.format("Loading the Crying Obsidian Mod!"));
     		
     	}
     	
@@ -112,7 +116,7 @@ public class CryingObsidian {
     	FMLCommonHandler.instance().bus().register(instance);
     	
     	//Load the crafting recipes
-    	CraftingRecipes();
+    	loadCraftingRecipes();
     	
     	//Render the crying obsidian block
     	Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(CryingObsidianBlock), 0, new ModelResourceLocation(MOD_ID + ":CryingObsidianBlock"));
@@ -122,10 +126,10 @@ public class CryingObsidian {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
     	
-    	//Show a message when the Crying Obsidian-Mod was initialized sucessfully
+    	//Show a message when the Crying Obsidian Mod was initialized sucessfully
     	if(enableDebugMessages) {
     		
-    		CryingObsidianUtils.info(String.format("Intialized the Crying Obsidian-Mod sucessfully!"));
+    		LogUtils.info(String.format("Intialized the Crying Obsidian Mod sucessfully!"));
     		
     	}
     	
@@ -134,20 +138,21 @@ public class CryingObsidian {
     @EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
     	
+    	//Register the /cryingobsidian command
     	event.registerServerCommand(new CryingObsidianCommand());
     	
     }
     
     /**
      * 
-     * This method contains all recipses of the Crying Obsidian-Mod.
+     * This method contains all recipes of the Crying Obsidian Mod.
      * 
      * @author ErrorCraftLP
      * 
      * @since 1.0.0
      * 
      */
-    public void CraftingRecipes() {
+    public void loadCraftingRecipes() {
     	
     	//The recipe of the crying obsidian block
     	GameRegistry.addRecipe(new ItemStack(CryingObsidian.CryingObsidianBlock, 1), new Object[]{
@@ -160,6 +165,15 @@ public class CryingObsidian {
     	
     }
     
+    /**
+     * 
+     * This method loads the config of the Crying Obsidian Mod.
+     * 
+     * @author ErrorCraftLP
+     * 
+     * @since 1.0.0
+     * 
+     */
     public static void loadConfig() {
     	
 		enableDebugMessages = configuration.get(Configuration.CATEGORY_GENERAL, "enableDebugMessages", true).getBoolean(enableDebugMessages);
