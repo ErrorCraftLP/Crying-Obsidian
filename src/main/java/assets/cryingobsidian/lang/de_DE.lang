@@ -1,6 +1,10 @@
 # German language file
-# Bl�cke
-tile.CryingObsidianBlock.name=Weinender Obsidian
+# Blöcke
+tile.cryingObsidian.name=Weinender Obsidian
 
-# Der Creativetab
-itemGroup.tabCryingObsidian=Weinender Obsidian Mod
+# Die Befehle
+command.cryingobsidian.name=Mod-ID: %s, Mod-Name: %s, Version: %s für Minecraft %s, Autor: ErrorCraftLP
+
+# Config-Beschreibungen
+config.enableDebugMessages.description.name=Ob Debug-Nachrichten angezeigt werden sollen.
+config.enableChatMessage.description.name=Ob beim erfolgreichen Setzen eines Weinender Obsidian-Blocks eine Nachricht in den Chat geschrieben werden soll.

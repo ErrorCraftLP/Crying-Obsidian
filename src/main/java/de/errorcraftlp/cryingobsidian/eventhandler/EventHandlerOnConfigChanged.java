@@ -1,13 +1,12 @@
-package de.errorcraftlp.cryingobsidian.event;
+package de.errorcraftlp.cryingobsidian.eventhandler;
 
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
 /**
  * 
- * This event fires when you change a config option in the config gui.
+ * This is the event handler of the '{@link ConfigChangedEvent.OnConfigChangedEvent OnConfigChanged}' event.
  * 
  * @see ConfigChangedEvent.OnConfigChangedEvent
  * 
@@ -16,7 +15,7 @@ import de.errorcraftlp.cryingobsidian.CryingObsidian;
  * @since 1.0.0
  *
  */
-public class OnConfigChangedEvent {
+public class EventHandlerOnConfigChanged {
 	
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent onConfigChangedEvent) {

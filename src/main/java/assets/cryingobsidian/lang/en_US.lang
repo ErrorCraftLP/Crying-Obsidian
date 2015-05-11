@@ -1,6 +1,10 @@
 # English language file
 # Blocks
-tile.CryingObsidianBlock.name=Crying Obsidian
+tile.cryingObsidian.name=Crying Obsidian
 
-# The creative tab
-itemGroup.tabCryingObsidian=Crying Obsidian Mod
+# The commands
+command.cryingobsidian.name=Mod ID: %s, Mod Name: %s, Version: %s for Minecraft %s, Author: ErrorCraftLP
+
+# Config descriptions
+config.enableDebugMessages.description.name=Returns wether or not debug messages should be displayed.
+config.enableChatMessage.description.name=Returns wether or not a chat message should be printed into the chat when you set the spawn point with the Crying Obsidian block.
