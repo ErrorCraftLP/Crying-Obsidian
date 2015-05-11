@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
@@ -32,7 +34,7 @@ import de.errorcraftlp.cryingobsidian.commands.CommandCryingObsidian;
  * 
  * @since 1.0.0
  * 
- * @version 1.0.0
+ * @version 1.0.1
  *
  */
 @Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION, guiFactory = CryingObsidian.MOD_GUI_FACTORY)
@@ -45,7 +47,7 @@ public class CryingObsidian {
     public static final String MOD_NAME = "Crying Obsidian Mod";
     
     /**The version of the Crying Obsidian Mod*/
-    public static final String MOD_VERSION = "1.0.0";
+    public static final String MOD_VERSION = "1.0.1";
     
     /**The path of the gui factory of the Crying Obsidian Mod*/
     public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.GuiFactoryCryingObsidian";
@@ -116,7 +118,8 @@ public class CryingObsidian {
     	//Render the Crying Obsidian block
     	Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(cryingObsidian), 0, new ModelResourceLocation(MOD_ID + ":cryingObsidian"));
     	
-    	//TODO Version Checker integration
+    	//Initialize Version Checker integration
+    	FMLInterModComms.sendRuntimeMessage(CryingObsidian.MOD_ID, "VersionChecker", "addVersionCheck", "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian-Mod/master/version.json");
     	
     }
     
@@ -163,7 +166,7 @@ public class CryingObsidian {
     		"xlx",
     		"lol",
     		"xlx",
-    		Character.valueOf('l'), Blocks.lapis_block,
+    		Character.valueOf('l'), new ItemStack(Items.dye, 1, 4),
     		Character.valueOf('o'), Blocks.obsidian
     	});
     	

@@ -1,0 +1,16 @@
+{
+	"versionList": [
+		{
+			"mcVersion":"Minecraft 1.8",
+			"modVersion":"1.0.1",
+			"changeLog": [
+                "Localized chat message",
+                "Add Version Checker integration",
+				"Made the Crying Obsidian block cheaper"
+			],
+			"updateURL":"",
+			"isDirectLink":"true",
+			"newFileName":"Crying Obsidian Mod - v1.0.1.jar"
+		}
+	]
+}

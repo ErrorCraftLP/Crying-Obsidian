@@ -1,4 +1,4 @@
-# Text files
+## Text files
 * text=auto
 *.java text eol=lf
 *.groovy text eol=lf
@@ -8,7 +8,7 @@
 *.md text
 *.properties text
 
-#Binary files
+## Binary files
 *.dat binary
 *.bin binary
 *.png binary

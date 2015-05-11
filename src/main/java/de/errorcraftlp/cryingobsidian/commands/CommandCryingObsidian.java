@@ -1,6 +1,5 @@
 package de.errorcraftlp.cryingobsidian.commands;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.command.CommandException;
@@ -10,6 +9,9 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fml.common.Loader;
+
+import com.google.common.collect.Lists;
+
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
 /**
@@ -31,7 +33,7 @@ public class CommandCryingObsidian implements ICommand {
 	
 	public CommandCryingObsidian() {
 		
-		this.aliases = new ArrayList();
+		this.aliases = Lists.newArrayList();
 		this.aliases.add("cryingobsidian");
 		
 		//German aliases
@@ -70,7 +72,7 @@ public class CommandCryingObsidian implements ICommand {
 	@Override
 	public void execute(ICommandSender iCommandSender, String[] string) throws CommandException {
 		
-		iCommandSender.addChatMessage(new ChatComponentTranslation(StatCollector.translateToLocal("command.cryingobsidian.name"), CryingObsidian.MOD_ID, CryingObsidian.MOD_NAME, CryingObsidian.MOD_VERSION, Loader.MC_VERSION));
+		iCommandSender.addChatMessage(new ChatComponentTranslation(StatCollector.translateToLocal("command.cryingObsidian.name"), CryingObsidian.MOD_ID, CryingObsidian.MOD_NAME, CryingObsidian.MOD_VERSION, Loader.MC_VERSION));
 		
 	}
 	

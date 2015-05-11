@@ -3,7 +3,7 @@
   "modid": "cryingobsidian",
   "name": "Crying Obsidian Mod",
   "description": "Crying Obsidian was a texture in Minecraft for an abandoned project to implement a spawn-point changing obelisk. It was abandoned after the introduction of beds. This mod implements this block.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "mcversion": "1.8",
   "url": "",
   "updateUrl": "",

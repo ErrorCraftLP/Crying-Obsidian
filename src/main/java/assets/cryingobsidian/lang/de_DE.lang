@@ -3,7 +3,8 @@
 tile.cryingObsidian.name=Weinender Obsidian
 
 # Die Befehle
-command.cryingobsidian.name=Mod-ID: %s, Mod-Name: %s, Version: %s für Minecraft %s, Autor: ErrorCraftLP
+command.cryingObsidian.name=Mod-ID: %s, Mod-Name: %s, Version: %s für Minecraft %s, Autor: ErrorCraftLP
+command.cryingObsidianBlock.name=Spawnpunkt zu Koordinaten x = %d, y = %d, z = %d gesetzt
 
 # Config-Beschreibungen
 config.enableDebugMessages.description.name=Ob Debug-Nachrichten angezeigt werden sollen.

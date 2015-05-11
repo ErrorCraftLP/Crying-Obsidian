@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
@@ -65,7 +66,7 @@ public class BlockCryingObsidian extends Block {
             
             if(CryingObsidian.enableChatMessage) {
             	
-            	entityPlayer.addChatComponentMessage(new ChatComponentTranslation("Set spawn point to coordinates: x = " + playerLocation.getX() + ", y = " + playerLocation.getY() + ", z = " + playerLocation.getY())); //TODO Localize
+            	entityPlayer.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("command.cryingObsidianBlock.name"), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
             	
             }
             
