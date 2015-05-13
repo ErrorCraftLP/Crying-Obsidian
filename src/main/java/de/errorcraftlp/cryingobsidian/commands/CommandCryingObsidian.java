@@ -35,14 +35,18 @@ public class CommandCryingObsidian implements ICommand {
 		
 		this.aliases = Lists.newArrayList();
 		this.aliases.add("cryingobsidian");
+		this.aliases.add("cryingObsidian");
+		this.aliases.add("crying_obsidian");
 		
 		//German aliases
 		this.aliases.add("weinenderobsidian");
+		this.aliases.add("weinenderObsidian");
+		this.aliases.add("weinender_obsidian");
 		
 	}
 	
 	@Override
-	public int compareTo(Object object) {
+	public int compareTo(Object comparedObject) {
 		
 		return 0;
 		

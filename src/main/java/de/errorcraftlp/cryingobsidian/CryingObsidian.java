@@ -196,16 +196,16 @@ public class CryingObsidian {
     
     /**
      * 
-     * This method prints something into the console.
+     * This method prints a message into the console.
      * 
      * @author ErrorCraftLP
      * 
      * @since 1.0.0
      * 
      */
-	public static void info(Object object) {
+	public static void info(Object message) {
 		
-		FMLLog.log(CryingObsidian.MOD_NAME, Level.INFO, String.valueOf(object));
+		FMLLog.log(CryingObsidian.MOD_NAME, Level.INFO, String.valueOf(message));
 		
 	}
 }
