@@ -1,4 +1,4 @@
-package de.errorcraftlp.cryingobsidian.commands;
+package de.errorcraftlp.cryingobsidian.command;
 
 import java.util.List;
 
@@ -76,7 +76,7 @@ public class CommandCryingObsidian implements ICommand {
 	@Override
 	public void execute(ICommandSender iCommandSender, String[] string) throws CommandException {
 		
-		iCommandSender.addChatMessage(new ChatComponentTranslation(StatCollector.translateToLocal("command.cryingObsidian.name"), CryingObsidian.MOD_ID, CryingObsidian.MOD_NAME, CryingObsidian.MOD_VERSION, Loader.MC_VERSION));
+		iCommandSender.addChatMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidian"), CryingObsidian.MOD_ID, CryingObsidian.MOD_NAME, CryingObsidian.MOD_VERSION, Loader.MC_VERSION));
 		
 	}
 	

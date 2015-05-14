@@ -2,10 +2,10 @@
 # Blöcke
 tile.cryingObsidian.name=Weinender Obsidian
 
-# Die Befehle
-command.cryingObsidian.name=Mod-ID: %s, Mod-Name: %s, Version: %s für Minecraft %s, Autor: ErrorCraftLP
-command.cryingObsidianBlock.name=Spawnpunkt zu Koordinaten x = %d, y = %d, z = %d gesetzt
+# Chat-Nachrichten
+chat.cryingObsidian=Mod-ID: %s, Mod-Name: %s, Version: %s für Minecraft %s, Autor: ErrorCraftLP
+chat.cryingObsidianBlock=Spawnpunkt zu Koordinaten x = %d, y = %d, z = %d gesetzt
 
 # Config-Beschreibungen
-config.enableDebugMessages.description.name=Ob Debug-Nachrichten angezeigt werden sollen.
-config.enableChatMessage.description.name=Ob beim erfolgreichen Setzen eines Weinender Obsidian-Blocks eine Nachricht in den Chat geschrieben werden soll.
+config.enableDebugMessages=Ob Debug-Nachrichten angezeigt werden sollen.
+config.enableChatMessage=Ob beim erfolgreichen Setzen eines Weinender Obsidian-Blocks eine Nachricht in den Chat geschrieben werden soll.

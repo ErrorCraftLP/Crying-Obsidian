@@ -24,7 +24,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Level;
 
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
-import de.errorcraftlp.cryingobsidian.commands.CommandCryingObsidian;
+import de.errorcraftlp.cryingobsidian.command.CommandCryingObsidian;
 
 /**
  * 
@@ -183,8 +183,8 @@ public class CryingObsidian {
      */
     public static void loadConfig() {
     	
-		enableDebugMessages = configuration.get(Configuration.CATEGORY_GENERAL, "enableDebugMessages", true, StatCollector.translateToLocal("config.enableDebugMessages.description.name")).getBoolean(enableDebugMessages);
-		enableChatMessage   = configuration.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, StatCollector.translateToLocal("config.enableChatMessage.description.name")).getBoolean(enableChatMessage);
+		enableDebugMessages = configuration.get(Configuration.CATEGORY_GENERAL, "enableDebugMessages", true, StatCollector.translateToLocal("config.enableDebugMessages")).getBoolean(enableDebugMessages);
+		enableChatMessage   = configuration.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, StatCollector.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
 		
 		if(configuration.hasChanged()) {
 			
