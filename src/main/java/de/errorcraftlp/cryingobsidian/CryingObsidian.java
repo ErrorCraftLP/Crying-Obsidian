@@ -34,7 +34,7 @@ import de.errorcraftlp.cryingobsidian.command.CommandCryingObsidian;
  * 
  * @since 1.0.0
  * 
- * @version 1.0.1
+ * @version 1.0.2
  *
  */
 @Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION, guiFactory = CryingObsidian.MOD_GUI_FACTORY)
@@ -47,7 +47,7 @@ public class CryingObsidian {
     public static final String MOD_NAME = "Crying Obsidian Mod";
     
     /**The version of the Crying Obsidian Mod*/
-    public static final String MOD_VERSION = "1.0.1";
+    public static final String MOD_VERSION = "1.0.2";
     
     /**The path of the gui factory of the Crying Obsidian Mod*/
     public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.GuiFactoryCryingObsidian";

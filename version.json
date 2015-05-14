@@ -2,15 +2,15 @@
 	"versionList": [
 		{
 			"mcVersion":"Minecraft 1.8",
-			"modVersion":"1.0.1",
+			"modVersion":"1.0.2",
 			"changeLog": [
-                "Localized chat message",
-                "Add Version Checker integration",
-				"Made the Crying Obsidian block cheaper"
+                "Some refactoring/cleanup",
+                "Add player name to chat message",
+				"Other small improvements"
 			],
 			"updateURL":"https://raw.githubusercontent.com/ErrorCraftLP/Sugarplus-Versions/master/Crying%20Obsidian%20Mod/Version%20Checker/Latest.jar",
 			"isDirectLink":"true",
-			"newFileName":"Crying Obsidian Mod - v1.0.1.jar"
+			"newFileName":"Crying Obsidian Mod - v1.0.2.jar"
 		}
 	]
 }

@@ -66,7 +66,7 @@ public class BlockCryingObsidian extends Block {
             
             if(CryingObsidian.enableChatMessage) {
             	
-            	entityPlayer.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidianBlock"), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
+            	entityPlayer.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidianBlock"), entityPlayer.getName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
             	
             }
             

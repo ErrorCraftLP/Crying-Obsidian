@@ -4,7 +4,7 @@ tile.cryingObsidian.name=Weinender Obsidian
 
 # Chat-Nachrichten
 chat.cryingObsidian=Mod-ID: %s, Mod-Name: %s, Version: %s für Minecraft %s, Autor: ErrorCraftLP
-chat.cryingObsidianBlock=Spawnpunkt zu Koordinaten x = %d, y = %d, z = %d gesetzt
+chat.cryingObsidianBlock=Einstiegspunkt von %s zu Koordinaten x = %d, y = %d, z = %d gesetzt
 
 # Config-Beschreibungen
 config.enableDebugMessages=Ob Debug-Nachrichten angezeigt werden sollen.
