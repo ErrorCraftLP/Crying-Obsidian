@@ -37,11 +37,13 @@ public class CommandCryingObsidian implements ICommand {
 		this.aliases.add("cryingobsidian");
 		this.aliases.add("cryingObsidian");
 		this.aliases.add("crying_obsidian");
+		this.aliases.add("crying-obsidian");
 		
 		//German aliases
 		this.aliases.add("weinenderobsidian");
 		this.aliases.add("weinenderObsidian");
 		this.aliases.add("weinender_obsidian");
+		this.aliases.add("weinender-obsidian");
 		
 	}
 	
