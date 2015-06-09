@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0.2"
+version = " v1.0.2"
 group = "de.errorcraftlp.cryingobsidian"
-archivesBaseName = "cryingobsidian"
+archivesBaseName = "Crying Obsidian Mod "
 
 minecraft {
-    version = "1.8-11.14.1.1404"
+    version = "1.8-11.14.2.1439"
     runDir = "eclipse"
     
     // The mappings can be changed at any time, and must be in the following format:

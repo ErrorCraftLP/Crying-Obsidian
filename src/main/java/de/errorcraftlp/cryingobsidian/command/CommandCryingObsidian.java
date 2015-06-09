@@ -29,11 +29,11 @@ import de.errorcraftlp.cryingobsidian.CryingObsidian;
 public class CommandCryingObsidian implements ICommand {
 
 	/** A list of the command aliases */
-	private List aliases;
+	private List<String> aliases;
 
 	public CommandCryingObsidian() {
 
-		this.aliases = Lists.newArrayList();
+		this.aliases = Lists.<String>newArrayList();
 		this.aliases.add("cryingobsidian");
 		this.aliases.add("cryingObsidian");
 		this.aliases.add("crying_obsidian");
