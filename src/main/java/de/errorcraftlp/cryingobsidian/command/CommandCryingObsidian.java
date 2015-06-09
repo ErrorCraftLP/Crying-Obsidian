@@ -55,7 +55,7 @@ public class CommandCryingObsidian implements ICommand {
 	}
 
 	@Override
-	public String getName() {
+	public String getCommandName() {
 
 		return "cryingobsidian";
 
@@ -69,21 +69,21 @@ public class CommandCryingObsidian implements ICommand {
 	}
 
 	@Override
-	public List getAliases() {
+	public List getCommandAliases() {
 
 		return this.aliases;
 
 	}
 
 	@Override
-	public void execute(ICommandSender iCommandSender, String[] string) throws CommandException {
+	public void processCommand(ICommandSender iCommandSender, String[] string) throws CommandException {
 
 		iCommandSender.addChatMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidian"), CryingObsidian.MOD_ID, CryingObsidian.MOD_NAME, CryingObsidian.MOD_VERSION, Loader.MC_VERSION));
 
 	}
 
 	@Override
-	public boolean canCommandSenderUse(ICommandSender iCommandSender) {
+	public boolean canCommandSenderUseCommand(ICommandSender iCommandSender) {
 
 		return true;
 
