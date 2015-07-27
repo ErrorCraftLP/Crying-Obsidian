@@ -4,7 +4,7 @@
 			"mcVersion":"Minecraft 1.8",
 			"modVersion":"1.0.2",
 			"changeLog": [
-                "Some refactoring/cleanup",
+                "Some refactoring / cleanup",
                 "Add player name to chat message",
 				"Other small improvements"
 			],
