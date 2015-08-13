@@ -13,17 +13,6 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
-/**
- *
- * This is the class of the Crying Obsidian {@link Block block}.
- *
- * @see Block
- *
- * @author ErrorCraftLP
- *
- * @since 1.0.0
- *
- */
 public class BlockCryingObsidian extends Block {
 
 	public BlockCryingObsidian() {
@@ -39,14 +28,14 @@ public class BlockCryingObsidian extends Block {
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState iBlockState) {
+	public MapColor getMapColor(IBlockState state) {
 
 		return MapColor.obsidianColor;
 
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos blockPos, IBlockState iBlockState, EntityPlayer entityPlayer, EnumFacing enumFacing, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) {
 
 		if(world.isRemote) {
 
@@ -54,19 +43,19 @@ public class BlockCryingObsidian extends Block {
 
 		} else {
 
-			if(iBlockState.getBlock() != this) {
+			if(state.getBlock() != this) {
 
 				return true;
 
 			}
 
-			BlockPos playerLocation = entityPlayer.getPosition();
+			BlockPos playerLocation = player.getPosition();
 
-			entityPlayer.setSpawnPoint(playerLocation, true);
+			player.setSpawnPoint(playerLocation, true);
 
 			if(CryingObsidian.enableChatMessage) {
 
-				entityPlayer.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidianBlock"), entityPlayer.getDisplayName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
+				player.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidianBlock"), player.getDisplayName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
 
 			}
 
