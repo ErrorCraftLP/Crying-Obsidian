@@ -105,5 +105,5 @@ public class CryingObsidian {
 		FMLLog.log(CryingObsidian.MOD_NAME, Level.DEBUG, String.valueOf(message));
 
 	}
-	
+
 }

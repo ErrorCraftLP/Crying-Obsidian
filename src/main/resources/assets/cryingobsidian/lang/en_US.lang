@@ -1,11 +1,9 @@
-# English language file
+# English Language File
 # Blocks
 tile.cryingObsidian.name=Crying Obsidian
 
-# Chat messages
-chat.cryingObsidian=Mod ID: %s, Mod Name: %s, Version: %s for Minecraft %s, Author: ErrorCraftLP
+# Chat Messages
 chat.cryingObsidianBlock=Set %s's spawn point to coordinates: x = %d, y = %d, z = %d
 
-# Config descriptions
-config.enableDebugMessages=Returns wether or not debug messages should be displayed.
+# Config Descriptions
 config.enableChatMessage=Returns wether or not a chat message should be printed into the chat when you set the spawn point with the Crying Obsidian block.

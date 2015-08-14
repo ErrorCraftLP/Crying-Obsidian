@@ -1,11 +1,9 @@
-# German language file
-# Blöcke
+# German Language File
+# Blocks
 tile.cryingObsidian.name=Weinender Obsidian
 
-# Chat-Nachrichten
-chat.cryingObsidian=Mod-ID: %s, Mod-Name: %s, Version: %s für Minecraft %s, Autor: ErrorCraftLP
+# Chat Messages
 chat.cryingObsidianBlock=Einstiegspunkt von %s zu Koordinaten x = %d, y = %d, z = %d gesetzt
 
-# Config-Beschreibungen
-config.enableDebugMessages=Ob Debug-Nachrichten angezeigt werden sollen.
-config.enableChatMessage=Ob beim erfolgreichen Setzen eines Weinender Obsidian-Blocks eine Nachricht in den Chat geschrieben werden soll.
+# Config Descriptions
+config.enableChatMessage=Ob beim Setzen des Einstiegspunkts mit dem Weinenden Obsidian-Block eine Nachricht im Chat erscheinen soll.
