@@ -12,7 +12,7 @@ import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
 public class ConfigGUI {
 
-	public class Factory implements IModGuiFactory {
+	public static class Factory implements IModGuiFactory {
 
 		@Override
 		public void initialize(Minecraft mc) {}
