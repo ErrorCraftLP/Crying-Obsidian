@@ -4,6 +4,7 @@
 
 ## ForgeGradle stuff
 /run
+*.launch
 
 ## Eclipse stuff
 /eclipse

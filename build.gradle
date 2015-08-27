@@ -1,29 +1,14 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-    }
+plugins {
+    id "net.minecraftforge.gradle.forge" version "2.0.1"
 }
-
-apply plugin: 'forge'
 
 version = " v1.0.2"
 group = "de.errorcraftlp.cryingobsidian"
 archivesBaseName = "Crying Obsidian Mod "
 
 minecraft {
-    version = "1.8-11.14.2.1439"
-    runDir = "eclipse"
+    version = "1.8-11.14.3.1506"
+    runDir = "run"
     
     // The mappings can be changed at any time, and must be in the following format:
     // snapshot_YYYYMMDD  Snapshots are built nightly.
