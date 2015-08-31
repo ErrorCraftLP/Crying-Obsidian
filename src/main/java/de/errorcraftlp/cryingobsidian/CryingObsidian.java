@@ -25,24 +25,24 @@ import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 
 @Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION, guiFactory = CryingObsidian.MOD_GUI_FACTORY)
-public class CryingObsidian {
-
+public class CryingObsidian
+{
 	/* GENERAL CONSTANTS */
 	public static final String MOD_ID = "cryingobsidian";
 	public static final String MOD_NAME = "Crying Obsidian Mod";
 	public static final String MOD_VERSION = "1.0.2";
 	public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI.Factory";
 
-	/* CONFIG-RELATED CONSTANTS */
+	/* CONFIG-RELATED VARIABLES */
 	public static Configuration configuration;
 	public static boolean enableChatMessage = true;
 
-	/* BLOCK-RELATED CONSTANTS */
+	/* BLOCK-RELATED VARIABLES */
 	public static Block cryingObsidian;
 
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-
+	public void preInit(FMLPreInitializationEvent event)
+	{
 		this.logDebug(String.format("Crying Obsidian Mod v%s for Minecraft %s loading...", MOD_VERSION, Loader.MC_VERSION));
 		this.logDebug("Registering Crying Obsidian block and initializing config file! (PreInit phase)");
 
@@ -54,12 +54,11 @@ public class CryingObsidian {
 		configuration = new Configuration(event.getSuggestedConfigurationFile());
 		this.logDebug(String.format("Loading config file: %s", event.getSuggestedConfigurationFile().getPath()));
 		this.initConfig();
-
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
-
+	public void init(FMLInitializationEvent event)
+	{
 		this.logDebug("Registering recipes, models and initializing VersionChecker integration! (Init phase)");
 
 		/* REGISTER EVENT HANDLER */
@@ -68,16 +67,16 @@ public class CryingObsidian {
 		/* INIT CRAFTING RECIPES */
 		this.initRecipes();
 
-		/* MODEL-RELATED STUFF */
+		/* REGISTER CRYING OBSIDIAN MODEL */
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(cryingObsidian), 0, new ModelResourceLocation(MOD_ID + ":cryingObsidian"));
 
-		/* MOD-INTEGRATION STUFF */
+		/* INIT MOD INTEGRATION */
 		FMLInterModComms.sendRuntimeMessage(CryingObsidian.MOD_ID, "VersionChecker", "addVersionCheck", "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian-Mod/master/version.json");
-
 	}
 
-	public void initRecipes() {
-
+	public void initRecipes()
+	{
+		// @formatter:off
 		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidian, 1), new Object[] {
 			"xlx",
 			"lol",
@@ -85,25 +84,21 @@ public class CryingObsidian {
 			Character.valueOf('l'), new ItemStack(Items.dye, 1, 4),
 			Character.valueOf('o'), Blocks.obsidian
 		});
-
+		// @formatter:on
 	}
 
-	public static void initConfig() {
-
+	public static void initConfig()
+	{
 		enableChatMessage = configuration.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, StatCollector.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
 
-		if(configuration.hasChanged()) {
-
+		if (configuration.hasChanged())
+		{
 			configuration.save();
-
 		}
-
 	}
 
-	public static void logDebug(Object message) {
-
+	public static void logDebug(Object message)
+	{
 		FMLLog.log(CryingObsidian.MOD_NAME, Level.DEBUG, String.valueOf(message));
-
 	}
-
 }
