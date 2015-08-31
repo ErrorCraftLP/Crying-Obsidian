@@ -23,6 +23,7 @@ import org.apache.logging.log4j.Level;
 
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
+import de.errorcraftlp.cryingobsidian.config.ConfigGUI;
 
 @Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION, guiFactory = CryingObsidian.MOD_GUI_FACTORY)
 public class CryingObsidian
@@ -31,7 +32,7 @@ public class CryingObsidian
 	public static final String MOD_ID = "cryingobsidian";
 	public static final String MOD_NAME = "Crying Obsidian Mod";
 	public static final String MOD_VERSION = "1.0.2";
-	public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI.Factory";
+	public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI$Factory";
 
 	/* CONFIG-RELATED VARIABLES */
 	public static Configuration configuration;
