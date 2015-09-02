@@ -39,7 +39,7 @@ public class ConfigGUI
 		}
 	}
 
-	public class GUI extends GuiConfig
+	public static class GUI extends GuiConfig
 	{
 		public GUI(GuiScreen gui)
 		{
