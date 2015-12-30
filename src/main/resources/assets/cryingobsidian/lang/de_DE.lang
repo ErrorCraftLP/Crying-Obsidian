@@ -1,6 +1,6 @@
 # German Language File
 # Blocks
-tile.cryingObsidian.name=Weinender Obsidian
+tile.crying_obsidian.name=Weinender Obsidian
 
 # Chat Messages
 chat.cryingObsidianBlock=Einstiegspunkt von %s zu Koordinaten x = %d, y = %d, z = %d gesetzt

@@ -1,16 +1,15 @@
 {
 	"versionList": [
 		{
-			"mcVersion":"Minecraft 1.8",
-			"modVersion":"1.0.2",
-			"changeLog": [
-                "Some refactoring / cleanup",
-                "Add player name to chat message",
-				"Other small improvements"
-			],
-			"updateURL":"http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/Latest.jar",
-			"isDirectLink":"true",
-			"newFileName":"Crying Obsidian Mod - v1.0.2.jar"
-		}
+            "mcVersion":"Minecraft 1.8.9",
+            "modVersion":"2.0.0",
+            "changeLog": [
+                "Major rework. Not compatible with v1.0.x.",
+                "Also updated to Minecraft 1.8.9.",
+            ],
+            "updateURL":"http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/Latest.jar",
+            "isDirectLink":"true",
+            "newFileName":"Crying Obsidian Mod - v2.0.0.jar"
+        }
 	]
 }

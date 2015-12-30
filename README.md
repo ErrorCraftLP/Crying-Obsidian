@@ -10,7 +10,7 @@ You can download the Sugar+ Mod [here](http://errorcraftlp.github.io/download/cr
 
 ## NEWEST VERSION
 
-* V1.0.2 for Minecraft 1.8
+* V2.0.0 for Minecraft 1.8.9
 
 ## IMPORTANT INFORMATION
 
