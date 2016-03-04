@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "cryingobsidian/crying_obsidian"
+        "layer0": "cryingobsidian:crying_obsidian"
     },
     "display": {
         "thirdperson": {

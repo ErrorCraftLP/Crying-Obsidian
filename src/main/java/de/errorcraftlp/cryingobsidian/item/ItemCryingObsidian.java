@@ -16,7 +16,8 @@ public class ItemCryingObsidian extends Item {
 
 		super();
 
-		this.setUnlocalizedName("crying_obsidian");
+		this.setUnlocalizedName("crying_obsidian_item");
+		//this.setRegistryName("crying_obsidian_item");
 		this.setCreativeTab(CreativeTabs.tabMisc);
 
 	}

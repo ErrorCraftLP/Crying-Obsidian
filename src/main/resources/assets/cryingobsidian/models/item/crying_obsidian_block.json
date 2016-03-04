@@ -1,5 +1,5 @@
 {
-    "parent": "cryingobsidian/crying_obsidian",
+    "parent": "cryingobsidian:crying_obsidian",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

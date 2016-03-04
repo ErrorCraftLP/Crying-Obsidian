@@ -1,9 +1,9 @@
 # English Language File
 # Blocks
-tile.crying_obsidian.name=Crying Obsidian Block
+tile.crying_obsidian_block.name=Crying Obsidian Block
 
 # Items
-item.crying_obsidian.name=Crying Obsidian Item
+item.crying_obsidian_item.name=Crying Obsidian Item
 
 # Chat Messages
 message.spawnpoint_set=Set %s's spawn point to coordinates: x = %d, y = %d, z = %d

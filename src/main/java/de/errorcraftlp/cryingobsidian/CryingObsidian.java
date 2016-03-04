@@ -16,7 +16,6 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLLog;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -30,7 +29,7 @@ public class CryingObsidian
 	/* GENERAL CONSTANTS */
 	public static final String MOD_ID = "cryingobsidian";
 	public static final String MOD_NAME = "Crying Obsidian Mod";
-	public static final String MOD_VERSION = "1.1.0";
+	public static final String MOD_VERSION = "2.1.0";
 	public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI$Factory";
 
 	/* CONFIG-RELATED VARIABLES */
@@ -44,15 +43,15 @@ public class CryingObsidian
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		this.log(Level.DEBUG, String.format("Crying Obsidian Mod v%s for Minecraft %s loading...", MOD_VERSION, Loader.MC_VERSION));
+		this.log(Level.DEBUG, String.format("Crying Obsidian Mod v%s for Minecraft %s loading...", MOD_VERSION, MinecraftForge.MC_VERSION));
 
 		/* REGISTER CRYING OBSIDIAN BLOCK */
 		cryingObsidianBlock = new BlockCryingObsidian();
-		GameRegistry.registerBlock(cryingObsidianBlock, "crying_obsidian");
-		
+		GameRegistry.registerBlock(cryingObsidianBlock, "crying_obsidian_block");
+
 		/* REGISTER CRYING OBSIDIAN ITEM */
 		cryingObsidianItem = new ItemCryingObsidian();
-		GameRegistry.registerItem(cryingObsidianItem, "portable_crying_obsidian");
+		GameRegistry.registerItem(cryingObsidianItem, "crying_obsidian_item");
 
 		/* INIT CONFIG */
 		config = new Configuration(event.getSuggestedConfigurationFile());

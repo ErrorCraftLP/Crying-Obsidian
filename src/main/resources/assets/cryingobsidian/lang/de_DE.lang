@@ -1,9 +1,9 @@
 # German Language File
 # Blocks
-tile.crying_obsidian.name=Weinender Obsidian-Block
+tile.crying_obsidian_block.name=Weinender Obsidian-Block
 
 # Items
-item.crying_obsidian.name=Weinender Obsidian-Item
+item.crying_obsidian_item.name=Weinender Obsidian-Item
 
 # Chat Messages
 message.spawnpoint_set=Einstiegspunkt von %s zu Koordinaten x = %d, y = %d, z = %d gesetzt
