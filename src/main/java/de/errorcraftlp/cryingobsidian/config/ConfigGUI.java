@@ -2,13 +2,13 @@ package de.errorcraftlp.cryingobsidian.config;
 
 import java.util.Set;
 
+import de.errorcraftlp.cryingobsidian.CryingObsidian;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.IModGuiFactory;
 import net.minecraftforge.fml.client.config.GuiConfig;
-import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
 public class ConfigGUI {
 

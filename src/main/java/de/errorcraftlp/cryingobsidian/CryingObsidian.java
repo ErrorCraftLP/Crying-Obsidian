@@ -1,5 +1,9 @@
 package de.errorcraftlp.cryingobsidian;
 
+import org.apache.logging.log4j.Level;
+
+import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
+import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -18,11 +22,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-import org.apache.logging.log4j.Level;
-
-import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
-import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 
 @Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION, guiFactory = CryingObsidian.MOD_GUI_FACTORY)
 public class CryingObsidian
@@ -43,7 +42,7 @@ public class CryingObsidian
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		this.log(String.format("Crying Obsidian Mod v%s for Minecraft %s loading...", MOD_VERSION, Loader.MC_VERSION));
+		this.log(Level.DEBUG, String.format("Crying Obsidian Mod v%s for Minecraft %s loading...", MOD_VERSION, Loader.MC_VERSION));
 
 		/* REGISTER CRYING OBSIDIAN BLOCK */
 		cryingObsidian = new BlockCryingObsidian();
@@ -51,8 +50,8 @@ public class CryingObsidian
 
 		/* INIT CONFIG */
 		configuration = new Configuration(event.getSuggestedConfigurationFile());
-		this.log(String.format("Loading config file: %s", event.getSuggestedConfigurationFile().getPath()));
-		this.initConfig();
+		this.log(Level.DEBUG, String.format("Loading config file: %s", event.getSuggestedConfigurationFile().getPath()));
+		CryingObsidian.initConfig();
 
 	}
 
@@ -71,18 +70,18 @@ public class CryingObsidian
 		/* INIT MOD INTEGRATION */
 		FMLInterModComms.sendRuntimeMessage(CryingObsidian.MOD_ID, "VersionChecker", "addVersionCheck", "http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/version.json");
 
-		this.log("Finished loading!");
+		this.log(Level.DEBUG, "Finished loading!");
 
 	}
 
 	public void registerRecipes() {
 
 		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidian, 1), new Object[] {
-			"xlx",
-			"lol",
-			"xlx",
-			Character.valueOf('l'), new ItemStack(Items.dye, 1, 4),
-			Character.valueOf('o'), Blocks.obsidian
+				"xlx",
+				"lol",
+				"xlx",
+				Character.valueOf('l'), new ItemStack(Items.dye, 1, 4),
+				Character.valueOf('o'), Blocks.obsidian
 		});
 
 	}
@@ -99,9 +98,9 @@ public class CryingObsidian
 
 	}
 
-	public static void log(String message) {
+	public void log(Level logLevel, String message) {
 
-		FMLLog.log(CryingObsidian.MOD_NAME, Level.DEBUG, message);
+		FMLLog.log(CryingObsidian.MOD_NAME, logLevel, message);
 
 	}
 }

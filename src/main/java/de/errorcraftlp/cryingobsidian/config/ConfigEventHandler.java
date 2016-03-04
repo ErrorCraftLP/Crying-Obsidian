@@ -1,8 +1,8 @@
 package de.errorcraftlp.cryingobsidian.config;
 
+import de.errorcraftlp.cryingobsidian.CryingObsidian;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
 public class ConfigEventHandler {
 

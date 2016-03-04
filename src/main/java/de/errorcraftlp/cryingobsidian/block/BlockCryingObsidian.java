@@ -2,6 +2,7 @@ package de.errorcraftlp.cryingobsidian.block;
 
 import java.util.Random;
 
+import de.errorcraftlp.cryingobsidian.CryingObsidian;
 import net.minecraft.block.BlockObsidian;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,7 +13,6 @@ import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import de.errorcraftlp.cryingobsidian.CryingObsidian;
 
 public class BlockCryingObsidian extends BlockObsidian {
 
@@ -40,7 +40,7 @@ public class BlockCryingObsidian extends BlockObsidian {
 
 		if(!world.isRemote && state.getBlock() == this) {
 
-			BlockPos playerLocation = player.getPosition();
+			final BlockPos playerLocation = player.getPosition();
 			player.setSpawnPoint(playerLocation, true);
 
 			if(CryingObsidian.enableChatMessage) {
@@ -48,8 +48,6 @@ public class BlockCryingObsidian extends BlockObsidian {
 				player.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidianBlock"), player.getDisplayName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
 
 			}
-
-			return true;
 
 		}
 
