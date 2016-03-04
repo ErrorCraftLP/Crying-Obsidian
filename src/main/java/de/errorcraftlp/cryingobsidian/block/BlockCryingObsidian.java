@@ -21,7 +21,7 @@ public class BlockCryingObsidian extends BlockObsidian {
 		super();
 
 		this.setUnlocalizedName("crying_obsidian_block");
-		//this.setRegistryName("crying_obsidian_block");
+		this.setRegistryName("crying_obsidian_block");
 		this.setHardness(50.0F);
 		this.setResistance(2000.0F);
 		this.setStepSound(soundTypePiston);

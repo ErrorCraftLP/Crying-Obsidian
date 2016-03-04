@@ -47,11 +47,11 @@ public class CryingObsidian
 
 		/* REGISTER CRYING OBSIDIAN BLOCK */
 		cryingObsidianBlock = new BlockCryingObsidian();
-		GameRegistry.registerBlock(cryingObsidianBlock, "crying_obsidian_block");
+		GameRegistry.registerBlock(cryingObsidianBlock);
 
 		/* REGISTER CRYING OBSIDIAN ITEM */
 		cryingObsidianItem = new ItemCryingObsidian();
-		GameRegistry.registerItem(cryingObsidianItem, "crying_obsidian_item");
+		GameRegistry.registerItem(cryingObsidianItem);
 
 		/* INIT CONFIG */
 		config = new Configuration(event.getSuggestedConfigurationFile());
