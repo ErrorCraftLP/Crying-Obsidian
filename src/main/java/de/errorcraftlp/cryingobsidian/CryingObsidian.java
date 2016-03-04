@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Level;
 
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
+import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -33,11 +34,12 @@ public class CryingObsidian
 	public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI$Factory";
 
 	/* CONFIG-RELATED VARIABLES */
-	public static Configuration configuration;
+	public static Configuration config;
 	public static boolean enableChatMessage = true;
 
-	/* BLOCK-RELATED VARIABLES */
-	public static Block cryingObsidian;
+	/* BLOCK/ITEM-RELATED VARIABLES */
+	public static Block cryingObsidianBlock;
+	public static Item cryingObsidianItem;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -45,11 +47,15 @@ public class CryingObsidian
 		this.log(Level.DEBUG, String.format("Crying Obsidian Mod v%s for Minecraft %s loading...", MOD_VERSION, Loader.MC_VERSION));
 
 		/* REGISTER CRYING OBSIDIAN BLOCK */
-		cryingObsidian = new BlockCryingObsidian();
-		GameRegistry.registerBlock(cryingObsidian, "crying_obsidian");
+		cryingObsidianBlock = new BlockCryingObsidian();
+		GameRegistry.registerBlock(cryingObsidianBlock, "crying_obsidian");
+		
+		/* REGISTER CRYING OBSIDIAN ITEM */
+		cryingObsidianItem = new ItemCryingObsidian();
+		GameRegistry.registerItem(cryingObsidianItem, "portable_crying_obsidian");
 
 		/* INIT CONFIG */
-		configuration = new Configuration(event.getSuggestedConfigurationFile());
+		config = new Configuration(event.getSuggestedConfigurationFile());
 		this.log(Level.DEBUG, String.format("Loading config file: %s", event.getSuggestedConfigurationFile().getPath()));
 		CryingObsidian.initConfig();
 
@@ -64,8 +70,9 @@ public class CryingObsidian
 		/* REGISTER CRAFTING RECIPES */
 		this.registerRecipes();
 
-		/* REGISTER CRYING OBSIDIAN MODEL */
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(cryingObsidian), 0, new ModelResourceLocation(MOD_ID + ":crying_obsidian"));
+		/* REGISTER MODELS */
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(cryingObsidianBlock), 0, new ModelResourceLocation(MOD_ID + ":crying_obsidian_block"));
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(cryingObsidianItem, 0, new ModelResourceLocation(MOD_ID + ":crying_obsidian_item"));
 
 		/* INIT MOD INTEGRATION */
 		FMLInterModComms.sendRuntimeMessage(CryingObsidian.MOD_ID, "VersionChecker", "addVersionCheck", "http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/version.json");
@@ -76,7 +83,7 @@ public class CryingObsidian
 
 	public void registerRecipes() {
 
-		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidian, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidianBlock, 1), new Object[] {
 				"xlx",
 				"lol",
 				"xlx",
@@ -88,11 +95,11 @@ public class CryingObsidian
 
 	public static void initConfig() {
 
-		enableChatMessage = configuration.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, StatCollector.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
+		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, StatCollector.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
 
-		if(configuration.hasChanged()) {
+		if(config.hasChanged()) {
 
-			configuration.save();
+			config.save();
 
 		}
 

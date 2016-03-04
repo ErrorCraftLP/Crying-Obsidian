@@ -44,7 +44,7 @@ public class ConfigGUI {
 
 		public GUI(GuiScreen gui) {
 
-			super(gui, new ConfigElement(CryingObsidian.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), CryingObsidian.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(CryingObsidian.configuration.toString()));
+			super(gui, new ConfigElement(CryingObsidian.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), CryingObsidian.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(CryingObsidian.config.toString()));
 
 		}
 

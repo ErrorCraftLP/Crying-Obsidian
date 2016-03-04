@@ -1,9 +1,12 @@
 # English Language File
 # Blocks
-tile.crying_obsidian.name=Crying Obsidian
+tile.crying_obsidian.name=Crying Obsidian Block
+
+# Items
+item.crying_obsidian.name=Crying Obsidian Item
 
 # Chat Messages
-chat.cryingObsidianBlock=Set %s's spawn point to coordinates: x = %d, y = %d, z = %d
+message.spawnpoint_set=Set %s's spawn point to coordinates: x = %d, y = %d, z = %d
 
 # Config Descriptions
 config.enableChatMessage=Returns wether or not a chat message should be printed into the chat when you set the spawn point with the Crying Obsidian block.

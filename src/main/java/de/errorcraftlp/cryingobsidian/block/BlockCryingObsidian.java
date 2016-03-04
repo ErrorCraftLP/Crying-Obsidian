@@ -20,7 +20,8 @@ public class BlockCryingObsidian extends BlockObsidian {
 
 		super();
 
-		this.setUnlocalizedName("crying_obsidian");
+		this.setUnlocalizedName("crying_obsidian_block");
+		//this.setRegistryName("crying_obsidian");
 		this.setHardness(50.0F);
 		this.setResistance(2000.0F);
 		this.setStepSound(soundTypePiston);
@@ -31,7 +32,7 @@ public class BlockCryingObsidian extends BlockObsidian {
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 
-		return Item.getItemFromBlock(CryingObsidian.cryingObsidian);
+		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlock);
 
 	}
 
@@ -45,7 +46,7 @@ public class BlockCryingObsidian extends BlockObsidian {
 
 			if(CryingObsidian.enableChatMessage) {
 
-				player.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("chat.cryingObsidianBlock"), player.getDisplayName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
+				player.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
 
 			}
 
