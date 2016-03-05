@@ -69,7 +69,7 @@ public class CryingObsidian
 		/* REGISTER CRAFTING RECIPES */
 		this.registerRecipes();
 
-		/* REGISTER MODELS */
+		/* REGISTER MODELS - TODO: Move to a ClientProxy */
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(cryingObsidianBlock), 0, new ModelResourceLocation(MOD_ID + ":crying_obsidian_block"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(cryingObsidianItem, 0, new ModelResourceLocation(MOD_ID + ":crying_obsidian_item"));
 
