@@ -9,9 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -22,6 +20,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 @Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION, guiFactory = CryingObsidian.MOD_GUI_FACTORY)
 public class CryingObsidian
@@ -82,21 +81,21 @@ public class CryingObsidian
 
 	public void registerRecipes() {
 
-		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidianBlock), new Object[] {
+		GameRegistry.addRecipe(new ShapedOreRecipe(CryingObsidian.cryingObsidianBlock, new Object[] {
 				"xlx",
 				"lol",
 				"xlx",
-				'l', new ItemStack(Items.dye, 1, 4), //Lapis Lazuli
+				'l', "gemLapis",
 				'o', Blocks.obsidian
-		});
+		}));
 
-		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidianItem), new Object[] {
+		GameRegistry.addRecipe(new ShapedOreRecipe(CryingObsidian.cryingObsidianItem, new Object[] {
 				"xsx",
 				"sos",
 				"xsx",
 				'o', CryingObsidian.cryingObsidianBlock,
-				's', Items.stick
-		});
+				's', "stickWood"
+		}));
 
 	}
 
