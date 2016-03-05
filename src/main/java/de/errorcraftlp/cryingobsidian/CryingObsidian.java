@@ -82,12 +82,20 @@ public class CryingObsidian
 
 	public void registerRecipes() {
 
-		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidianBlock, 1), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidianBlock), new Object[] {
 				"xlx",
 				"lol",
 				"xlx",
-				Character.valueOf('l'), new ItemStack(Items.dye, 1, 4),
-				Character.valueOf('o'), Blocks.obsidian
+				'l', new ItemStack(Items.dye, 1, 4), //Lapis Lazuli
+				'o', Blocks.obsidian
+		});
+
+		GameRegistry.addRecipe(new ItemStack(CryingObsidian.cryingObsidianItem), new Object[] {
+				"xsx",
+				"sos",
+				"xsx",
+				'o', CryingObsidian.cryingObsidianBlock,
+				's', Items.stick
 		});
 
 	}
