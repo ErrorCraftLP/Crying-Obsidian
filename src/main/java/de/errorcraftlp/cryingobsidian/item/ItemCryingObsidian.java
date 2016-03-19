@@ -5,9 +5,12 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
 public class ItemCryingObsidian extends Item {
@@ -23,7 +26,7 @@ public class ItemCryingObsidian extends Item {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
 
 		if(!world.isRemote) {
 
@@ -32,13 +35,13 @@ public class ItemCryingObsidian extends Item {
 
 			if(CryingObsidian.enableChatMessage) {
 
-				player.addChatComponentMessage(new ChatComponentTranslation(StatCollector.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
+				player.addChatComponentMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerLocation.getX(), playerLocation.getY(), playerLocation.getZ()));
 
 			}
 
 		}
 
-		return stack;
+		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
 
 	}
 

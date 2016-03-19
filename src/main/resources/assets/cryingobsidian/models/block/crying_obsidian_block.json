@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "cryingobsidian:crying_obsidian"
+        "all": "cryingobsidian:blocks/crying_obsidian_block"
     }
 }

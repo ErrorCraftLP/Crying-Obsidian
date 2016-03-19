@@ -18,9 +18,9 @@ group = "de.errorcraftlp.cryingobsidian"
 archivesBaseName = "Crying Obsidian Mod "
 
 minecraft {
-    version = "1.8.9-11.15.1.1764"
+    version = "1.9-12.16.0.1770-1.9"
     runDir = "run"
-    mappings = "stable_22"
+    mappings = "snapshot_20160319"
 }
 
 processResources {

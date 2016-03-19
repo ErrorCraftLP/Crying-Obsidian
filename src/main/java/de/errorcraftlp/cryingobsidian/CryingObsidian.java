@@ -7,10 +7,10 @@ import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLLog;
@@ -101,7 +101,7 @@ public class CryingObsidian
 
 	public static void initConfig() {
 
-		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, StatCollector.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
+		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, I18n.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
 
 		if(config.hasChanged()) {
 
