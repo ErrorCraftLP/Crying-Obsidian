@@ -5,17 +5,18 @@ import org.apache.logging.log4j.Level;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
+import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,6 +31,10 @@ public class CryingObsidian
 	public static final String MOD_NAME = "Crying Obsidian Mod";
 	public static final String MOD_VERSION = "2.1.0";
 	public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI$Factory";
+
+	/* PROXY */
+	@SidedProxy(clientSide = "de.errorcraftlp.cryingobsidian.proxy.ClientProxy", serverSide = "de.errorcraftlp.cryingobsidian.proxy.ServerProxy")
+	public static ServerProxy proxy;
 
 	/* CONFIG-RELATED VARIABLES */
 	public static Configuration config;
@@ -46,11 +51,12 @@ public class CryingObsidian
 
 		/* REGISTER CRYING OBSIDIAN BLOCK */
 		cryingObsidianBlock = new BlockCryingObsidian();
-		GameRegistry.registerBlock(cryingObsidianBlock);
+		GameRegistry.register(cryingObsidianBlock);
+		GameRegistry.register(new ItemBlock(cryingObsidianBlock).setRegistryName("crying_obsidian_block"));
 
 		/* REGISTER CRYING OBSIDIAN ITEM */
 		cryingObsidianItem = new ItemCryingObsidian();
-		GameRegistry.registerItem(cryingObsidianItem);
+		GameRegistry.register(cryingObsidianItem);
 
 		/* INIT CONFIG */
 		config = new Configuration(event.getSuggestedConfigurationFile());
@@ -59,6 +65,7 @@ public class CryingObsidian
 
 	}
 
+	@SuppressWarnings("unused")
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 
@@ -68,9 +75,8 @@ public class CryingObsidian
 		/* REGISTER CRAFTING RECIPES */
 		this.registerRecipes();
 
-		/* REGISTER MODELS - TODO: Move to a ClientProxy */
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(cryingObsidianBlock), 0, new ModelResourceLocation(MOD_ID + ":crying_obsidian_block"));
-		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(cryingObsidianItem, 0, new ModelResourceLocation(MOD_ID + ":crying_obsidian_item"));
+		/* REGISTER MODELS */
+		proxy.registerModels();
 
 		/* INIT MOD INTEGRATION */
 		FMLInterModComms.sendRuntimeMessage(CryingObsidian.MOD_ID, "VersionChecker", "addVersionCheck", "http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/version.json");

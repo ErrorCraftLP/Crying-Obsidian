@@ -9,7 +9,7 @@ public class ConfigEventHandler {
 	@SubscribeEvent
 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
 
-		if(event.modID.equals(CryingObsidian.MOD_ID)) {
+		if(event.getModID().equals(CryingObsidian.MOD_ID)) {
 
 			CryingObsidian.initConfig();
 
