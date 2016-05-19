@@ -92,7 +92,7 @@ public class CryingObsidian
 				"lol",
 				"xlx",
 				'l', "gemLapis",
-				'o', Blocks.obsidian
+				'o', Blocks.OBSIDIAN
 		}));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(CryingObsidian.cryingObsidianItem, new Object[] {
