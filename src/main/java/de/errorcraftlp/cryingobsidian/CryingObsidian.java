@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Level;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
-import de.errorcraftlp.cryingobsidian.proxy.ClientProxy;
 import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -22,17 +21,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-@Mod(modid = CryingObsidian.MOD_ID, name = CryingObsidian.MOD_NAME, version = CryingObsidian.MOD_VERSION, guiFactory = CryingObsidian.MOD_GUI_FACTORY)
-public class CryingObsidian
-{
-	/* GENERAL CONSTANTS */
-	public static final String MOD_ID = "cryingobsidian";
-	public static final String MOD_NAME = "Crying Obsidian Mod";
-	public static final String MOD_VERSION = "2.1.0";
-	public static final String MOD_GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI$Factory";
+@Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, guiFactory = Utils.GUI_FACTORY)
+public class CryingObsidian {
 
 	/* PROXY */
-	@SidedProxy(clientSide = "de.errorcraftlp.cryingobsidian.proxy.ClientProxy", serverSide = "de.errorcraftlp.cryingobsidian.proxy.ServerProxy")
+	@SidedProxy(clientSide = Utils.CLIENT_PROXY, serverSide = Utils.SERVER_PROXY)
 	public static ServerProxy proxy;
 
 	/* CONFIG-RELATED VARIABLES */
@@ -46,7 +39,7 @@ public class CryingObsidian
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		Utils.log(Level.DEBUG, String.format("Crying Obsidian Mod v%s for Minecraft %s loading ...", MOD_VERSION, MinecraftForge.MC_VERSION));
+		Utils.log(Level.DEBUG, String.format("Crying Obsidian Mod v%s for Minecraft %s loading ...", Utils.VERSION, MinecraftForge.MC_VERSION));
 
 		/* REGISTER CRYING OBSIDIAN BLOCK */
 		cryingObsidianBlock = new BlockCryingObsidian();
@@ -77,8 +70,8 @@ public class CryingObsidian
 		/* REGISTER MODELS */
 		proxy.registerModels();
 
-		/* INIT MOD INTEGRATION */
-		FMLInterModComms.sendRuntimeMessage(CryingObsidian.MOD_ID, "VersionChecker", "addVersionCheck", "http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/version.json");
+		/* MOD INTEGRATION */
+		FMLInterModComms.sendRuntimeMessage(Utils.ID, "VersionChecker", "addVersionCheck", "http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/version.json");
 
 		Utils.log(Level.DEBUG, "Finished loading!");
 
@@ -105,9 +98,7 @@ public class CryingObsidian
 		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, I18n.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
 
 		if(config.hasChanged()) {
-
 			config.save();
-
 		}
 
 	}

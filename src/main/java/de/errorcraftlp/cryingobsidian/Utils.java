@@ -11,12 +11,22 @@ import net.minecraftforge.fml.common.FMLLog;
 
 public class Utils {
 
+	/* CONSTANTS */
+	public static final String ID = "cryingobsidian";
+	public static final String NAME = "Crying Obsidian Mod";
+	public static final String VERSION = "2.1.0";
+	public static final String GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI$Factory";
+	public static final String CLIENT_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ClientProxy";
+	public static final String SERVER_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ServerProxy";
+
+	/* LOGGING */
 	public static void log(Level logLevel, String message) {
 
-		FMLLog.log(CryingObsidian.MOD_NAME, logLevel, message);
+		FMLLog.log(NAME, logLevel, message);
 
 	}
 
+	/* SPAWN POINT SETTING */
 	public static void setSpawnPoint(World world, EntityPlayer player) {
 
 		if(!world.isRemote) {
