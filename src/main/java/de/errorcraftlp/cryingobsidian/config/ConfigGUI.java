@@ -3,6 +3,7 @@ package de.errorcraftlp.cryingobsidian.config;
 import java.util.Set;
 
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
+import de.errorcraftlp.cryingobsidian.Utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
@@ -44,7 +45,7 @@ public class ConfigGUI {
 
 		public GUI(GuiScreen gui) {
 
-			super(gui, new ConfigElement(CryingObsidian.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), CryingObsidian.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(CryingObsidian.config.toString()));
+			super(gui, new ConfigElement(CryingObsidian.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), Utils.ID, false, false, GuiConfig.getAbridgedConfigPath(CryingObsidian.config.toString()));
 
 		}
 
