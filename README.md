@@ -1,16 +1,10 @@
 # Crying Obsidian Mod
 
-Crying Obsidian was a texture in Minecraft for a project to implement a spawn-point changing block. It was abandoned after the introduction of beds. This Mod implements this block.
-
- * Note: This Mod supports the Mod [Version Checker](http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/2091981-version-checker-auto-update-mods-and-clean).
+Crying Obsidian was a texture in Minecraft for a project to implement a spawn-point changing block. It was abandoned after the introduction of beds. This mod implements this block.
 
 ## DOWNLOAD
 
-You can download the Crying Obsidian Mod [here](http://errorcraftlp.github.io/download/cryingobsidian/index.html).
-
-## NEWEST VERSION
-
-* V2.0.0 for Minecraft 1.8.9
+The mod can be downloaded [here](http://errorcraftlp.github.io/download/cryingobsidian/index.html).
 
 ## IMPORTANT INFORMATION
 
