@@ -70,9 +70,6 @@ public class CryingObsidian {
 		/* REGISTER MODELS */
 		proxy.registerModels();
 
-		/* MOD INTEGRATION */
-		FMLInterModComms.sendRuntimeMessage(Utils.ID, "VersionChecker", "addVersionCheck", "http://errorcraftlp.github.io/download/cryingobsidian/versionchecker/version.json");
-
 		Utils.log(Level.DEBUG, "Finished loading!");
 
 	}
