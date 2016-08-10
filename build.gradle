@@ -18,7 +18,7 @@ group = "de.errorcraftlp.cryingobsidian"
 archivesBaseName = "Crying Obsidian Mod "
 
 minecraft {
-    version = "1.10-12.18.0.1983-1.10.0"
+    version = "1.10.2-12.18.1.2050"
     runDir = "run"
     mappings = "snapshot_20160518"
 }
