@@ -22,11 +22,11 @@ public class BlockCryingObsidian extends BlockObsidian {
 	public BlockCryingObsidian() {
 
 		super();
-		this.setUnlocalizedName("crying_obsidian_block");
-		this.setRegistryName("crying_obsidian_block");
-		this.setHardness(50.0F);
-		this.setResistance(2000.0F);
-		this.setCreativeTab(CreativeTabs.MISC);
+		setUnlocalizedName("crying_obsidian_block");
+		setRegistryName("crying_obsidian_block");
+		setHardness(50.0F);
+		setResistance(2000.0F);
+		setCreativeTab(CreativeTabs.MISC);
 
 	}
 

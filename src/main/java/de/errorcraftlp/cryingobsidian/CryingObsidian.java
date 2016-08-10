@@ -1,7 +1,5 @@
 package de.errorcraftlp.cryingobsidian;
 
-import org.apache.logging.log4j.Level;
-
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
@@ -16,7 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -24,35 +21,32 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, guiFactory = Utils.GUI_FACTORY)
 public class CryingObsidian {
 
-	/* PROXY */
+	// Proxy
 	@SidedProxy(clientSide = Utils.CLIENT_PROXY, serverSide = Utils.SERVER_PROXY)
 	public static ServerProxy proxy;
 
-	/* CONFIG-RELATED VARIABLES */
+	// Config-related variables
 	public static Configuration config;
 	public static boolean enableChatMessage = true;
 
-	/* BLOCK/ITEM-RELATED VARIABLES */
+	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
 	public static Item cryingObsidianItem;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		Utils.log(Level.DEBUG, String.format("Crying Obsidian Mod v%s for Minecraft %s loading ...", Utils.VERSION, MinecraftForge.MC_VERSION));
-
-		/* REGISTER CRYING OBSIDIAN BLOCK */
+		// Register crying obsidian block
 		cryingObsidianBlock = new BlockCryingObsidian();
 		GameRegistry.register(cryingObsidianBlock);
 		GameRegistry.register(new ItemBlock(cryingObsidianBlock).setRegistryName("crying_obsidian_block"));
 
-		/* REGISTER CRYING OBSIDIAN ITEM */
+		// Register crying obsidian item
 		cryingObsidianItem = new ItemCryingObsidian();
 		GameRegistry.register(cryingObsidianItem);
 
-		/* INIT CONFIG */
+		// Init config
 		config = new Configuration(event.getSuggestedConfigurationFile());
-		Utils.log(Level.DEBUG, String.format("Loading config file: %s", event.getSuggestedConfigurationFile().getPath()));
 		CryingObsidian.initConfig();
 
 	}
@@ -61,16 +55,14 @@ public class CryingObsidian {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 
-		/* REGISTER EVENT HANDLER */
+		// Register event handler
 		MinecraftForge.EVENT_BUS.register(new ConfigEventHandler());
 
-		/* REGISTER CRAFTING RECIPES */
-		this.registerRecipes();
+		// Register crafting recipes
+		registerRecipes();
 
-		/* REGISTER MODELS */
+		// Register models
 		proxy.registerModels();
-
-		Utils.log(Level.DEBUG, "Finished loading!");
 
 	}
 
@@ -95,7 +87,9 @@ public class CryingObsidian {
 		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, I18n.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
 
 		if(config.hasChanged()) {
+
 			config.save();
+
 		}
 
 	}
