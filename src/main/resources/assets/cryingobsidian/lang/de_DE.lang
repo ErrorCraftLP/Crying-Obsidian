@@ -1,12 +1,9 @@
 # German Language File
-# Blocks
+# Block
 tile.crying_obsidian_block.name=Weinender Obsidian-Block
 
-# Items
+# Item
 item.crying_obsidian_item.name=Weinender Obsidian-Item
 
-# Chat Messages
+# Chat message
 message.spawnpoint_set=Einstiegspunkt von %s zu Koordinaten x = %d, y = %d, z = %d gesetzt
-
-# Config Descriptions
-config.enableChatMessage=Ob beim Setzen des Einstiegspunkts mit dem Weinenden Obsidian-Block eine Nachricht im Chat erscheinen soll.

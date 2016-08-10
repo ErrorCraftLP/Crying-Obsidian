@@ -78,7 +78,7 @@ public class CryingObsidian {
 
 	public static void initConfig() {
 
-		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, I18n.translateToLocal("config.enableChatMessage")).getBoolean(enableChatMessage);
+		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Wether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
 
 		if(config.hasChanged()) {
 
