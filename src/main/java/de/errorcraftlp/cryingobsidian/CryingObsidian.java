@@ -1,14 +1,12 @@
 package de.errorcraftlp.cryingobsidian;
 
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
-import de.errorcraftlp.cryingobsidian.config.ConfigEventHandler;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.text.translation.I18n;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -51,12 +49,8 @@ public class CryingObsidian {
 
 	}
 
-	@SuppressWarnings("unused")
 	@EventHandler
-	public void init(FMLInitializationEvent event) {
-
-		// Register event handler
-		MinecraftForge.EVENT_BUS.register(new ConfigEventHandler());
+	public void init(@SuppressWarnings("unused") FMLInitializationEvent event) {
 
 		// Register crafting recipes
 		registerRecipes();
