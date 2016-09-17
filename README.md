@@ -4,7 +4,7 @@ Crying Obsidian was a texture in Minecraft for a project to implement a spawn-po
 
 ## Download
 
-The mod can be downloaded [here](http://errorcraftlp.github.io/download/cryingobsidian/index.html).
+The mod can be downloaded [here](https://github.com/ErrorCraftLP/Crying-Obsidian-Mod/releases).
 
 ## Important Information
 
