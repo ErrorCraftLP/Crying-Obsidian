@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-@Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, guiFactory = Utils.GUI_FACTORY)
+@Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION)
 public class CryingObsidian {
 
 	// Proxy

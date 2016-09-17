@@ -12,7 +12,6 @@ public class Utils {
 	public static final String ID = "cryingobsidian";
 	public static final String NAME = "Crying Obsidian Mod";
 	public static final String VERSION = "2.1.0";
-	public static final String GUI_FACTORY = "de.errorcraftlp.cryingobsidian.config.ConfigGUI$Factory";
 	public static final String CLIENT_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ClientProxy";
 	public static final String SERVER_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ServerProxy";
 
