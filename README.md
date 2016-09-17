@@ -8,4 +8,4 @@ The mod can be downloaded [here](http://errorcraftlp.github.io/download/cryingob
 
 ## Important Information
 
-* Please only report bugs that exist in the newest mod version (currently: v2.1.0).
+* Please only report bugs that exist in the newest mod version (currently: v2.2.0).
