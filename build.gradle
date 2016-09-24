@@ -29,19 +29,17 @@ minecraft {
 }
 
 processResources {
-    // This will ensure that this task is redone when the versions change.
+    // Redo this task when versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
 
-    // Replace stuff in mcmod.info, nothing else
+    // Replace version and mcversion in mcmod.info.
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-       
-        // Replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
  
-    // Copy everything else that's not the mcmod.info
+    // Copy everything else that's not the mcmod.info.
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
