@@ -24,6 +24,7 @@ minecraft {
     runDir = "run"
     mappings = "snapshot_20160518"
 	
+	// Replace version in Utils.java.
     replace 'GRADLE_VERSION', project.version
     replaceIn 'Utils.java'
 }
