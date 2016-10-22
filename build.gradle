@@ -24,8 +24,8 @@ minecraft {
     runDir = "run"
     mappings = "snapshot_20160518"
 	
-	replace 'GRADLE_VERSION', project.version
-	replaceIn 'Utils.java'
+    replace 'GRADLE_VERSION', project.version
+    replaceIn 'Utils.java'
 }
 
 processResources {
