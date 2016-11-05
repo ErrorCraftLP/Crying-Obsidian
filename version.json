@@ -1,11 +1,11 @@
 {
-  "homepage": "https://minecraft.curseforge.com/projects/crying-obsidian",
-  "promos": {
-    "1.10.2-latest"    : "1.0.1",
-    "1.10.2-recomended": "1.0.1"
-  },
-  "1.10.2" : {
-    "1.0.0" : "Initial release.",
-    "1.0.1" : "File name now includes Minecraft version.\nUpdated mcmod.info."
-  }
+	"homepage": "https://minecraft.curseforge.com/projects/crying-obsidian",
+	"promos": {
+		"1.10.2-latest": "1.0.1",
+		"1.10.2-recomended": "1.0.1"
+	},
+	"1.10.2": {
+		"1.0.0": "Initial release.",
+		"1.0.1": "File name now includes Minecraft version.\nUpdated mcmod.info."
+	}
 }
