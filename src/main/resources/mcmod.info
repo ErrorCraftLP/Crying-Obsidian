@@ -8,7 +8,7 @@
   "url": "https://minecraft.curseforge.com/projects/crying-obsidian",
   "updateJSON": "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian-Mod/master/version.json",
   "authorList": ["ErrorCraftLP"],
-  "credits": "ErrorCraftLP, Mojang (Crying Obsidian Texture)",
+  "credits": "ErrorCraftLP, Mojang (Default Crying Obsidian Texture), carlosyoloful (BDcraft Crying Obsidian Texture)",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
