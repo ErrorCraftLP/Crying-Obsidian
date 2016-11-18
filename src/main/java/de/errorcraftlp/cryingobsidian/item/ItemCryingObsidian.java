@@ -22,10 +22,10 @@ public class ItemCryingObsidian extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 
 		Utils.setSpawnPoint(world, player);
-		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+		return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 
 	}
 

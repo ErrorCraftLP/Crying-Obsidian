@@ -26,7 +26,7 @@ public class Utils {
 
 			if(CryingObsidian.enableChatMessage) {
 
-				player.addChatComponentMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
+				player.addChatComponentMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ())); // TODO Figure this out
 
 			}
 
