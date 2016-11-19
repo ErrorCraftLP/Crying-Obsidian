@@ -20,9 +20,9 @@ compileJava {
 }
 
 minecraft {
-    version = "1.11-13.19.0.2141"
+    version = "1.11-13.19.0.2153"
     runDir = "run"
-    mappings = "snapshot_20161111"
+    mappings = "snapshot_20161118"
 	
 	// Replace version in Utils.java.
     replace 'GRADLE_VERSION', project.version
