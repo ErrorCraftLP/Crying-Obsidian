@@ -8,7 +8,9 @@
 	},
 	"1.10.2": {
 		"1.0.0": "Initial release.",
-		"1.0.1": "File name now includes Minecraft version.\nUpdated mcmod.info.",
+		"1.0.1": "File name now includes Minecraft version.\nUpdated mcmod.info."
+	},
+	"1.11": {
 		"1.0.2": "Updated to Minecraft 1.11.\nFix Version Checker not working properly.",
 		"1.0.3": "Testing version checker."
 	}
