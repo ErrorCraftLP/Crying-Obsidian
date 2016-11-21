@@ -1,6 +1,7 @@
 package de.errorcraftlp.cryingobsidian;
 
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
+import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianDecoration;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import net.minecraft.block.Block;
@@ -28,6 +29,7 @@ public class CryingObsidian {
 
 	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
+	public static Block cryingObsidianBlockDecoration;
 	public static Item cryingObsidianItem;
 
 	@EventHandler
@@ -37,6 +39,11 @@ public class CryingObsidian {
 		cryingObsidianBlock = new BlockCryingObsidian();
 		GameRegistry.register(cryingObsidianBlock);
 		GameRegistry.register(new ItemBlock(cryingObsidianBlock).setRegistryName("crying_obsidian_block"));
+
+		// Register crying obsidian block (decoration variant)
+		cryingObsidianBlockDecoration = new BlockCryingObsidianDecoration();
+		GameRegistry.register(cryingObsidianBlockDecoration);
+		GameRegistry.register(new ItemBlock(cryingObsidianBlockDecoration).setRegistryName("crying_obsidian_block_decoration"));
 
 		// Register crying obsidian item
 		cryingObsidianItem = new ItemCryingObsidian();

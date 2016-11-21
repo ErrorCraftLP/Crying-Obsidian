@@ -14,6 +14,7 @@ public class ClientProxy extends ServerProxy {
 
 		final ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
 		mesher.register(Item.getItemFromBlock(CryingObsidian.cryingObsidianBlock), 0, new ModelResourceLocation(Utils.ID + ":crying_obsidian_block", "inventory"));
+		mesher.register(Item.getItemFromBlock(CryingObsidian.cryingObsidianBlockDecoration), 0, new ModelResourceLocation(Utils.ID + ":crying_obsidian_block_decoration", "inventory"));
 		mesher.register(CryingObsidian.cryingObsidianItem, 0, new ModelResourceLocation(Utils.ID + ":crying_obsidian_item", "inventory"));
 
 	}

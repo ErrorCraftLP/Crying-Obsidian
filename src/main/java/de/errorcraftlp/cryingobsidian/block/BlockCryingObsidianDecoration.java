@@ -1,26 +1,26 @@
 package de.errorcraftlp.cryingobsidian.block;
 
+import java.util.List;
 import java.util.Random;
 
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
-import de.errorcraftlp.cryingobsidian.Utils;
 import net.minecraft.block.BlockObsidian;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockCryingObsidian extends BlockObsidian {
+public class BlockCryingObsidianDecoration extends BlockObsidian {
 
-	public BlockCryingObsidian() {
+	public BlockCryingObsidianDecoration() {
 
 		super();
-		setUnlocalizedName("crying_obsidian_block");
-		setRegistryName("crying_obsidian_block");
+		setUnlocalizedName("crying_obsidian_block_decoration");
+		setRegistryName("crying_obsidian_block_decoration");
 		setHardness(50.0F);
 		setResistance(2000.0F);
 		setCreativeTab(CreativeTabs.MISC);
@@ -34,11 +34,12 @@ public class BlockCryingObsidian extends BlockObsidian {
 
 	}
 
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		Utils.setSpawnPoint(world, player);
-		return true;
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean adv) {
+
+		list.add(I18n.format("desc.crying_obsidian_decoration"));
 
 	}
 

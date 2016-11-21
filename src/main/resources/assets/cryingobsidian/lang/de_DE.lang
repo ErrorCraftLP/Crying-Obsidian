@@ -1,9 +1,13 @@
 # German Language File
 # Block
 tile.crying_obsidian_block.name=Weinender Obsidian-Block
+tile.crying_obsidian_block_decoration.name=Weinender Obsidian-Block (Nur zur Dekoration)
 
 # Item
 item.crying_obsidian_item.name=Weinender Obsidian-Item
 
 # Chat message
 message.spawnpoint_set=Einstiegspunkt von %s zu Koordinaten x = %d, y = %d, z = %d gesetzt
+
+# Description
+desc.crying_obsidian_decoration=Eine Version des Weinenden Obsidians, die nichts macht.
