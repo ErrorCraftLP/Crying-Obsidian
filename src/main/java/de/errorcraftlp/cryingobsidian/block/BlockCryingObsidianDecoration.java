@@ -34,7 +34,6 @@ public class BlockCryingObsidianDecoration extends BlockObsidian {
 
 	}
 
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean adv) {
