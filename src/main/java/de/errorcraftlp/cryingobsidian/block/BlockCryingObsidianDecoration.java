@@ -30,7 +30,7 @@ public class BlockCryingObsidianDecoration extends BlockObsidian {
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 
-		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlock);
+		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlockDecoration);
 
 	}
 
