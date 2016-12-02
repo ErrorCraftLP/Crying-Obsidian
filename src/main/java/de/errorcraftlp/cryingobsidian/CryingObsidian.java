@@ -7,6 +7,7 @@ import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON)
 public class CryingObsidian {
@@ -73,6 +75,19 @@ public class CryingObsidian {
 				'l', "gemLapis",
 				'o', "obsidian"
 				));
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(CryingObsidian.cryingObsidianBlockDecoration,
+				"gemLapis", "obsidian"
+				));
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(CryingObsidian.cryingObsidianBlock,
+				"gemLapis", "gemLapis", "gemLapis", CryingObsidian.cryingObsidianBlockDecoration
+				));
+
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CryingObsidian.cryingObsidianBlockDecoration, 4),
+				CryingObsidian.cryingObsidianBlock
+				));
+
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(CryingObsidian.cryingObsidianItem,
 				"xsx", "sos", "xsx",
