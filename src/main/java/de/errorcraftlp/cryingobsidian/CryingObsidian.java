@@ -70,28 +70,21 @@ public class CryingObsidian {
 
 	public void registerRecipes() {
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(CryingObsidian.cryingObsidianBlock,
-				"xlx", "lol", "xlx",
-				'l', "gemLapis",
-				'o', "obsidian"
+		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
+				"gemLapis", "gemLapis", "gemLapis", "gemLapis", "obsidian"
 				));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(CryingObsidian.cryingObsidianBlockDecoration,
-				"gemLapis", "obsidian"
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(cryingObsidianBlockDecoration, 4),
+				cryingObsidianBlock
 				));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(CryingObsidian.cryingObsidianBlock,
-				"gemLapis", "gemLapis", "gemLapis", CryingObsidian.cryingObsidianBlockDecoration
+		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
+				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
 				));
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(CryingObsidian.cryingObsidianBlockDecoration, 4),
-				CryingObsidian.cryingObsidianBlock
-				));
-
-
-		GameRegistry.addRecipe(new ShapedOreRecipe(CryingObsidian.cryingObsidianItem,
+		GameRegistry.addRecipe(new ShapedOreRecipe(cryingObsidianItem,
 				"xsx", "sos", "xsx",
-				'o', CryingObsidian.cryingObsidianBlock,
+				'o', cryingObsidianBlock,
 				's', "stickWood"
 				));
 
@@ -99,7 +92,7 @@ public class CryingObsidian {
 
 	public static void initConfig() {
 
-		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Wether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
+		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
 
 		if(config.hasChanged()) {
 
