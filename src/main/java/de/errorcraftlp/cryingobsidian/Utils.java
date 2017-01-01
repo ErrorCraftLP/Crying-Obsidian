@@ -22,7 +22,17 @@ public class Utils {
 		if(!world.isRemote) {
 
 			final BlockPos playerPos = player.getPosition();
-			player.setSpawnPoint(playerPos, true);
+
+			if(playerPos.getY() < world.getSeaLevel()) {
+
+				final BlockPos correctedPos = new BlockPos(playerPos.getX(), world.getSeaLevel(), playerPos.getZ());
+				player.setSpawnPoint(correctedPos, true);
+
+			} else {
+
+				player.setSpawnPoint(playerPos, true);
+
+			}
 
 			if(CryingObsidian.enableChatMessage) {
 
