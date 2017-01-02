@@ -23,7 +23,7 @@ public class Utils {
 
 			final BlockPos playerPos = player.getPosition();
 
-			if(playerPos.getY() < world.getSeaLevel()) {
+			if(player.isInWater()) {
 
 				final BlockPos correctedPos = new BlockPos(playerPos.getX(), world.getSeaLevel(), playerPos.getZ());
 				player.setSpawnPoint(correctedPos, true);
