@@ -1,5 +1,6 @@
 package de.errorcraftlp.cryingobsidian;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -55,7 +56,8 @@ public class Utils {
 			IBlockState stateAtCorrectedPos1 = world.getBlockState(correctedPos1);
 			IBlockState stateAtCorrectedPos2 = world.getBlockState(correctedPos2);
 
-			while(!stateAtCorrectedPos1.getBlock().isAir(stateAtCorrectedPos1, world, correctedPos1) || !stateAtCorrectedPos2.getBlock().isAir(stateAtCorrectedPos2, world, correctedPos2)) {
+			// If there isn't enough place for the spawn point, try it one block higher
+			while(hasNoPlace(correctedPos1, stateAtCorrectedPos1, world) || hasNoPlace(correctedPos2, stateAtCorrectedPos2, world)) {
 
 				correctedPos1 = correctedPos1.up();
 				correctedPos2 = correctedPos1.up();
@@ -74,6 +76,14 @@ public class Utils {
 			}
 
 		}
+
+	}
+
+	// Util method that checks if there is enough place for a spawn point
+	public static boolean hasNoPlace(BlockPos pos, IBlockState state, World world) {
+
+		final Block block = state.getBlock();
+		return !block.isAir(state, world, pos);
 
 	}
 
