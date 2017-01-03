@@ -28,6 +28,7 @@ public class CryingObsidian {
 	// Config-related variables
 	public static Configuration config;
 	public static boolean enableChatMessage = true;
+	public static boolean setSpawnPointAtBlock = false;
 
 	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
@@ -93,6 +94,7 @@ public class CryingObsidian {
 	public static void initConfig() {
 
 		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
+		setSpawnPointAtBlock = config.get(Configuration.CATEGORY_GENERAL, "setSpawnPointAtBlock", false, "Whether the spawn point should be set at the Crying Obsidian Block's location (true) or at the player's location (false).").getBoolean(setSpawnPointAtBlock);
 
 		if(config.hasChanged()) {
 

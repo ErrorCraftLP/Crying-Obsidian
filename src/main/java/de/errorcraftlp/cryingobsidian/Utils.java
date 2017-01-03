@@ -1,5 +1,6 @@
 package de.errorcraftlp.cryingobsidian;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -16,8 +17,8 @@ public class Utils {
 	public static final String SERVER_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ServerProxy";
 	public static final String UPDATE_JSON = "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json";
 
-	// Util method for setting spawn point
-	public static void setSpawnPoint(World world, EntityPlayer player) {
+	// Util method for setting the spawn point at the player's location
+	public static void setSpawnPointAtPlayer(World world, EntityPlayer player) {
 
 		if(!world.isRemote) {
 
@@ -37,6 +38,38 @@ public class Utils {
 			if(CryingObsidian.enableChatMessage) {
 
 				player.sendStatusMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()), false);
+
+			}
+
+		}
+
+	}
+
+	// Util method for setting the spawn point at the block's location
+	public static void setSpawnPointAtBlock(World world, EntityPlayer player, BlockPos pos) {
+
+		if(!world.isRemote) {
+
+			BlockPos correctedPos1 = pos.up();
+			BlockPos correctedPos2 = pos.up(2);
+			IBlockState stateAtCorrectedPos1 = world.getBlockState(correctedPos1);
+			IBlockState stateAtCorrectedPos2 = world.getBlockState(correctedPos2);
+
+			while(!stateAtCorrectedPos1.getBlock().isAir(stateAtCorrectedPos1, world, correctedPos1) || !stateAtCorrectedPos2.getBlock().isAir(stateAtCorrectedPos2, world, correctedPos2)) {
+
+				correctedPos1 = correctedPos1.up();
+				correctedPos2 = correctedPos1.up();
+				stateAtCorrectedPos1 = world.getBlockState(correctedPos1);
+				stateAtCorrectedPos2 = world.getBlockState(correctedPos2);
+				continue;
+
+			}
+
+			player.setSpawnPoint(correctedPos1, true);
+
+			if(CryingObsidian.enableChatMessage) {
+
+				player.sendStatusMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()), false);
 
 			}
 

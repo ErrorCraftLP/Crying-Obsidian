@@ -37,7 +37,16 @@ public class BlockCryingObsidian extends BlockObsidian {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		Utils.setSpawnPoint(world, player);
+		if(CryingObsidian.setSpawnPointAtBlock) {
+
+			Utils.setSpawnPointAtBlock(world, player, pos);
+
+		} else {
+
+			Utils.setSpawnPointAtPlayer(world, player);
+
+		}
+
 		return true;
 
 	}
