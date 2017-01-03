@@ -2,12 +2,14 @@
 # Block
 tile.crying_obsidian_block.name=Crying Obsidian Block
 tile.crying_obsidian_block_decoration.name=Crying Obsidian Block (Only for Decoration)
+tile.crying_obsidian_block_advanced.name=Advanced Crying Obsidian Block
 
 # Item
 item.crying_obsidian_item.name=Crying Obsidian Item
 
 # Chat message
 message.spawnpoint_set=Set %s's spawn point to coordinates: x = %d, y = %d, z = %d
+message.not_owner=You aren't the owner of this block!
 
 # Description
 desc.crying_obsidian_decoration=A variant of the Crying Obsidian Block that does nothing.

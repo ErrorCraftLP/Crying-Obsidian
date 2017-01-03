@@ -38,7 +38,7 @@ public class Utils {
 
 			if(CryingObsidian.enableChatMessage) {
 
-				player.sendStatusMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()), false);
+				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
 
 			}
 
@@ -71,7 +71,7 @@ public class Utils {
 
 			if(CryingObsidian.enableChatMessage) {
 
-				player.sendStatusMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()), false);
+				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()));
 
 			}
 

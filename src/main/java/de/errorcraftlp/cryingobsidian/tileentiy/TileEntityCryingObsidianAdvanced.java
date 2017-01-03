@@ -10,7 +10,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	private UUID owner;
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound){
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 
 		super.writeToNBT(compound);
 		compound.setUniqueId("Owner", owner);

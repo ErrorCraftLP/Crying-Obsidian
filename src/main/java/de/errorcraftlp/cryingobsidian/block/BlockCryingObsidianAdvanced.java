@@ -21,8 +21,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
+// TODO Should this block get its own texture?
 public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 	public BlockCryingObsidianAdvanced() {
@@ -68,7 +71,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 			owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwner();
 		}
 
-		if(player.getUniqueID() == owner) {
+		if(player.getUniqueID().equals(owner)) {
 
 			if(CryingObsidian.setSpawnPointAtBlock) {
 
@@ -84,7 +87,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 			if(!world.isRemote) {
 				
-				player.sendMessage(new TextComponentString("You aren't the owner of this block!"));
+				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.not_owner")));
 				
 			}
 

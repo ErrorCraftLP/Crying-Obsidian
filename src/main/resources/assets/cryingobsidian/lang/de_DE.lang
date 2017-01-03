@@ -2,12 +2,14 @@
 # Block
 tile.crying_obsidian_block.name=Weinender Obsidian-Block
 tile.crying_obsidian_block_decoration.name=Weinender Obsidian-Block (Nur zur Dekoration)
+tile.crying_obsidian_block_advanced.name=Fortgeschrittener Weinender Obsidian-Block
 
 # Item
 item.crying_obsidian_item.name=Weinender Obsidian-Item
 
 # Chat message
 message.spawnpoint_set=Einstiegspunkt von %s zu Koordinaten x = %d, y = %d, z = %d gesetzt
+message.not_owner=Dieser Block gehört dir nicht!
 
 # Description
 desc.crying_obsidian_decoration=Eine Version des Weinenden Obsidians, die nichts macht.
