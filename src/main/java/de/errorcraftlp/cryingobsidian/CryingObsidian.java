@@ -1,9 +1,11 @@
 package de.errorcraftlp.cryingobsidian;
 
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
+import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianAdvanced;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianDecoration;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
+import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -32,6 +34,7 @@ public class CryingObsidian {
 
 	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
+	public static Block cryingObsidianBlockAdvanced;
 	public static Block cryingObsidianBlockDecoration;
 	public static Item cryingObsidianItem;
 
@@ -48,6 +51,11 @@ public class CryingObsidian {
 		GameRegistry.register(cryingObsidianBlockDecoration);
 		GameRegistry.register(new ItemBlock(cryingObsidianBlockDecoration).setRegistryName("crying_obsidian_block_decoration"));
 
+		// Register crying obsidian block (advanced variant)
+		cryingObsidianBlockAdvanced = new BlockCryingObsidianAdvanced();
+		GameRegistry.register(cryingObsidianBlockAdvanced);
+		GameRegistry.register(new ItemBlock(cryingObsidianBlockAdvanced).setRegistryName("crying_obsidian_block_advanced"));
+
 		// Register crying obsidian item
 		cryingObsidianItem = new ItemCryingObsidian();
 		GameRegistry.register(cryingObsidianItem);
@@ -55,6 +63,9 @@ public class CryingObsidian {
 		// Init config
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		CryingObsidian.initConfig();
+
+		// Register tile entities
+		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, "crying_obsidian_advanced_tile_entity");
 
 	}
 
