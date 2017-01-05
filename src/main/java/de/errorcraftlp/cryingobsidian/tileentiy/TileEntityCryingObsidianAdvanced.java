@@ -16,10 +16,21 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 
 		super.writeToNBT(compound);
-		compound.setUniqueId("Owner", owner);
-		final NBTTagCompound entityNBT = new NBTTagCompound();
-		storedEntity.writeToNBT(entityNBT);
-		compound.setTag("EntityNBT", entityNBT);
+
+		if(owner != null) {
+
+			compound.setUniqueId("Owner", owner);
+
+		}
+
+		if(storedEntity != null) {
+
+			final NBTTagCompound entityNBT = new NBTTagCompound();
+			storedEntity.writeToNBT(entityNBT);
+			compound.setTag("EntityNBT", entityNBT);
+
+		}
+
 		return compound;
 
 	}
