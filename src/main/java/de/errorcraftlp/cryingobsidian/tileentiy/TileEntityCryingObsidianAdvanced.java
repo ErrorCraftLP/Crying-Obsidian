@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 	private UUID owner;
-	private Entity storedEntity;
+	private NBTTagCompound storedEntityNBT;
 
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
@@ -23,11 +23,9 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 		}
 
-		if(storedEntity != null) {
+		if(storedEntityNBT != null) {
 
-			final NBTTagCompound entityNBT = new NBTTagCompound();
-			storedEntity.writeToNBT(entityNBT);
-			compound.setTag("EntityNBT", entityNBT);
+			compound.setTag("EntityNBT", storedEntityNBT);
 
 		}
 
@@ -40,7 +38,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 		super.readFromNBT(compound);
 		owner = compound.getUniqueId("Owner");
-		storedEntity = EntityList.createEntityFromNBT(compound.getCompoundTag("EntityNBT"), world);
+		storedEntityNBT = compound.getCompoundTag("EntityNBT");
 
 	}
 
@@ -58,13 +56,13 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 	public Entity getStoredEntity() {
 
-		return storedEntity;
+		return EntityList.createEntityFromNBT(storedEntityNBT, world);
 
 	}
 
-	public void setStoredEntity(Entity storedEntity) {
+	public void setStoredEntityNBT(NBTTagCompound entityNBT) {
 
-		this.storedEntity = storedEntity;
+		storedEntityNBT = entityNBT;
 
 	}
 

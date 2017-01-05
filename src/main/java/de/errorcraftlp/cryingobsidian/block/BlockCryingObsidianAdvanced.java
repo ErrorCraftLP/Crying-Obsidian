@@ -11,10 +11,13 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -62,15 +65,58 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 
-		UUID owner = null;
-		final TileEntity tileEntity = world.getTileEntity(pos);
+		if(!world.isRemote) {
 
-		if(tileEntity instanceof TileEntityCryingObsidianAdvanced) {
+			final ItemStack heldStack = player.getHeldItem(hand);
+			final TileEntity tileEntity = world.getTileEntity(pos);
+			UUID owner = null;
 
-			owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwner();
-		}
+			if(tileEntity instanceof TileEntityCryingObsidianAdvanced) {
 
-		if(player.getUniqueID().equals(owner)) {
+				owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwner();
+			}
+
+			if(owner == null) {
+
+				return true;
+
+			}
+
+			if(!player.getUniqueID().equals(owner)) {
+
+				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.not_owner")));
+				return true;
+
+			}
+
+			if(heldStack.getItem().equals(CryingObsidian.cryingObsidianItem)) {
+
+				final NBTTagCompound entityNBT = heldStack.getSubCompound(Utils.ID);
+
+				if(entityNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
+
+					((TileEntityCryingObsidianAdvanced)tileEntity).setStoredEntityNBT(entityNBT);
+					heldStack.removeSubCompound(Utils.ID);
+
+					return true;
+
+				}
+
+			}
+
+			// TODO Only for debugging, remove later
+			if(heldStack.getItem().equals(Items.STICK)) {
+
+				if(tileEntity instanceof TileEntityCryingObsidianAdvanced) {
+
+					final Entity entity = ((TileEntityCryingObsidianAdvanced)tileEntity).getStoredEntity();
+					world.spawnEntity(entity);
+
+					return true;
+
+				}
+
+			}
 
 			if(CryingObsidian.setSpawnPointAtBlock) {
 
@@ -79,14 +125,6 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 			} else {
 
 				Utils.setSpawnPointAtPlayer(world, player);
-
-			}
-
-		} else {
-
-			if(!world.isRemote) {
-
-				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.not_owner")));
 
 			}
 

@@ -37,7 +37,7 @@ public class ItemCryingObsidian extends Item {
 		if(!player.world.isRemote) {
 
 			final NBTTagCompound entityNBT = stack.getOrCreateSubCompound(Utils.ID);
-			entity.writeToNBT(entityNBT);
+			entity.writeToNBTAtomically(entityNBT);
 
 		}
 
