@@ -3,6 +3,7 @@ package de.errorcraftlp.cryingobsidian.item;
 import de.errorcraftlp.cryingobsidian.Utils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,7 +35,7 @@ public class ItemCryingObsidian extends Item {
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 
-		if(!player.world.isRemote) {
+		if(!player.world.isRemote && entity instanceof EntityLiving) {
 
 			final NBTTagCompound entityNBT = stack.getOrCreateSubCompound(Utils.ID);
 			entity.writeToNBTAtomically(entityNBT);
