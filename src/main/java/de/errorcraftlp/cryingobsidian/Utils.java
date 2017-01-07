@@ -3,6 +3,7 @@ package de.errorcraftlp.cryingobsidian;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
@@ -57,16 +58,20 @@ public class Utils {
 
 			BlockPos correctedPos1 = pos.up();
 			BlockPos correctedPos2 = pos.up(2);
+			BlockPos correctedPos3 = pos.down();
 			IBlockState stateAtCorrectedPos1 = world.getBlockState(correctedPos1);
 			IBlockState stateAtCorrectedPos2 = world.getBlockState(correctedPos2);
+			IBlockState stateAtCorrectedPos3 = world.getBlockState(correctedPos3);
 
 			// If there isn't enough place for the spawn point, try it one block higher
-			while(hasNoPlace(correctedPos1, stateAtCorrectedPos1, world) || hasNoPlace(correctedPos2, stateAtCorrectedPos2, world)) {
+			while(hasNoPlace(correctedPos1, stateAtCorrectedPos1, world) || hasNoPlace(correctedPos2, stateAtCorrectedPos2, world) || isDangerous(stateAtCorrectedPos3)) {
 
 				correctedPos1 = correctedPos1.up();
 				correctedPos2 = correctedPos1.up();
+				correctedPos3 = correctedPos1.down();
 				stateAtCorrectedPos1 = world.getBlockState(correctedPos1);
 				stateAtCorrectedPos2 = world.getBlockState(correctedPos2);
+				stateAtCorrectedPos3 = world.getBlockState(correctedPos3);
 				continue;
 
 			}
@@ -89,6 +94,14 @@ public class Utils {
 		final Block block = state.getBlock();
 		return !block.isAir(state, world, pos);
 
+	}
+	
+	// Util method that checks if the block is dangerous (lava, fire)
+	public static boolean isDangerous(IBlockState state) {
+		
+		Block block = state.getBlock();
+		return block.equals(Blocks.LAVA) || block.equals(Blocks.FLOWING_LAVA) || block.equals(Blocks.FIRE);
+		
 	}
 
 	@SubscribeEvent
