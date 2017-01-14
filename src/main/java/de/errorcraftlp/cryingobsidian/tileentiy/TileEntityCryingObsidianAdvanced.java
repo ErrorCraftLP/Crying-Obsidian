@@ -60,7 +60,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 	}
 
-	public void setStoredEntityNBT(NBTTagCompound entityNBT) {
+	public void setStoredEntityNBT(final NBTTagCompound entityNBT) {
 
 		storedEntityNBT = entityNBT;
 
