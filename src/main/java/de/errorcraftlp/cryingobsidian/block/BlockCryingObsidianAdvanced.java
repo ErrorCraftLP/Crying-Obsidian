@@ -42,14 +42,14 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
 
 		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlockAdvanced);
 
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+	public void onBlockPlacedBy(final World world, final BlockPos pos, final IBlockState state, final EntityLivingBase placer, final ItemStack stack) {
 
 		final UUID owner = placer.getUniqueID();
 		final TileEntity tileEntity = world.getTileEntity(pos);
@@ -63,7 +63,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(final World world, final BlockPos pos, final IBlockState state, final EntityPlayer player, final EnumHand hand, final EnumFacing side, final float hitX, final float hitY, final float hitZ) {
 
 		if(!world.isRemote) {
 
@@ -135,7 +135,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world, int meta) {
+	public TileEntity createNewTileEntity(final World world, final int meta) {
 
 		return new TileEntityCryingObsidianAdvanced();
 
@@ -143,14 +143,14 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 	@Override
 	@Deprecated
-	public MapColor getMapColor(IBlockState state) {
+	public MapColor getMapColor(final IBlockState state) {
 
 		return MapColor.BLACK;
 
 	}
 
 	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state) {
+	public EnumBlockRenderType getRenderType(final IBlockState state) {
 
 		return EnumBlockRenderType.MODEL;
 

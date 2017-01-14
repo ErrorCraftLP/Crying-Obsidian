@@ -28,14 +28,14 @@ public class BlockCryingObsidian extends BlockObsidian {
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
 
 		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlock);
 
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(final World world, final BlockPos pos, final IBlockState state, final EntityPlayer player, final EnumHand hand, final EnumFacing side, final float hitX, final float hitY, final float hitZ) {
 
 		if(CryingObsidian.setSpawnPointAtBlock) {
 

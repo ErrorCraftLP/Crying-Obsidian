@@ -13,7 +13,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	private NBTTagCompound storedEntityNBT;
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+	public NBTTagCompound writeToNBT(final NBTTagCompound compound) {
 
 		super.writeToNBT(compound);
 
@@ -34,7 +34,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound compound) {
+	public void readFromNBT(final NBTTagCompound compound) {
 
 		super.readFromNBT(compound);
 		owner = compound.getUniqueId("Owner");
@@ -48,7 +48,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 	}
 
-	public void setOwner(UUID owner) {
+	public void setOwner(final UUID owner) {
 
 		this.owner = owner;
 

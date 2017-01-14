@@ -24,7 +24,7 @@ public class Utils {
 	public static final String UPDATE_JSON = "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json";
 
 	// Util method for setting the spawn point at the player's location
-	public static void setSpawnPointAtPlayer(World world, EntityPlayer player) {
+	public static void setSpawnPointAtPlayer(final World world, final EntityPlayer player) {
 
 		if(!world.isRemote) {
 
@@ -52,7 +52,7 @@ public class Utils {
 	}
 
 	// Util method for setting the spawn point at the block's location
-	public static void setSpawnPointAtBlock(World world, EntityPlayer player, BlockPos pos) {
+	public static void setSpawnPointAtBlock(final World world, final EntityPlayer player, final BlockPos pos) {
 
 		if(!world.isRemote) {
 
@@ -89,23 +89,23 @@ public class Utils {
 	}
 
 	// Util method that checks if there is enough place for a spawn point
-	public static boolean hasNoPlace(BlockPos pos, IBlockState state, World world) {
+	public static boolean hasNoPlace(final BlockPos pos, final IBlockState state, final World world) {
 
 		final Block block = state.getBlock();
 		return !block.isAir(state, world, pos);
 
 	}
-	
+
 	// Util method that checks if the block is dangerous (lava, fire)
-	public static boolean isDangerous(IBlockState state) {
-		
-		Block block = state.getBlock();
+	public static boolean isDangerous(final IBlockState state) {
+
+		final Block block = state.getBlock();
 		return block.equals(Blocks.LAVA) || block.equals(Blocks.FLOWING_LAVA) || block.equals(Blocks.FIRE);
-		
+
 	}
 
 	@SubscribeEvent
-	public static void onEntityDeath(LivingDeathEvent event) {
+	public static void onEntityDeath(final LivingDeathEvent event) {
 
 		// TODO How should I detect if this entity was "bound" to a Crying Obsidian Block?
 		// TODO And how should I "tell" the block that it needs to spawn the entity?

@@ -31,6 +31,7 @@ public class CryingObsidian {
 	public static Configuration config;
 	public static boolean enableChatMessage = true;
 	public static boolean setSpawnPointAtBlock = false;
+	public static boolean enableAdvancedCryingObsidianRecipe = true;
 
 	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
@@ -39,7 +40,7 @@ public class CryingObsidian {
 	public static Item cryingObsidianItem;
 
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(final FMLPreInitializationEvent event) {
 
 		// Register crying obsidian block
 		cryingObsidianBlock = new BlockCryingObsidian();
@@ -70,7 +71,7 @@ public class CryingObsidian {
 	}
 
 	@EventHandler
-	public void init(@SuppressWarnings("unused") FMLInitializationEvent event) {
+	public void init(@SuppressWarnings("unused") final FMLInitializationEvent event) {
 
 		// Register crafting recipes
 		registerRecipes();
@@ -94,6 +95,14 @@ public class CryingObsidian {
 				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
 				));
 
+		if(enableAdvancedCryingObsidianRecipe) {
+
+			GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlockAdvanced,
+					"dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", cryingObsidianBlock
+					));
+
+		}
+
 		GameRegistry.addRecipe(new ShapedOreRecipe(cryingObsidianItem,
 				"xsx", "sos", "xsx",
 				'o', cryingObsidianBlock,
@@ -106,6 +115,7 @@ public class CryingObsidian {
 
 		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
 		setSpawnPointAtBlock = config.get(Configuration.CATEGORY_GENERAL, "setSpawnPointAtBlock", false, "Whether the spawn point should be set at the Crying Obsidian Block's location (true) or at the player's location (false).").getBoolean(setSpawnPointAtBlock);
+		enableAdvancedCryingObsidianRecipe = config.get(Configuration.CATEGORY_GENERAL, "enableAdvancedCryingObsidianRecipe", true, "Whether the Advanced Crying Obsidian Block can be crafted.").getBoolean(enableAdvancedCryingObsidianRecipe);
 
 		if(config.hasChanged()) {
 

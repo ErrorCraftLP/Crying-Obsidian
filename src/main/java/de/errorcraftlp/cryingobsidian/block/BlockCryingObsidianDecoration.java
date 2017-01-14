@@ -28,7 +28,7 @@ public class BlockCryingObsidianDecoration extends BlockObsidian {
 	}
 
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
 
 		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlockDecoration);
 
@@ -36,9 +36,9 @@ public class BlockCryingObsidianDecoration extends BlockObsidian {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean adv) {
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
 
-		list.add(I18n.format("desc.crying_obsidian_decoration"));
+		tooltip.add(I18n.format("desc.crying_obsidian_decoration"));
 
 	}
 

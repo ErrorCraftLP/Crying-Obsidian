@@ -25,7 +25,7 @@ public class ItemCryingObsidian extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(final World world, final EntityPlayer player, final EnumHand hand) {
 
 		Utils.setSpawnPointAtPlayer(world, player);
 		return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
@@ -33,7 +33,7 @@ public class ItemCryingObsidian extends Item {
 	}
 
 	@Override
-	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
+	public boolean onLeftClickEntity(final ItemStack stack, final EntityPlayer player, final Entity entity) {
 
 		if(!player.world.isRemote && entity instanceof EntityLiving) {
 
