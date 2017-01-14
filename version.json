@@ -4,7 +4,9 @@
 		"1.10.2-latest": "1.0.1",
 		"1.10.2-recomended": "1.0.1",
 		"1.11-latest": "1.0.2",
-		"1.11-recomended": "1.0.2"
+		"1.11-recomended": "1.0.2",
+		"1.11.2-latest": "1.0.2",
+		"1.11.2-recomended": "1.0.2"
 	},
 	"1.10.2": {
 		"1.0.0": "Initial release.",
@@ -12,5 +14,8 @@
 	},
 	"1.11": {
 		"1.0.2": "Updated to Minecraft 1.11.\nFix Version Checker not working properly."
+	},
+	"1.11.2": {
+		"1.0.2": "Updated to Minecraft 1.11.\nFix Version Checker not working properly.\nThis version also works with MC 1.11.2."
 	}
 }
