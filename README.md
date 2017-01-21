@@ -3,3 +3,6 @@ Crying Obsidian was intended to be a block that can change your spawn point, but
 
 ## Download
 The mod can be downloaded on [CurseForge](https://minecraft.curseforge.com/projects/crying-obsidian/files).
+
+## License
+You can view the license [here](LICENSE.txt).
