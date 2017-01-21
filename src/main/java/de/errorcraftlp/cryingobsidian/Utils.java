@@ -8,11 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@EventBusSubscriber
 public class Utils {
 
 	// Constants
@@ -101,16 +97,6 @@ public class Utils {
 
 		final Block block = state.getBlock();
 		return block.equals(Blocks.LAVA) || block.equals(Blocks.FLOWING_LAVA) || block.equals(Blocks.FIRE);
-
-	}
-
-	@SubscribeEvent
-	public static void onEntityDeath(final LivingDeathEvent event) {
-
-		// TODO How should I detect if this entity was "bound" to a Crying Obsidian Block?
-		// TODO And how should I "tell" the block that it needs to spawn the entity?
-
-		// final EntityLivingBase entity = event.getEntityLiving();
 
 	}
 
