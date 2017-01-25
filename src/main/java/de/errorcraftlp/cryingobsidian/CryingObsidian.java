@@ -63,7 +63,7 @@ public class CryingObsidian {
 
 		// Init config
 		config = new Configuration(event.getSuggestedConfigurationFile());
-		CryingObsidian.initConfig();
+		initConfig();
 
 		// Register tile entities
 		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, "crying_obsidian_advanced_tile_entity");
@@ -111,7 +111,7 @@ public class CryingObsidian {
 
 	}
 
-	public static void initConfig() {
+	public void initConfig() {
 
 		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
 		setSpawnPointAtBlock = config.get(Configuration.CATEGORY_GENERAL, "setSpawnPointAtBlock", false, "Whether the spawn point should be set at the Crying Obsidian Block's location (true) or at the player's location (false).").getBoolean(setSpawnPointAtBlock);
