@@ -30,13 +30,13 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 		if(ownerUUID != null) {
 
-			compound.setUniqueId("Owner", ownerUUID);
+			compound.setUniqueId("OwnerUUID", ownerUUID);
 
 		}
 
 		if(storedUUID != null) {
 
-			compound.setUniqueId("EntityUUID", storedUUID);
+			compound.setUniqueId("StoredUUID", storedUUID);
 
 		}
 
@@ -48,8 +48,8 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	public void readFromNBT(final NBTTagCompound compound) {
 
 		super.readFromNBT(compound);
-		ownerUUID = compound.getUniqueId("Owner");
-		storedUUID = compound.getUniqueId("EntityUUID");
+		ownerUUID = compound.getUniqueId("OwnerUUID");
+		storedUUID = compound.getUniqueId("StoredUUID");
 
 	}
 
@@ -81,8 +81,8 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	public void onEntityDeath(final LivingDeathEvent event) {
 
 		if(!world.isRemote) {
-			
-			EntityLivingBase entity = event.getEntityLiving();
+
+			final EntityLivingBase entity = event.getEntityLiving();
 
 			if(getStoredUUID() != null && entity.getUniqueID().equals(getStoredUUID())) {
 
