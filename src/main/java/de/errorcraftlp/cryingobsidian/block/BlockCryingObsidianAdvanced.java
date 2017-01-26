@@ -11,7 +11,6 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -23,6 +22,7 @@ import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
@@ -56,7 +56,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 		if(tileEntity instanceof TileEntityCryingObsidianAdvanced) {
 
-			((TileEntityCryingObsidianAdvanced)tileEntity).setOwner(owner);
+			((TileEntityCryingObsidianAdvanced)tileEntity).setOwnerUUID(owner);
 
 		}
 
@@ -73,7 +73,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 			if(tileEntity instanceof TileEntityCryingObsidianAdvanced) {
 
-				owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwner();
+				owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwnerUUID();
 			}
 
 			if(owner == null) {
@@ -91,26 +91,14 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 			if(heldStack.getItem().equals(CryingObsidian.cryingObsidianItem)) {
 
-				final NBTTagCompound entityNBT = heldStack.getSubCompound(Utils.ID);
+				final NBTTagCompound itemNBT = heldStack.getSubCompound(Utils.ID);
 
-				if(entityNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
+				if(itemNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
 
-					((TileEntityCryingObsidianAdvanced)tileEntity).setStoredEntityNBT(entityNBT);
+					((TileEntityCryingObsidianAdvanced)tileEntity).setStoredUUID(itemNBT.getUniqueId("EntityUUID"));
 					heldStack.removeSubCompound(Utils.ID);
 
-					return true;
-
-				}
-
-			}
-
-			// TODO Only for debugging, remove later
-			if(heldStack.getItem().equals(Items.STICK)) {
-
-				if(tileEntity instanceof TileEntityCryingObsidianAdvanced) {
-
-					final Entity entity = ((TileEntityCryingObsidianAdvanced)tileEntity).getStoredEntity();
-					world.spawnEntity(entity);
+					player.sendMessage(new TextComponentString("The entity will spawn here when it dies.")); // TODO Localize
 
 					return true;
 

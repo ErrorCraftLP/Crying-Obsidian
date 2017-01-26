@@ -2,30 +2,41 @@ package de.errorcraftlp.cryingobsidian.tileentiy;
 
 import java.util.UUID;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
-	private UUID owner;
-	private NBTTagCompound storedEntityNBT;
+	private UUID ownerUUID;
+	private UUID storedUUID;
+
+	public TileEntityCryingObsidianAdvanced() {
+
+		super();
+		MinecraftForge.EVENT_BUS.register(this); // Register this class in the event handler
+
+	}
 
 	@Override
 	public NBTTagCompound writeToNBT(final NBTTagCompound compound) {
 
 		super.writeToNBT(compound);
 
-		if(owner != null) {
+		if(ownerUUID != null) {
 
-			compound.setUniqueId("Owner", owner);
+			compound.setUniqueId("Owner", ownerUUID);
 
 		}
 
-		if(storedEntityNBT != null) {
+		if(storedUUID != null) {
 
-			compound.setTag("EntityNBT", storedEntityNBT);
+			compound.setUniqueId("EntityUUID", storedUUID);
 
 		}
 
@@ -37,32 +48,64 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	public void readFromNBT(final NBTTagCompound compound) {
 
 		super.readFromNBT(compound);
-		owner = compound.getUniqueId("Owner");
-		storedEntityNBT = compound.getCompoundTag("EntityNBT");
+		ownerUUID = compound.getUniqueId("Owner");
+		storedUUID = compound.getUniqueId("EntityUUID");
 
 	}
 
-	public UUID getOwner() {
+	public UUID getOwnerUUID() {
 
-		return owner;
-
-	}
-
-	public void setOwner(final UUID owner) {
-
-		this.owner = owner;
+		return ownerUUID;
 
 	}
 
-	public Entity getStoredEntity() {
+	public void setOwnerUUID(final UUID ownerUUID) {
 
-		return EntityList.createEntityFromNBT(storedEntityNBT, world);
+		this.ownerUUID = ownerUUID;
 
 	}
 
-	public void setStoredEntityNBT(final NBTTagCompound entityNBT) {
+	public UUID getStoredUUID() {
 
-		storedEntityNBT = entityNBT;
+		return storedUUID;
+
+	}
+
+	public void setStoredUUID(final UUID storedUUID) {
+
+		this.storedUUID = storedUUID;
+
+	}
+
+	@SubscribeEvent
+	public void onEntityDeath(final LivingDeathEvent event) {
+
+		if(!world.isRemote) {
+			
+			EntityLivingBase entity = event.getEntityLiving();
+
+			if(getStoredUUID() != null && entity.getUniqueID().equals(getStoredUUID())) {
+
+				event.setCanceled(true);
+				entity.isDead = false;
+				entity.setHealth(entity.getMaxHealth());
+				entity.moveToBlockPosAndAngles(pos.up(), entity.rotationYaw, entity.rotationPitch);
+
+				if(getOwnerUUID() != null) {
+
+					final EntityPlayer player = world.getPlayerEntityByUUID(getOwnerUUID());
+
+					if(player != null) {
+
+						player.sendMessage(new TextComponentString("An entity that was bound to one of your Crying Obsidian blocks died. It respawned."));
+
+					}
+
+				}
+
+			}
+
+		}
 
 	}
 
