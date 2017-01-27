@@ -28,10 +28,11 @@ public class CryingObsidian {
 	public static ServerProxy proxy;
 
 	// Config-related variables
-	public static Configuration config;
+	private Configuration config;
 	public static boolean enableChatMessage = true;
 	public static boolean setSpawnPointAtBlock = false;
 	public static boolean enableAdvancedCryingObsidianRecipe = true;
+	public static boolean enableAdvancedCryingObsidianOwner = true;
 
 	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
@@ -116,6 +117,7 @@ public class CryingObsidian {
 		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
 		setSpawnPointAtBlock = config.get(Configuration.CATEGORY_GENERAL, "setSpawnPointAtBlock", false, "Whether the spawn point should be set at the Crying Obsidian Block's location (true) or at the player's location (false).").getBoolean(setSpawnPointAtBlock);
 		enableAdvancedCryingObsidianRecipe = config.get(Configuration.CATEGORY_GENERAL, "enableAdvancedCryingObsidianRecipe", true, "Whether the Advanced Crying Obsidian Block can be crafted.").getBoolean(enableAdvancedCryingObsidianRecipe);
+		enableAdvancedCryingObsidianOwner = config.get(Configuration.CATEGORY_GENERAL, "enableAdvancedCryingObsidianOwner", true, "If this option is enabled, only the one who placed an Advanced Crying Obsidian Block can use it.").getBoolean(enableAdvancedCryingObsidianOwner);
 
 		if(config.hasChanged()) {
 

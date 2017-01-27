@@ -74,13 +74,13 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 				owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwnerUUID();
 			}
 
-			if(owner == null) {
+			if(CryingObsidian.enableAdvancedCryingObsidianOwner && owner == null) {
 
 				return true;
 
 			}
 
-			if(!player.getUniqueID().equals(owner)) {
+			if(CryingObsidian.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
 
 				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.not_owner")));
 				return true;
