@@ -11,7 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
 public class ItemCryingObsidian extends Item {
@@ -41,7 +42,7 @@ public class ItemCryingObsidian extends Item {
 			final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
 			itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
 
-			player.sendMessage(new TextComponentString("The selected entity is now linked to this item. Right click on an advanced Crying Obsidian block where you want the entity to spawn when it dies.")); // TODO Localize
+			player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.entity_linked")));
 
 		}
 

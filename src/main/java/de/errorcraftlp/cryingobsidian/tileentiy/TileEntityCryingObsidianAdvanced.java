@@ -6,7 +6,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -97,7 +98,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 					if(player != null) {
 
-						player.sendMessage(new TextComponentString("An entity that was bound to one of your Crying Obsidian blocks died. It respawned."));
+						player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.entity_respawned")));
 
 					}
 
