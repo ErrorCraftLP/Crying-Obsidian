@@ -17,7 +17,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON)
@@ -104,10 +103,8 @@ public class CryingObsidian {
 
 		}
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(cryingObsidianItem,
-				"xsx", "sos", "xsx",
-				'o', cryingObsidianBlock,
-				's', "stickWood"
+		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianItem,
+				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
 				));
 
 	}
