@@ -1,5 +1,6 @@
 package de.errorcraftlp.cryingobsidian.block;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -24,8 +25,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-// TODO Should this block get its own texture?
+// TODO This block should get its own texture
 public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 	public BlockCryingObsidianAdvanced() {
@@ -139,6 +142,14 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	public EnumBlockRenderType getRenderType(final IBlockState state) {
 
 		return EnumBlockRenderType.MODEL;
+
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
+
+		tooltip.add(net.minecraft.client.resources.I18n.format("desc.crying_obsidian_advanced")); // Can't use an import here because there are two I18n classes
 
 	}
 
