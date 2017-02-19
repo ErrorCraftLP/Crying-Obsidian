@@ -1,5 +1,7 @@
 package de.errorcraftlp.cryingobsidian.item;
 
+import java.util.List;
+
 import de.errorcraftlp.cryingobsidian.Utils;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -14,6 +16,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemCryingObsidian extends Item {
 
@@ -47,6 +51,20 @@ public class ItemCryingObsidian extends Item {
 		}
 
 		return true;
+
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
+
+		final NBTTagCompound itemNBT = stack.getSubCompound(Utils.ID);
+
+		if(itemNBT != null && itemNBT.getUniqueId("EntityUUID") != null) {
+
+			tooltip.add(net.minecraft.client.resources.I18n.format("desc.crying_obsidian_item")); // Can't use an import here because there are two I18n classes
+
+		}
 
 	}
 

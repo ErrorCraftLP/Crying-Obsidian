@@ -17,3 +17,4 @@ message.entity_spawn_here=Die Kreatur wird hier spawnen, wenn sie stirbt.
 # Description
 desc.crying_obsidian_decoration=Eine Version des Weinenden Obsidians, die nichts macht.
 desc.crying_obsidian_advanced=Eine fortgeschrittene Version des Weinenden Obsidians. Dieser Block kann nur von seinem Besitzer benutzt werden (dies kann in den Einstellungen deaktiviert werden) und eine Kreatur kann an ihn gebunden werden. Die Kreatur, die an diesen Block gebunden ist, wird an der Position des Blocks neu spawnen, wenn sie stirbt.
+desc.crying_obsidian_item=Eine Kreatur ist mit diesem Item verbunden.
