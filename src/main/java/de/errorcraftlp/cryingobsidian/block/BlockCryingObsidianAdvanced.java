@@ -23,7 +23,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -85,7 +84,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 			if(CryingObsidian.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
 
-				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.not_owner")));
+				player.sendMessage(new TextComponentTranslation("message.not_owner"));
 				return true;
 
 			}
@@ -99,7 +98,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 					((TileEntityCryingObsidianAdvanced)tileEntity).setStoredUUID(itemNBT.getUniqueId("EntityUUID"));
 					heldStack.removeSubCompound(Utils.ID);
 
-					player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.entity_spawn_here")));
+					player.sendMessage(new TextComponentTranslation("message.entity_spawn_here"));
 
 					return true;
 

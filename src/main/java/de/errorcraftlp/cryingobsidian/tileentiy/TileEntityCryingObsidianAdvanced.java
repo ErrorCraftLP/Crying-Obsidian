@@ -7,7 +7,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -98,7 +97,7 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 
 					if(player != null) {
 
-						player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.entity_respawned")));
+						player.sendMessage(new TextComponentTranslation("message.entity_respawned"));
 
 					}
 

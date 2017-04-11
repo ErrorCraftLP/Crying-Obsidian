@@ -6,7 +6,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 
 public class Utils {
@@ -39,7 +38,7 @@ public class Utils {
 
 			if(CryingObsidian.enableChatMessage) {
 
-				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
+				player.sendMessage(new TextComponentTranslation("message.spawnpoint_set", player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
 
 			}
 
@@ -76,7 +75,7 @@ public class Utils {
 
 			if(CryingObsidian.enableChatMessage) {
 
-				player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.spawnpoint_set"), player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()));
+				player.sendMessage(new TextComponentTranslation("message.spawnpoint_set", player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()));
 
 			}
 

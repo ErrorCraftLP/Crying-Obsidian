@@ -3,6 +3,7 @@ package de.errorcraftlp.cryingobsidian.item;
 import java.util.List;
 
 import de.errorcraftlp.cryingobsidian.Utils;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -14,7 +15,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -46,7 +46,7 @@ public class ItemCryingObsidian extends Item {
 			final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
 			itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
 
-			player.sendMessage(new TextComponentTranslation(I18n.translateToLocal("message.entity_linked")));
+			player.sendMessage(new TextComponentTranslation("message.entity_linked"));
 
 		}
 
@@ -62,7 +62,7 @@ public class ItemCryingObsidian extends Item {
 
 		if(itemNBT != null && itemNBT.getUniqueId("EntityUUID") != null) {
 
-			tooltip.add(net.minecraft.client.resources.I18n.format("desc.crying_obsidian_item")); // Can't use an import here because there are two I18n classes
+			tooltip.add(I18n.format("desc.crying_obsidian_item"));
 
 		}
 
