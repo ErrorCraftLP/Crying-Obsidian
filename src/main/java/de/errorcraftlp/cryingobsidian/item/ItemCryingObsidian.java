@@ -31,7 +31,7 @@ public class ItemCryingObsidian extends Item {
 	}
 
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(final World world, final EntityPlayer player, final EnumHand hand) {
+	public ActionResult<ItemStack> onItemRightClick(final ItemStack stack, final World world, final EntityPlayer player, final EnumHand hand) {
 
 		Utils.setSpawnPointAtPlayer(world, player);
 		return ActionResult.newResult(EnumActionResult.SUCCESS, player.getHeldItem(hand));
@@ -43,7 +43,7 @@ public class ItemCryingObsidian extends Item {
 
 		if(!player.world.isRemote && entity instanceof EntityLiving) {
 
-			final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
+			final NBTTagCompound itemNBT = stack.getSubCompound(Utils.ID, true);
 			itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
 
 			player.sendMessage(new TextComponentTranslation("message.entity_linked"));
@@ -58,7 +58,7 @@ public class ItemCryingObsidian extends Item {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
 
-		final NBTTagCompound itemNBT = stack.getSubCompound(Utils.ID);
+		final NBTTagCompound itemNBT = stack.getSubCompound(Utils.ID, false);
 
 		if(itemNBT != null && itemNBT.getUniqueId("EntityUUID") != null) {
 
