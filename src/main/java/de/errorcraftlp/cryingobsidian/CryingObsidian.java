@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-@Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON)
+@Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON, acceptedMinecraftVersions = Utils.ACCEPTED_VERSIONS)
 public class CryingObsidian {
 
 	// Proxy
