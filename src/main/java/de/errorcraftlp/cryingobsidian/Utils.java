@@ -29,10 +29,12 @@ public class Utils {
 
 				final BlockPos correctedPos = new BlockPos(playerPos.getX(), world.getSeaLevel(), playerPos.getZ());
 				player.setSpawnPoint(correctedPos, true);
+				player.setSpawnDimension(player.dimension);
 
 			} else {
 
 				player.setSpawnPoint(playerPos, true);
+				player.setSpawnDimension(player.dimension);
 
 			}
 
@@ -72,6 +74,7 @@ public class Utils {
 			}
 
 			player.setSpawnPoint(correctedPos1, true);
+			player.setSpawnDimension(player.dimension);
 
 			if(CryingObsidian.enableChatMessage) {
 
