@@ -11,6 +11,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -148,7 +149,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
 
-		tooltip.add(net.minecraft.client.resources.I18n.format("desc.crying_obsidian_advanced")); // Can't use an import here because there are two I18n classes
+		tooltip.add(I18n.format("desc.crying_obsidian_advanced"));
 
 	}
 
