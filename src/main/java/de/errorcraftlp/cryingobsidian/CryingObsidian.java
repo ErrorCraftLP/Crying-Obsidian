@@ -11,7 +11,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -27,13 +26,6 @@ public class CryingObsidian {
 	// Proxy
 	@SidedProxy(clientSide = Utils.CLIENT_PROXY, serverSide = Utils.SERVER_PROXY)
 	public static ServerProxy proxy;
-
-	// Config-related variables
-	private Configuration config;
-	public static boolean enableChatMessage = true;
-	public static boolean setSpawnPointAtBlock = false;
-	public static boolean enableAdvancedCryingObsidianRecipe = true;
-	public static boolean enableAdvancedCryingObsidianOwner = true;
 
 	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
@@ -62,10 +54,6 @@ public class CryingObsidian {
 		// Register crying obsidian item
 		cryingObsidianItem = new ItemCryingObsidian();
 		GameRegistry.register(cryingObsidianItem);
-
-		// Init config
-		config = new Configuration(event.getSuggestedConfigurationFile());
-		initConfig();
 
 		// Register tile entities
 		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, "crying_obsidian_advanced_tile_entity");
@@ -102,7 +90,7 @@ public class CryingObsidian {
 				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
 				));
 
-		if(enableAdvancedCryingObsidianRecipe) {
+		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
 
 			GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlockAdvanced,
 					"dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", cryingObsidianBlock
@@ -113,21 +101,6 @@ public class CryingObsidian {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianItem,
 				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
 				));
-
-	}
-
-	public void initConfig() {
-
-		enableChatMessage = config.get(Configuration.CATEGORY_GENERAL, "enableChatMessage", true, "Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.").getBoolean(enableChatMessage);
-		setSpawnPointAtBlock = config.get(Configuration.CATEGORY_GENERAL, "setSpawnPointAtBlock", false, "Whether the spawn point should be set at the Crying Obsidian Block's location (true) or at the player's location (false).").getBoolean(setSpawnPointAtBlock);
-		enableAdvancedCryingObsidianRecipe = config.get(Configuration.CATEGORY_GENERAL, "enableAdvancedCryingObsidianRecipe", true, "Whether the Advanced Crying Obsidian Block can be crafted.").getBoolean(enableAdvancedCryingObsidianRecipe);
-		enableAdvancedCryingObsidianOwner = config.get(Configuration.CATEGORY_GENERAL, "enableAdvancedCryingObsidianOwner", true, "If this option is enabled, only the one who placed an Advanced Crying Obsidian Block can use it.").getBoolean(enableAdvancedCryingObsidianOwner);
-
-		if(config.hasChanged()) {
-
-			config.save();
-
-		}
 
 	}
 

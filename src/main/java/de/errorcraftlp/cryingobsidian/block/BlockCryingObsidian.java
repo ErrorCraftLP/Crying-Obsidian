@@ -3,6 +3,7 @@ package de.errorcraftlp.cryingobsidian.block;
 import java.util.Random;
 
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
+import de.errorcraftlp.cryingobsidian.CryingObsidianConfig;
 import de.errorcraftlp.cryingobsidian.Utils;
 import net.minecraft.block.BlockObsidian;
 import net.minecraft.block.state.IBlockState;
@@ -37,7 +38,7 @@ public class BlockCryingObsidian extends BlockObsidian {
 	@Override
 	public boolean onBlockActivated(final World world, final BlockPos pos, final IBlockState state, final EntityPlayer player, final EnumHand hand, final EnumFacing side, final float hitX, final float hitY, final float hitZ) {
 
-		if(CryingObsidian.setSpawnPointAtBlock) {
+		if(CryingObsidianConfig.setSpawnPointAtBlock) {
 
 			Utils.setSpawnPointAtBlock(world, player, pos);
 

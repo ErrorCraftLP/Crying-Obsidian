@@ -40,7 +40,7 @@ public class Utils {
 
 			}
 
-			if(CryingObsidian.enableChatMessage) {
+			if(CryingObsidianConfig.enableChatMessage) {
 
 				player.sendMessage(new TextComponentTranslation("message.spawnpoint_set", player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
 
@@ -78,7 +78,7 @@ public class Utils {
 			player.setSpawnPoint(correctedPos1, true);
 			player.setSpawnDimension(player.dimension);
 
-			if(CryingObsidian.enableChatMessage) {
+			if(CryingObsidianConfig.enableChatMessage) {
 
 				player.sendMessage(new TextComponentTranslation("message.spawnpoint_set", player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()));
 

@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
+import de.errorcraftlp.cryingobsidian.CryingObsidianConfig;
 import de.errorcraftlp.cryingobsidian.Utils;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.BlockContainer;
@@ -77,13 +78,13 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 				owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwnerUUID();
 			}
 
-			if(CryingObsidian.enableAdvancedCryingObsidianOwner && owner == null) {
+			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner && owner == null) {
 
 				return true;
 
 			}
 
-			if(CryingObsidian.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
+			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
 
 				player.sendMessage(new TextComponentTranslation("message.not_owner"));
 				return true;
@@ -107,7 +108,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 			}
 
-			if(CryingObsidian.setSpawnPointAtBlock) {
+			if(CryingObsidianConfig.setSpawnPointAtBlock) {
 
 				Utils.setSpawnPointAtBlock(world, player, pos);
 
