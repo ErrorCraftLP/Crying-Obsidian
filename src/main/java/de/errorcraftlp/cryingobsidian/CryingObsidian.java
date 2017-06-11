@@ -7,10 +7,8 @@ import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -18,7 +16,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON, acceptedMinecraftVersions = Utils.ACCEPTED_VERSIONS)
 public class CryingObsidian {
@@ -76,31 +73,32 @@ public class CryingObsidian {
 
 	}
 
+	// TODO
 	public void registerRecipes() {
 
-		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
-				"gemLapis", "gemLapis", "gemLapis", "gemLapis", Blocks.OBSIDIAN
-				));
-
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(cryingObsidianBlockDecoration, 4),
-				cryingObsidianBlock
-				));
-
-		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
-				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
-				));
-
-		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
-
-			GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlockAdvanced,
-					"dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", cryingObsidianBlock
-					));
-
-		}
-
-		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianItem,
-				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
-				));
+		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
+		//				"gemLapis", "gemLapis", "gemLapis", "gemLapis", Blocks.OBSIDIAN
+		//				));
+		//
+		//		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(cryingObsidianBlockDecoration, 4),
+		//				cryingObsidianBlock
+		//				));
+		//
+		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
+		//				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
+		//				));
+		//
+		//		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
+		//
+		//			GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlockAdvanced,
+		//					"dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", cryingObsidianBlock
+		//					));
+		//
+		//		}
+		//
+		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianItem,
+		//				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
+		//				));
 
 	}
 

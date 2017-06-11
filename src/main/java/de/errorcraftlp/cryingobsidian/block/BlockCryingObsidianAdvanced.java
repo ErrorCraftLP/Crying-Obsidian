@@ -13,6 +13,7 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +26,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -133,7 +135,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 	@Override
 	@Deprecated
-	public MapColor getMapColor(final IBlockState state) {
+	public MapColor getMapColor(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
 
 		return MapColor.BLACK;
 
@@ -148,7 +150,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
+	public void addInformation(final ItemStack stack, final World world, final List<String> tooltip, final ITooltipFlag tooltipFlag) {
 
 		tooltip.add(I18n.format("desc.crying_obsidian_advanced"));
 

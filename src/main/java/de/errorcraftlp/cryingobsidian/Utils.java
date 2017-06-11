@@ -17,7 +17,7 @@ public class Utils {
 	public static final String CLIENT_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ClientProxy";
 	public static final String SERVER_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ServerProxy";
 	public static final String UPDATE_JSON = "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json";
-	public static final String ACCEPTED_VERSIONS = "[1.11.2]";
+	public static final String ACCEPTED_VERSIONS = "[1.12]";
 
 	// Util method for setting the spawn point at the player's location
 	public static void setSpawnPointAtPlayer(final World world, final EntityPlayer player) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import de.errorcraftlp.cryingobsidian.Utils;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -56,7 +57,7 @@ public class ItemCryingObsidian extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
+	public void addInformation(final ItemStack stack, final World world, final List<String> tooltip, final ITooltipFlag tooltipFlag) {
 
 		final NBTTagCompound itemNBT = stack.getSubCompound(Utils.ID);
 
