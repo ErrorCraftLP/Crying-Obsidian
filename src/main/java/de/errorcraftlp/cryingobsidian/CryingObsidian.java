@@ -7,8 +7,11 @@ import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -16,6 +19,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON, acceptedMinecraftVersions = Utils.ACCEPTED_VERSIONS)
 public class CryingObsidian {
@@ -31,7 +35,7 @@ public class CryingObsidian {
 	public static Item cryingObsidianItem;
 
 	@EventHandler
-	public void preInit(final FMLPreInitializationEvent event) {
+	public void preInit(@SuppressWarnings("unused") final FMLPreInitializationEvent event) {
 
 		// Register crying obsidian block
 		cryingObsidianBlock = new BlockCryingObsidian();
@@ -73,21 +77,45 @@ public class CryingObsidian {
 
 	}
 
-	// TODO
+	// TODO Is this correct?
 	public void registerRecipes() {
+
+		final IRecipe blockRecipe = new ShapelessOreRecipe(null, cryingObsidianBlock,
+				"gemLapis", "gemLapis", "gemLapis", "gemLapis", Blocks.OBSIDIAN
+				).setRegistryName("crying_obsidian_block_recipe");
+		GameRegistry.register(blockRecipe);
 
 		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
 		//				"gemLapis", "gemLapis", "gemLapis", "gemLapis", Blocks.OBSIDIAN
 		//				));
-		//
+
+		final IRecipe normalToDecorationRecipe = new ShapelessOreRecipe(null, new ItemStack(cryingObsidianBlockDecoration, 4),
+				cryingObsidianBlock
+				).setRegistryName("crying_obsidian_normal_to_decoration_recipe");
+		GameRegistry.register(normalToDecorationRecipe);
+
 		//		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(cryingObsidianBlockDecoration, 4),
 		//				cryingObsidianBlock
 		//				));
-		//
+
+		final IRecipe decorationToNormalRecipe = new ShapelessOreRecipe(null, cryingObsidianBlock,
+				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
+				).setRegistryName("crying_obsidian_decoration_to_normal_recipe");
+		GameRegistry.register(decorationToNormalRecipe);
+
 		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
 		//				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
 		//				));
-		//
+
+		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
+
+			final IRecipe advancedRecipe = new ShapelessOreRecipe(null, cryingObsidianBlockAdvanced,
+					"dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", cryingObsidianBlock
+					).setRegistryName("crying_obsidian_advanced_recipe");
+			GameRegistry.register(advancedRecipe);
+
+		}
+
 		//		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
 		//
 		//			GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlockAdvanced,
@@ -95,7 +123,12 @@ public class CryingObsidian {
 		//					));
 		//
 		//		}
-		//
+
+		final IRecipe itemRecipe = new ShapelessOreRecipe(null, cryingObsidianItem,
+				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
+				).setRegistryName("crying_obsidian_item_recipe");
+		GameRegistry.register(itemRecipe);
+
 		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianItem,
 		//				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
 		//				));
