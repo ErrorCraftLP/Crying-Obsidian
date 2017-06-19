@@ -1,26 +1,39 @@
 {
 	"homepage": "https://minecraft.curseforge.com/projects/crying-obsidian",
 	"promos": {
-		"1.10.2-latest": "1.1.1",
-		"1.10.2-recomended": "1.1.1",
-		"1.11-latest": "1.1.1",
-		"1.11-recomended": "1.1.1",
-		"1.11.2-latest": "1.1.1",
-		"1.11.2-recomended": "1.1.1"
+		"1.9.4-latest": "1.1.2",
+		"1.9.4-recomended": "1.1.2",
+		"1.10-latest": "1.1.2",
+		"1.10-recomended": "1.1.2",
+		"1.10.2-latest": "1.1.2",
+		"1.10.2-recomended": "1.1.2",
+		"1.11-latest": "1.1.2",
+		"1.11-recomended": "1.1.2",
+		"1.11.2-latest": "1.1.2",
+		"1.11.2-recomended": "1.1.2"
+	},
+	"1.9.4": {
+		"1.1.2": "The current MC 1.10.2 release now works with MC 1.9.4."
+	},
+	"1.10": {
+		"1.1.2": "The current MC 1.10.2 release now works with MC 1.10."
 	},
 	"1.10.2": {
 		"1.0.0": "Initial release.",
 		"1.0.1": "File name now includes Minecraft version.\nUpdated mcmod.info.",
-		"1.1.1": "Backport of the current MC 1.11.2 release to MC 1.10.2."
+		"1.1.1": "Backport of the current MC 1.11.2 release to MC 1.10.2.",
+		"1.1.2": "Added the Crying Obsidian Blocks to the Ore Dictionary."
 	},
 	"1.11": {
 		"1.0.2": "Updated to Minecraft 1.11.\nFix Version Checker not working properly.",
 		"1.1.0": "Added a decoration variant of the Crying Obsidian Block. It is just for decoration and does nothing, but it is cheaper to craft.\nAdded an advanced variant of the Crying Obsidian Block. It can only be used by its owner (this can be disabled in the config) and an entity can be bound to it. An entity that is bound to an advanced Crying Obsidian Block will respawn at the block's position when it dies.\nYou can now set your spawn point while under water. The spawn point will be set above the water.\nAdded a config option to set your spawn point at the block's position instead of the player's position when right-clicking on a Crying Obsidian Block.\nThe recipe for crafting a Crying Obsidian Block/Item is now shapeless.",
-		"1.1.1": "Added a tooltip to the Crying Obsidian Item.\nSome internal improvements."
+		"1.1.1": "Added a tooltip to the Crying Obsidian Item.\nSome internal improvements.",
+		"1.1.2": "The Crying Obsidian Block now works in all dimensions (only works if your Minecraft Forge version is 13.20.0.2249 or higher).\nAdded the Crying Obsidian Block to the Ore Dictionary."
 	},
 	"1.11.2": {
 		"1.0.2": "Updated to Minecraft 1.11.\nFix Version Checker not working properly.\nThis version also works with MC 1.11.2.",
 		"1.1.0": "Added a decoration variant of the Crying Obsidian Block. It is just for decoration and does nothing, but it is cheaper to craft.\nAdded an advanced variant of the Crying Obsidian Block. It can only be used by its owner (this can be disabled in the config) and an entity can be bound to it. An entity that is bound to an advanced Crying Obsidian Block will respawn at the block's position when it dies.\nYou can now set your spawn point while under water. The spawn point will be set above the water.\nAdded a config option to set your spawn point at the block's position instead of the player's position when right-clicking on a Crying Obsidian Block.\nThe recipe for crafting a Crying Obsidian Block/Item is now shapeless.",
-		"1.1.1": "Added a tooltip to the Crying Obsidian Item.\nSome internal improvements."
+		"1.1.1": "Added a tooltip to the Crying Obsidian Item.\nSome internal improvements.",
+		"1.1.2": "The Crying Obsidian Block now works in all dimensions (only works if your Minecraft Forge version is 13.20.0.2249 or higher).\nAdded the Crying Obsidian Block to the Ore Dictionary."
 	}
 }
