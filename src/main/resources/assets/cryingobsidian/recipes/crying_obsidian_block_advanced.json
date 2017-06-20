@@ -1,0 +1,27 @@
+{
+  "result": {
+    "item": "cryingobsidian:crying_obsidian_block_advanced"
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "dustRedstone"
+    },
+    {
+      "item": "cryingobsidian:crying_obsidian_block"
+    }
+  ]
+}

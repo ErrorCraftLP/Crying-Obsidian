@@ -9,7 +9,6 @@ import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -17,7 +16,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON, acceptedMinecraftVersions = Utils.ACCEPTED_VERSIONS)
 public class CryingObsidian {
@@ -67,24 +65,9 @@ public class CryingObsidian {
 	@EventHandler
 	public void init(@SuppressWarnings("unused") final FMLInitializationEvent event) {
 
-		// Register crafting recipes
-		registerRecipes();
-
 		// Register models
 		proxy.registerModels();
 
 	}
-
-	// TODO Convert to JSON
-	public void registerRecipes() {
-
-		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
-
-			final IRecipe advancedRecipe = new ShapelessOreRecipe(null, cryingObsidianBlockAdvanced,
-					"dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", cryingObsidianBlock
-					).setRegistryName("crying_obsidian_advanced_recipe");
-			GameRegistry.register(advancedRecipe);
-
-		}
 
 }
