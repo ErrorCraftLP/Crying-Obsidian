@@ -87,14 +87,4 @@ public class CryingObsidian {
 
 		}
 
-		//		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
-		//
-		//			GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlockAdvanced,
-		//					"dustRedstone", "dustRedstone", "dustRedstone", "dustRedstone", cryingObsidianBlock
-		//					));
-		//
-		//		}
-
-	}
-
 }
