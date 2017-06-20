@@ -1,0 +1,27 @@
+{
+  "result": {
+    "item": "cryingobsidian:crying_obsidian_block"
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemLapis"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemLapis"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemLapis"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemLapis"
+    },
+    {
+      "item": "minecraft:obsidian"
+    }
+  ]
+}

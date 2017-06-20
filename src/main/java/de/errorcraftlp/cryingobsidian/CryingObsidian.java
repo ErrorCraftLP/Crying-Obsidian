@@ -7,10 +7,8 @@ import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
 import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -77,35 +75,8 @@ public class CryingObsidian {
 
 	}
 
-	// TODO Is this correct?
+	// TODO Convert to JSON
 	public void registerRecipes() {
-
-		final IRecipe blockRecipe = new ShapelessOreRecipe(null, cryingObsidianBlock,
-				"gemLapis", "gemLapis", "gemLapis", "gemLapis", Blocks.OBSIDIAN
-				).setRegistryName("crying_obsidian_block_recipe");
-		GameRegistry.register(blockRecipe);
-
-		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
-		//				"gemLapis", "gemLapis", "gemLapis", "gemLapis", Blocks.OBSIDIAN
-		//				));
-
-		final IRecipe normalToDecorationRecipe = new ShapelessOreRecipe(null, new ItemStack(cryingObsidianBlockDecoration, 4),
-				cryingObsidianBlock
-				).setRegistryName("crying_obsidian_normal_to_decoration_recipe");
-		GameRegistry.register(normalToDecorationRecipe);
-
-		//		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(cryingObsidianBlockDecoration, 4),
-		//				cryingObsidianBlock
-		//				));
-
-		final IRecipe decorationToNormalRecipe = new ShapelessOreRecipe(null, cryingObsidianBlock,
-				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
-				).setRegistryName("crying_obsidian_decoration_to_normal_recipe");
-		GameRegistry.register(decorationToNormalRecipe);
-
-		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianBlock,
-		//				cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration, cryingObsidianBlockDecoration
-		//				));
 
 		if(CryingObsidianConfig.enableAdvancedCryingObsidianRecipe) {
 
@@ -123,15 +94,6 @@ public class CryingObsidian {
 		//					));
 		//
 		//		}
-
-		final IRecipe itemRecipe = new ShapelessOreRecipe(null, cryingObsidianItem,
-				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
-				).setRegistryName("crying_obsidian_item_recipe");
-		GameRegistry.register(itemRecipe);
-
-		//		GameRegistry.addRecipe(new ShapelessOreRecipe(cryingObsidianItem,
-		//				"stickWood", "stickWood", "stickWood", "stickWood", cryingObsidianBlock
-		//				));
 
 	}
 

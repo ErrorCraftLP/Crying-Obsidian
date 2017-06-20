@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "cryingobsidian:crying_obsidian_block"
+  },
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "cryingobsidian:crying_obsidian_block_decoration"
+    },
+    {
+      "item": "cryingobsidian:crying_obsidian_block_decoration"
+    },
+    {
+      "item": "cryingobsidian:crying_obsidian_block_decoration"
+    },
+    {
+      "item": "cryingobsidian:crying_obsidian_block_decoration"
+    }
+  ]
+}
