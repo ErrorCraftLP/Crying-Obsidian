@@ -167,6 +167,18 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 		tooltip.add(I18n.format("desc.crying_obsidian_advanced"));
 
+		if(!CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning) {
+
+			tooltip.add(TextFormatting.RED + I18n.format("desc.entity_feature_disabled"));
+
+		}
+
+		if(!CryingObsidianConfig.enableAdvancedCryingObsidianOwner) {
+
+			tooltip.add(TextFormatting.RED + I18n.format("desc.owner_feature_disabled"));
+
+		}
+
 	}
 
 }
