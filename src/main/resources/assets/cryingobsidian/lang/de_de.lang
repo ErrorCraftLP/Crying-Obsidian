@@ -13,6 +13,7 @@ message.not_owner=Dieser Block gehört dir nicht!
 message.entity_respawned=Eine Kreatur, die an einen deiner Weinender Obsidian-Blöcke gebunden ist, ist gestorben. Sie wurde neu gespawnt.
 message.entity_linked=Die ausgewählte Kreatur wurde mit diesem Item verbunden. Rechtsklicke mit diesem Item auf einen fortgeschrittenen Weinender Obsidian-Block, wo die Kreatur spawnen soll, wenn sie stirbt.
 message.entity_spawn_here=Die Kreatur wird hier spawnen, wenn sie stirbt.
+message.entity_binding_disabled=Du kannst keine Kreatur an diesen Block binden. Diese Funktion wurde in den Einstellungen deaktiviert.
 
 # Description
 desc.crying_obsidian_decoration=Eine Version des Weinenden Obsidians, die nichts macht.

@@ -9,15 +9,19 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = Utils.ID)
 public class CryingObsidianConfig {
 
+	@Config.Name("Enable chat message")
 	@Config.Comment("Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.")
 	public static boolean enableChatMessage = true;
 
+	@Config.Name("Set spawn point at block")
 	@Config.Comment("Whether the spawn point should be set at the Crying Obsidian Block's location (true) or at the player's location (false).")
 	public static boolean setSpawnPointAtBlock = false;
 
-	@Config.Comment("Whether the Advanced Crying Obsidian Block can be crafted.")
-	public static boolean enableAdvancedCryingObsidianRecipe = true;
+	@Config.Name("Enable Advanced Crying Obsidian entity re-spawning")
+	@Config.Comment("Whether entities can be bound to the Advanced Crying Obsidian Block.")
+	public static boolean enableAdvancedCryingObsidianEntityRespawning = true;
 
+	@Config.Name("Enable Advanced Crying Obsidian owner system")
 	@Config.Comment("If this option is enabled, only the one who placed an Advanced Crying Obsidian Block can use it.")
 	public static boolean enableAdvancedCryingObsidianOwner = true;
 

@@ -26,6 +26,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -88,25 +89,37 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
 
-				player.sendMessage(new TextComponentTranslation("message.not_owner"));
+				final TextComponentTranslation message = new TextComponentTranslation("message.not_owner");
+				message.getStyle().setColor(TextFormatting.RED);
+				player.sendMessage(message);
 				return true;
 
 			}
 
 			if(heldStack.getItem().equals(CryingObsidian.cryingObsidianItem)) {
 
-				final NBTTagCompound itemNBT = heldStack.getSubCompound(Utils.ID);
+				if(CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning) {
 
-				if(itemNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
+					final NBTTagCompound itemNBT = heldStack.getSubCompound(Utils.ID);
 
-					((TileEntityCryingObsidianAdvanced)tileEntity).setStoredUUID(itemNBT.getUniqueId("EntityUUID"));
-					heldStack.removeSubCompound(Utils.ID);
+					if(itemNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
 
-					player.sendMessage(new TextComponentTranslation("message.entity_spawn_here"));
+						((TileEntityCryingObsidianAdvanced)tileEntity).setStoredUUID(itemNBT.getUniqueId("EntityUUID"));
+						heldStack.removeSubCompound(Utils.ID);
 
-					return true;
+						player.sendMessage(new TextComponentTranslation("message.entity_spawn_here"));
+
+					}
+
+				} else {
+
+					final TextComponentTranslation message = new TextComponentTranslation("message.entity_binding_disabled");
+					message.getStyle().setColor(TextFormatting.RED);
+					player.sendMessage(message);
 
 				}
+
+				return true;
 
 			}
 
