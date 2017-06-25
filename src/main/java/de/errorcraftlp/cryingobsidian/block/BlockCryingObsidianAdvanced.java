@@ -29,6 +29,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -158,6 +159,14 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	public EnumBlockRenderType getRenderType(final IBlockState state) {
 
 		return EnumBlockRenderType.MODEL;
+
+	}
+
+	@Override
+	public void breakBlock(final World world, final BlockPos pos, final IBlockState state) {
+
+		MinecraftForge.EVENT_BUS.unregister(world.getTileEntity(pos)); // Don't respawn the entity after the block was broken
+		super.breakBlock(world, pos, state);
 
 	}
 
