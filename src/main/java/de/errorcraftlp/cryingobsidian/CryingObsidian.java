@@ -15,7 +15,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -39,9 +38,10 @@ public class CryingObsidian {
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
 
 		final IForgeRegistry<Block> registry = event.getRegistry();
-		registry.register(cryingObsidianBlock);
-		registry.register(cryingObsidianBlockAdvanced);
-		registry.register(cryingObsidianBlockDecoration);
+		registry.registerAll(cryingObsidianBlock, cryingObsidianBlockAdvanced, cryingObsidianBlockDecoration);
+
+		// Register tile entity
+		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, "crying_obsidian_advanced_tile_entity");
 
 	}
 
@@ -51,9 +51,9 @@ public class CryingObsidian {
 		final IForgeRegistry<Item> registry = event.getRegistry();
 
 		// Item Blocks
-		registry.register(new ItemBlock(cryingObsidianBlock).setRegistryName("crying_obsidian_block"));
-		registry.register(new ItemBlock(cryingObsidianBlockAdvanced).setRegistryName("crying_obsidian_block_advanced"));
-		registry.register(new ItemBlock(cryingObsidianBlockDecoration).setRegistryName("crying_obsidian_block_decoration"));
+		registry.register(new ItemBlock(cryingObsidianBlock).setRegistryName(cryingObsidianBlock.getRegistryName()));
+		registry.register(new ItemBlock(cryingObsidianBlockAdvanced).setRegistryName(cryingObsidianBlockAdvanced.getRegistryName()));
+		registry.register(new ItemBlock(cryingObsidianBlockDecoration).setRegistryName(cryingObsidianBlockDecoration.getRegistryName()));
 
 		// Item
 		registry.register(cryingObsidianItem);
@@ -61,20 +61,12 @@ public class CryingObsidian {
 	}
 
 	@EventHandler
-	public void preInit(@SuppressWarnings("unused") final FMLPreInitializationEvent event) {
-
-		// Register tile entities
-		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, "crying_obsidian_advanced_tile_entity");
+	public void init(@SuppressWarnings("unused") final FMLInitializationEvent event) {
 
 		// Register crying obsidian blocks in ore dictionary
 		OreDictionary.registerOre("obsidian", cryingObsidianBlock);
 		OreDictionary.registerOre("obsidian", cryingObsidianBlockDecoration);
 		OreDictionary.registerOre("obsidian", cryingObsidianBlockAdvanced);
-
-	}
-
-	@EventHandler
-	public void init(@SuppressWarnings("unused") final FMLInitializationEvent event) {
 
 		// Register models
 		proxy.registerModels();
