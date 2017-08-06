@@ -34,7 +34,7 @@ public class CryingObsidianConfig {
 
 		@Override
 		@Deprecated
-		public RuntimeOptionGuiHandler getHandlerFor(final RuntimeOptionCategoryElement element){
+		public RuntimeOptionGuiHandler getHandlerFor(final RuntimeOptionCategoryElement element) {
 
 			return null;
 
