@@ -24,7 +24,9 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -85,7 +87,9 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 
 			if(CryingObsidian.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
 
-				player.sendMessage(new TextComponentTranslation("message.not_owner"));
+				final TextComponentTranslation message = new TextComponentTranslation("message.not_owner");
+				message.getStyle().setColor(TextFormatting.RED);
+				player.sendMessage(message);
 				return true;
 
 			}
@@ -146,10 +150,30 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	}
 
 	@Override
+	public void breakBlock(final World world, final BlockPos pos, final IBlockState state) {
+
+		MinecraftForge.EVENT_BUS.unregister(world.getTileEntity(pos)); // Don't respawn the entity after the block was broken
+		super.breakBlock(world, pos, state);
+
+	}
+
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(final ItemStack stack, final EntityPlayer player, final List<String> tooltip, final boolean advanced) {
 
 		tooltip.add(I18n.format("desc.crying_obsidian_advanced"));
+
+		if(!CryingObsidian.enableAdvancedCryingObsidianRecipe) {
+
+			tooltip.add(TextFormatting.RED + I18n.format("desc.recipe_disabled"));
+
+		}
+
+		if(!CryingObsidian.enableAdvancedCryingObsidianOwner) {
+
+			tooltip.add(TextFormatting.RED + I18n.format("desc.owner_feature_disabled"));
+
+		}
 
 	}
 

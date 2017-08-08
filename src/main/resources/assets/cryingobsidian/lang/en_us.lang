@@ -18,3 +18,5 @@ message.entity_spawn_here=The entity will spawn here when it dies.
 desc.crying_obsidian_decoration=A variant of the Crying Obsidian Block that does nothing.
 desc.crying_obsidian_advanced=An advanced variant of the Crying Obsidian Block. It can only be used by its owner (this can be disabled in the config) and an entity can be bound to it. The entity that is bound to this block will respawn at the block's position when it dies.
 desc.crying_obsidian_item=An entity is linked to this Item.
+desc.recipe_disabled=You can't craft this block because the crafting recipe was disabled in the config.
+desc.owner_feature_disabled=This block can be used by everyone as the owner feature was disabled in the config.
