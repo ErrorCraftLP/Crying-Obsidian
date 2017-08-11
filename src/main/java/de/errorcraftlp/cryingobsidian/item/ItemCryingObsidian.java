@@ -2,7 +2,7 @@ package de.errorcraftlp.cryingobsidian.item;
 
 import java.util.List;
 
-import de.errorcraftlp.cryingobsidian.Utils;
+import de.errorcraftlp.cryingobsidian.misc.Utils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;

@@ -4,7 +4,7 @@ import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianAdvanced;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianDecoration;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
-import de.errorcraftlp.cryingobsidian.proxy.ServerProxy;
+import de.errorcraftlp.cryingobsidian.misc.Utils;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -13,7 +13,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -23,10 +22,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON, acceptedMinecraftVersions = Utils.ACCEPTED_VERSIONS, dependencies = Utils.DEPENDENCIES)
 public class CryingObsidian {
-
-	// Proxy
-	@SidedProxy(clientSide = Utils.CLIENT_PROXY, serverSide = Utils.SERVER_PROXY)
-	public static ServerProxy proxy;
 
 	// Blocks/Items
 	public static Block cryingObsidianBlock = new BlockCryingObsidian();
@@ -67,9 +62,6 @@ public class CryingObsidian {
 		OreDictionary.registerOre("obsidian", cryingObsidianBlock);
 		OreDictionary.registerOre("obsidian", cryingObsidianBlockDecoration);
 		OreDictionary.registerOre("obsidian", cryingObsidianBlockAdvanced);
-
-		// Register models
-		proxy.registerModels();
 
 	}
 

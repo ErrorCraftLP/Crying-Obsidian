@@ -1,4 +1,4 @@
-package de.errorcraftlp.cryingobsidian;
+package de.errorcraftlp.cryingobsidian.misc;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -14,8 +14,6 @@ public class Utils {
 	public static final String ID = "cryingobsidian";
 	public static final String NAME = "Crying Obsidian";
 	public static final String VERSION = "GRADLE_VERSION"; // This is set by the buildscript
-	public static final String CLIENT_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ClientProxy";
-	public static final String SERVER_PROXY = "de.errorcraftlp.cryingobsidian.proxy.ServerProxy";
 	public static final String UPDATE_JSON = "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json";
 	public static final String ACCEPTED_VERSIONS = "[1.12,1.12.1]";
 	public static final String DEPENDENCIES = "required-after:forge@[14.21.1.2387,);";

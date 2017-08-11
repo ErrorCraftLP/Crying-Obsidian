@@ -1,4 +1,4 @@
-package de.errorcraftlp.cryingobsidian;
+package de.errorcraftlp.cryingobsidian.misc;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -25,7 +25,7 @@ public class CryingObsidianConfig {
 	@Config.Comment("If this option is enabled, only the one who placed an Advanced Crying Obsidian Block can use it.")
 	public static boolean enableAdvancedCryingObsidianOwner = true;
 
-	@EventBusSubscriber
+	@EventBusSubscriber(modid = Utils.ID)
 	private static class ConfigGui {
 
 		@SubscribeEvent

@@ -3,8 +3,8 @@ package de.errorcraftlp.cryingobsidian.block;
 import java.util.Random;
 
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
-import de.errorcraftlp.cryingobsidian.CryingObsidianConfig;
-import de.errorcraftlp.cryingobsidian.Utils;
+import de.errorcraftlp.cryingobsidian.misc.CryingObsidianConfig;
+import de.errorcraftlp.cryingobsidian.misc.Utils;
 import net.minecraft.block.BlockObsidian;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;

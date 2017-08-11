@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.UUID;
 
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
-import de.errorcraftlp.cryingobsidian.CryingObsidianConfig;
-import de.errorcraftlp.cryingobsidian.Utils;
+import de.errorcraftlp.cryingobsidian.misc.CryingObsidianConfig;
+import de.errorcraftlp.cryingobsidian.misc.Utils;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.MapColor;
