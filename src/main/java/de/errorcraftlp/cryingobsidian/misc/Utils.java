@@ -15,7 +15,7 @@ public class Utils {
 	public static final String NAME = "Crying Obsidian";
 	public static final String VERSION = "GRADLE_VERSION"; // This is set by the buildscript
 	public static final String UPDATE_JSON = "https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json";
-	public static final String ACCEPTED_VERSIONS = "[1.12,1.12.1]";
+	public static final String ACCEPTED_VERSIONS = "[1.12,1.12.1,1.12.2]";
 	public static final String DEPENDENCIES = "required-after:forge@[14.21.1.2387,);";
 
 	// Util method for setting the spawn point at the player's location
