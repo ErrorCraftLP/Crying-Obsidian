@@ -25,6 +25,10 @@ public class CryingObsidianConfig {
 	@Config.Comment("If this option is enabled, only the one who placed an Advanced Crying Obsidian Block can use it.")
 	public static boolean enableAdvancedCryingObsidianOwner = true;
 
+	@Config.Name("Disable sleeping in beds")
+	@Config.Comment("If this option is enabled, players can no longer sleep in beds.")
+	public static boolean disableBeds = false;
+
 	@EventBusSubscriber(modid = Utils.ID)
 	private static class ConfigGui {
 

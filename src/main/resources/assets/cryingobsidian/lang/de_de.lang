@@ -14,6 +14,7 @@ message.entity_respawned=Eine Kreatur, die an einen deiner Weinender Obsidian-Bl
 message.entity_linked=Die ausgewählte Kreatur wurde mit diesem Item verbunden. Rechtsklicke mit diesem Item auf einen fortgeschrittenen Weinender Obsidian-Block, wo die Kreatur spawnen soll, wenn sie stirbt.
 message.entity_spawn_here=Die Kreatur wird hier spawnen, wenn sie stirbt.
 message.entity_binding_disabled=Du kannst keine Kreatur an diesen Block binden. Diese Funktion wurde in den Einstellungen deaktiviert.
+message.bed_disabled=Das Schlafen in Betten wurde in den Crying-Obsidian-Einstellungen deaktiviert.
 
 # Description
 desc.crying_obsidian_decoration=Eine Version des Weinenden Obsidians, die nichts macht.
