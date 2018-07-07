@@ -12,7 +12,7 @@ public class CryingObsidianEventHandler {
 	@SubscribeEvent
 	public static void preventSleeping(final PlayerSleepInBedEvent event) {
 
-		// Disable sleeping in beds when the config option is enabled
+		// Disable sleeping in beds if the config option is enabled
 		if(CryingObsidianConfig.disableBeds) {
 
 			event.setResult(SleepResult.OTHER_PROBLEM);
