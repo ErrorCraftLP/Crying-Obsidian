@@ -35,6 +35,7 @@ public class CryingObsidian {
 	public static boolean setSpawnPointAtBlock = false;
 	public static boolean enableAdvancedCryingObsidianRecipe = true;
 	public static boolean enableAdvancedCryingObsidianOwner = true;
+	public static boolean disableBeds = false;
 
 	// Block/Item-related variables
 	public static Block cryingObsidianBlock;
@@ -84,6 +85,9 @@ public class CryingObsidian {
 		// Register event handler for Config GUI
 		MinecraftForge.EVENT_BUS.register(new CryingObsidianConfig.EventHandler());
 
+		// Register general event handler
+		MinecraftForge.EVENT_BUS.register(new CryingObsidianEventHandler());
+
 		// Register crafting recipes
 		registerRecipes();
 
@@ -126,6 +130,7 @@ public class CryingObsidian {
 		setSpawnPointAtBlock = config.get(Configuration.CATEGORY_GENERAL, "setSpawnPointAtBlock", false, "Whether the spawn point should be set at the Crying Obsidian Block's location (true) or at the player's location (false).").getBoolean(setSpawnPointAtBlock);
 		enableAdvancedCryingObsidianRecipe = config.get(Configuration.CATEGORY_GENERAL, "enableAdvancedCryingObsidianRecipe", true, "Whether the Advanced Crying Obsidian Block can be crafted.").setRequiresMcRestart(true).getBoolean(enableAdvancedCryingObsidianRecipe);
 		enableAdvancedCryingObsidianOwner = config.get(Configuration.CATEGORY_GENERAL, "enableAdvancedCryingObsidianOwner", true, "If this option is enabled, only the one who placed an Advanced Crying Obsidian Block can use it.").getBoolean(enableAdvancedCryingObsidianOwner);
+		disableBeds = config.get(Configuration.CATEGORY_GENERAL, "disableBeds", false, "If this option is enabled, players can no longer sleep in beds.").getBoolean(disableBeds);
 
 		if(config.hasChanged()) {
 
