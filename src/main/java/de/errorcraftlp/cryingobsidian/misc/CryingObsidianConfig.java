@@ -33,7 +33,7 @@ public class CryingObsidianConfig {
 	public static boolean enableRespawnWhitelist = false;
 	
 	@Config.Name("Re-spawn whitelist")
-	@Config.Comment("A list of entities which can be bound to the Advanced Crying Obsidian Block.")
+	@Config.Comment("A list of entities which can be bound to the Advanced Crying Obsidian Block. You can use the /summon command to obtain the entity IDs.")
 	public static String[] respawnWhitelist = {};
 
 	@EventBusSubscriber(modid = Utils.ID)
