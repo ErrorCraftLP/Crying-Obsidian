@@ -20,7 +20,7 @@ public class BlockCryingObsidian extends BlockObsidian {
 	public BlockCryingObsidian() {
 
 		super();
-		setUnlocalizedName("crying_obsidian_block");
+		setTranslationKey("crying_obsidian_block");
 		setRegistryName("crying_obsidian_block");
 		setHardness(50.0F);
 		setResistance(2000.0F);

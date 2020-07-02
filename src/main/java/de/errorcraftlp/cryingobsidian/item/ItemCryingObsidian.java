@@ -25,7 +25,7 @@ public class ItemCryingObsidian extends Item {
 	public ItemCryingObsidian() {
 
 		super();
-		setUnlocalizedName("crying_obsidian_item");
+		setTranslationKey("crying_obsidian_item");
 		setRegistryName("crying_obsidian_item");
 		setCreativeTab(CreativeTabs.MISC);
 

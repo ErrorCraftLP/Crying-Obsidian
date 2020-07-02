@@ -39,7 +39,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	public BlockCryingObsidianAdvanced() {
 
 		super(Material.ROCK);
-		setUnlocalizedName("crying_obsidian_block_advanced");
+		setTranslationKey("crying_obsidian_block_advanced");
 		setRegistryName("crying_obsidian_block_advanced");
 		setHardness(50.0F);
 		setResistance(2000.0F);
