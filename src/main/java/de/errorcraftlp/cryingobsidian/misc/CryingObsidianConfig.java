@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config(modid = Utils.ID)
 public class CryingObsidianConfig {
-
 	@Config.Name("Enable chat message")
 	@Config.Comment("Whether a chat message should be shown when you set your spawn point with the Crying Obsidian block/item.")
 	public static boolean enableChatMessage = true;
@@ -31,18 +30,11 @@ public class CryingObsidianConfig {
 
 	@EventBusSubscriber(modid = Utils.ID)
 	private static class ConfigGui {
-
 		@SubscribeEvent
 		public static void onConfigChanged(final ConfigChangedEvent.OnConfigChangedEvent event) {
-
 			if(event.getModID().equals(Utils.ID)) {
-
 				ConfigManager.sync(Utils.ID, Config.Type.INSTANCE);
-
 			}
-
 		}
-
 	}
-
 }

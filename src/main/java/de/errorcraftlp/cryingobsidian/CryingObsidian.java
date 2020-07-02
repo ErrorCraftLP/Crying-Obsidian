@@ -22,7 +22,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber
 @Mod(modid = Utils.ID, name = Utils.NAME, version = Utils.VERSION, updateJSON = Utils.UPDATE_JSON, acceptedMinecraftVersions = Utils.ACCEPTED_VERSIONS, dependencies = Utils.DEPENDENCIES)
 public class CryingObsidian {
-
 	// Blocks/Items
 	public static Block cryingObsidianBlock = new BlockCryingObsidian();
 	public static Block cryingObsidianBlockAdvanced = new BlockCryingObsidianAdvanced();
@@ -31,18 +30,15 @@ public class CryingObsidian {
 
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
-
 		final IForgeRegistry<Block> registry = event.getRegistry();
 		registry.registerAll(cryingObsidianBlock, cryingObsidianBlockAdvanced, cryingObsidianBlockDecoration);
 
 		// Register tile entity
 		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, "crying_obsidian_advanced_tile_entity");
-
 	}
 
 	@SubscribeEvent
 	public static void registerItems(final RegistryEvent.Register<Item> event) {
-
 		final IForgeRegistry<Item> registry = event.getRegistry();
 
 		// Item Blocks
@@ -52,17 +48,13 @@ public class CryingObsidian {
 
 		// Item
 		registry.register(cryingObsidianItem);
-
 	}
 
 	@EventHandler
 	public void init(@SuppressWarnings("unused") final FMLInitializationEvent event) {
-
 		// Register crying obsidian blocks in ore dictionary
 		OreDictionary.registerOre("obsidian", cryingObsidianBlock);
 		OreDictionary.registerOre("obsidian", cryingObsidianBlockDecoration);
 		OreDictionary.registerOre("obsidian", cryingObsidianBlockAdvanced);
-
 	}
-
 }
