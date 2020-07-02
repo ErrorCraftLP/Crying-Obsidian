@@ -27,6 +27,14 @@ public class CryingObsidianConfig {
 	@Config.Name("Disable sleeping in beds")
 	@Config.Comment("If this option is enabled, players can no longer sleep in beds.")
 	public static boolean disableBeds = false;
+	
+	@Config.Name("Enable re-spawn whitelist")
+	@Config.Comment("If this option is enabled, only entites in the re-spawn whitelist can be bound to the Advanced Crying Obsidian Block.")
+	public static boolean enableRespawnWhitelist = false;
+	
+	@Config.Name("Re-spawn whitelist")
+	@Config.Comment("A list of entities which can be bound to the Advanced Crying Obsidian Block.")
+	public static String[] respawnWhitelist = {};
 
 	@EventBusSubscriber(modid = Utils.ID)
 	private static class ConfigGui {

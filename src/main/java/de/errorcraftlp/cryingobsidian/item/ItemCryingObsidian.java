@@ -1,12 +1,15 @@
 package de.errorcraftlp.cryingobsidian.item;
 
 import java.util.List;
+import java.util.Set;
 
+import de.errorcraftlp.cryingobsidian.misc.CryingObsidianConfig;
 import de.errorcraftlp.cryingobsidian.misc.Utils;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -15,6 +18,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -37,10 +41,24 @@ public class ItemCryingObsidian extends Item {
 	@Override
 	public boolean onLeftClickEntity(final ItemStack stack, final EntityPlayer player, final Entity entity) {
 		if(!player.world.isRemote && entity instanceof EntityLiving) {
-			final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
-			itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
+			if(CryingObsidianConfig.enableRespawnWhitelist) {
+				ResourceLocation entityKey = EntityList.getKey(entity);
+				for(String whitelistEntry : CryingObsidianConfig.respawnWhitelist) {
+					ResourceLocation entryKey = new ResourceLocation(whitelistEntry);
+					if(entryKey.equals(entityKey)) {
+						final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
+						itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
 
-			player.sendMessage(new TextComponentTranslation("message.entity_linked"));
+						player.sendMessage(new TextComponentTranslation("message.entity_linked"));
+						break;
+					}
+				}
+			} else {
+				final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
+				itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
+
+				player.sendMessage(new TextComponentTranslation("message.entity_linked"));
+			}
 		}
 		return true;
 	}
