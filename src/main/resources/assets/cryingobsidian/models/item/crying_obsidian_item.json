@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "cryingobsidian:items/crying_obsidian_item"
-    }
-}
