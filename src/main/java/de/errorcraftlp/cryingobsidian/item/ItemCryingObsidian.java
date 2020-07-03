@@ -1,7 +1,6 @@
 package de.errorcraftlp.cryingobsidian.item;
 
 import java.util.List;
-import java.util.Set;
 
 import de.errorcraftlp.cryingobsidian.misc.CryingObsidianConfig;
 import de.errorcraftlp.cryingobsidian.misc.Utils;
@@ -20,6 +19,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -42,17 +42,20 @@ public class ItemCryingObsidian extends Item {
 	public boolean onLeftClickEntity(final ItemStack stack, final EntityPlayer player, final Entity entity) {
 		if(!player.world.isRemote && entity instanceof EntityLiving) {
 			if(CryingObsidianConfig.enableRespawnWhitelist) {
-				ResourceLocation entityKey = EntityList.getKey(entity);
-				for(String whitelistEntry : CryingObsidianConfig.respawnWhitelist) {
-					ResourceLocation entryKey = new ResourceLocation(whitelistEntry);
+				final ResourceLocation entityKey = EntityList.getKey(entity);
+				for(final String whitelistEntry : CryingObsidianConfig.respawnWhitelist) {
+					final ResourceLocation entryKey = new ResourceLocation(whitelistEntry);
 					if(entryKey.equals(entityKey)) {
 						final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
 						itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
 
 						player.sendMessage(new TextComponentTranslation("message.entity_linked"));
-						break;
+						return true;
 					}
 				}
+				final TextComponentTranslation message = new TextComponentTranslation("message.entity_whitelist");
+				message.getStyle().setColor(TextFormatting.RED);
+				player.sendMessage(message);
 			} else {
 				final NBTTagCompound itemNBT = stack.getOrCreateSubCompound(Utils.ID);
 				itemNBT.setUniqueId("EntityUUID", entity.getUniqueID());
