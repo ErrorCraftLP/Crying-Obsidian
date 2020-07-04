@@ -1,55 +1,48 @@
 package de.errorcraftlp.cryingobsidian.block;
 
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
+
+import javax.annotation.Nullable;
 
 import de.errorcraftlp.cryingobsidian.CryingObsidian;
 import de.errorcraftlp.cryingobsidian.misc.CryingObsidianConfig;
 import de.errorcraftlp.cryingobsidian.misc.Utils;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.MapColor;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class BlockCryingObsidianAdvanced extends BlockContainer {
+public class BlockCryingObsidianAdvanced extends Block {
 	public BlockCryingObsidianAdvanced() {
-		super(Material.ROCK);
-		setTranslationKey("crying_obsidian_block_advanced");
-		setRegistryName("crying_obsidian_block_advanced");
-		setHardness(50.0F);
-		setResistance(2000.0F);
-		setCreativeTab(CreativeTabs.MISC);
+		super(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(50.0F, 2000.0F));
+		setRegistryName(Utils.ID, "crying_obsidian_block_advanced");
 	}
 
-	@Override
-	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
-		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlockAdvanced);
-	}
+	/*@Override
+	public Item getItemDropped(final BlockState state, final Random rand, final int fortune) {
+		return Item.getItemFromBlock(CryingObsidian.CRYING_OBSIDIAN_BLOCK_ADVANCED);
+	}*/
 
 	@Override
-	public void onBlockPlacedBy(final World world, final BlockPos pos, final IBlockState state, final EntityLivingBase placer, final ItemStack stack) {
+	public void onBlockPlacedBy(final World world, final BlockPos pos, final BlockState state, @Nullable final LivingEntity placer, final ItemStack stack) {
 		final UUID owner = placer.getUniqueID();
 		final TileEntity tileEntity = world.getTileEntity(pos);
 
@@ -59,7 +52,7 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	}
 
 	@Override
-	public boolean onBlockActivated(final World world, final BlockPos pos, final IBlockState state, final EntityPlayer player, final EnumHand hand, final EnumFacing side, final float hitX, final float hitY, final float hitZ) {
+	public boolean onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
 		if(!world.isRemote) {
 			final ItemStack heldStack = player.getHeldItem(hand);
 			final TileEntity tileEntity = world.getTileEntity(pos);
@@ -74,24 +67,24 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 			}
 
 			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
-				final TextComponentTranslation message = new TextComponentTranslation("message.not_owner");
+				final TranslationTextComponent message = new TranslationTextComponent("message.not_owner");
 				message.getStyle().setColor(TextFormatting.RED);
 				player.sendMessage(message);
 				return true;
 			}
 
-			if(heldStack.getItem().equals(CryingObsidian.cryingObsidianItem)) {
+			if(heldStack.getItem().equals(CryingObsidian.CRYING_OBSIDIAN_ITEM)) {
 				if(CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning) {
-					final NBTTagCompound itemNBT = heldStack.getSubCompound(Utils.ID);
+					final CompoundNBT itemNBT = heldStack.getChildTag(Utils.ID);
 
 					if(itemNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
 						((TileEntityCryingObsidianAdvanced)tileEntity).setStoredUUID(itemNBT.getUniqueId("EntityUUID"));
-						heldStack.removeSubCompound(Utils.ID);
+						heldStack.removeChildTag(Utils.ID);
 
-						player.sendMessage(new TextComponentTranslation("message.entity_spawn_here"));
+						player.sendMessage(new TranslationTextComponent("message.entity_spawn_here"));
 					}
 				} else {
-					final TextComponentTranslation message = new TextComponentTranslation("message.entity_binding_disabled");
+					final TranslationTextComponent message = new TranslationTextComponent("message.entity_binding_disabled");
 					message.getStyle().setColor(TextFormatting.RED);
 					player.sendMessage(message);
 				}
@@ -110,38 +103,43 @@ public class BlockCryingObsidianAdvanced extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(final World world, final int meta) {
+	public boolean hasTileEntity() {
+		return true;
+	}
+
+	@Override
+	public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
 		return new TileEntityCryingObsidianAdvanced();
 	}
 
-	@Override
+	/*@Override
 	@Deprecated
 	public MapColor getMapColor(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
 		return MapColor.BLACK;
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public EnumBlockRenderType getRenderType(final IBlockState state) {
 		return EnumBlockRenderType.MODEL;
-	}
+	}*/
 
-	@Override
-	public void breakBlock(final World world, final BlockPos pos, final IBlockState state) {
+	/*@Override
+	public void breakBlock(final World world, final BlockPos pos, final BlockState state) {
 		MinecraftForge.EVENT_BUS.unregister(world.getTileEntity(pos)); // Don't respawn the entity after the block was broken
 		super.breakBlock(world, pos, state);
-	}
+	}*/
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(final ItemStack stack, final World world, final List<String> tooltip, final ITooltipFlag tooltipFlag) {
-		tooltip.add(I18n.format("desc.crying_obsidian_advanced"));
+	@OnlyIn(Dist.CLIENT)
+	public void addInformation(final ItemStack stack, @Nullable final IBlockReader world, final List<ITextComponent> tooltip, final ITooltipFlag tooltipFlag) {
+		tooltip.add(new TranslationTextComponent("desc.crying_obsidian_advanced"));
 
 		if(!CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning) {
-			tooltip.add(TextFormatting.RED + I18n.format("desc.entity_feature_disabled"));
+			tooltip.add(new TranslationTextComponent("desc.entity_feature_disabled", TextFormatting.RED));
 		}
 
 		if(!CryingObsidianConfig.enableAdvancedCryingObsidianOwner) {
-			tooltip.add(TextFormatting.RED + I18n.format("desc.owner_feature_disabled"));
+			tooltip.add(new TranslationTextComponent("desc.owner_feature_disabled", TextFormatting.RED));
 		}
 	}
 }

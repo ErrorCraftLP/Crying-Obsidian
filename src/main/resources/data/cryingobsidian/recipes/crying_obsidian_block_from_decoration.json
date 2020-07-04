@@ -2,7 +2,7 @@
   "result": {
     "item": "cryingobsidian:crying_obsidian_block"
   },
-  "type": "forge:ore_shapeless",
+  "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
       "item": "cryingobsidian:crying_obsidian_block_decoration"

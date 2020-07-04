@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "cryingobsidian:crying_obsidian_item"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "item": "cryingobsidian:crying_obsidian_block"
+    }
+  ]
+}

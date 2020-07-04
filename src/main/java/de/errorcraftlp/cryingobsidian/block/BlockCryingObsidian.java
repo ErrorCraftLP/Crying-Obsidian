@@ -1,37 +1,30 @@
 package de.errorcraftlp.cryingobsidian.block;
 
-import java.util.Random;
-
-import de.errorcraftlp.cryingobsidian.CryingObsidian;
 import de.errorcraftlp.cryingobsidian.misc.CryingObsidianConfig;
 import de.errorcraftlp.cryingobsidian.misc.Utils;
-import net.minecraft.block.BlockObsidian;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class BlockCryingObsidian extends BlockObsidian {
+public class BlockCryingObsidian extends Block {
 	public BlockCryingObsidian() {
-		super();
-		setTranslationKey("crying_obsidian_block");
-		setRegistryName("crying_obsidian_block");
-		setHardness(50.0F);
-		setResistance(2000.0F);
-		setCreativeTab(CreativeTabs.MISC);
+		super(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(50.0F, 2000.0F));
+		setRegistryName(Utils.ID, "crying_obsidian_block");
 	}
 
-	@Override
+	/*@Override
 	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
-		return Item.getItemFromBlock(CryingObsidian.cryingObsidianBlock);
-	}
+		return Item.getItemFromBlock(CryingObsidian.CRYING_OBSIDIAN_BLOCK);
+	}*/
 
 	@Override
-	public boolean onBlockActivated(final World world, final BlockPos pos, final IBlockState state, final EntityPlayer player, final EnumHand hand, final EnumFacing side, final float hitX, final float hitY, final float hitZ) {
+	public boolean onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
 		if(CryingObsidianConfig.setSpawnPointAtBlock) {
 			Utils.setSpawnPointAtBlock(world, player, pos);
 		} else {

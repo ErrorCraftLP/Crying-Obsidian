@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="https://github.com/ErrorCraftLP/Crying-Obsidian/issues"
+
+[[mods]]
+modId="cryingobsidian"
+version="${file.jarVersion}"
+displayName="Crying Obsidian"
+updateJSONURL="https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json"
+displayURL="https://minecraft.curseforge.com/projects/crying-obsidian"
+# logoFile="examplemod.png" #optional
+credits="ErrorCraftLP, Mojang (Default Crying Obsidian Texture), carlosyoloful (BDcraft Crying Obsidian Texture)"
+authors="ErrorCraftLP"
+description='''
+Crying Obsidian was intended to be a block that can change your spawn point, but it was never added to the game.
+This mod implements this block and adds an item version of it.
+'''
+
+[[dependencies.cryingobsidian]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28,)"
+    ordering="NONE"
+    side="BOTH"
+    
+[[dependencies.cryingobsidian]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"

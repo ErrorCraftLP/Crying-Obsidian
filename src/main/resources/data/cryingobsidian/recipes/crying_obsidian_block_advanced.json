@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "cryingobsidian:crying_obsidian_block_advanced"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "tag": "forge:dusts/redstone"
+    },
+    {
+      "item": "cryingobsidian:crying_obsidian_block"
+    }
+  ]
+}

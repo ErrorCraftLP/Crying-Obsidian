@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "cryingobsidian:crying_obsidian_block"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:gems/lapis"
+    },
+    {
+      "tag": "forge:gems/lapis"
+    },
+    {
+      "tag": "forge:gems/lapis"
+    },
+    {
+      "tag": "forge:gems/lapis"
+    },
+    {
+      "item": "minecraft:obsidian"
+    }
+  ]
+}

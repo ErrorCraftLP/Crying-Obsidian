@@ -2,42 +2,44 @@ package de.errorcraftlp.cryingobsidian.tileentiy;
 
 import java.util.UUID;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
+import de.errorcraftlp.cryingobsidian.CryingObsidian;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	private UUID ownerUUID;
 	private UUID storedUUID;
 
 	public TileEntityCryingObsidianAdvanced() {
-		super();
+		super(CryingObsidian.CRYING_OBSIDIAN_ADVANCED_TILE_ENTITY);
 		MinecraftForge.EVENT_BUS.register(this); // Register this class in the event handler
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(final NBTTagCompound compound) {
-		super.writeToNBT(compound);
+	public CompoundNBT write(final CompoundNBT compound) {
+		super.write(compound);
 
 		if(ownerUUID != null) {
-			compound.setUniqueId("OwnerUUID", ownerUUID);
+			compound.putUniqueId("OwnerUUID", ownerUUID);
 		}
 
 		if(storedUUID != null) {
-			compound.setUniqueId("StoredUUID", storedUUID);
+			compound.putUniqueId("StoredUUID", storedUUID);
 		}
 
 		return compound;
 	}
 
 	@Override
-	public void readFromNBT(final NBTTagCompound compound) {
-		super.readFromNBT(compound);
+	public void read(final CompoundNBT compound) {
+		super.read(compound);
 		ownerUUID = compound.getUniqueId("OwnerUUID");
 		storedUUID = compound.getUniqueId("StoredUUID");
 	}
@@ -61,18 +63,18 @@ public class TileEntityCryingObsidianAdvanced extends TileEntity {
 	@SubscribeEvent
 	public void onEntityDeath(final LivingDeathEvent event) {
 		if(!world.isRemote) {
-			final EntityLivingBase entity = event.getEntityLiving();
+			final LivingEntity entity = event.getEntityLiving();
 
-			if(getStoredUUID() != null && entity.getUniqueID().equals(getStoredUUID())) {
+			if(entity instanceof MobEntity && getStoredUUID() != null && entity.getUniqueID().equals(getStoredUUID())) {
 				event.setCanceled(true);
-				entity.isDead = false;
+				entity.revive();
 				entity.setHealth(entity.getMaxHealth());
 				entity.moveToBlockPosAndAngles(pos.up(), entity.rotationYaw, entity.rotationPitch);
 
 				if(getOwnerUUID() != null) {
-					final EntityPlayer player = world.getPlayerEntityByUUID(getOwnerUUID());
+					final PlayerEntity player = world.getPlayerByUuid(getOwnerUUID());
 					if(player != null) {
-						player.sendMessage(new TextComponentTranslation("message.entity_respawned"));
+						player.sendMessage(new TranslationTextComponent("message.entity_respawned"));
 					}
 				}
 			}
