@@ -8,7 +8,6 @@ version="${file.jarVersion}"
 displayName="Crying Obsidian"
 updateJSONURL="https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json"
 displayURL="https://minecraft.curseforge.com/projects/crying-obsidian"
-# logoFile="examplemod.png" #optional
 credits="ErrorCraftLP, Mojang (Default Crying Obsidian Texture), carlosyoloful (BDcraft Crying Obsidian Texture)"
 authors="ErrorCraftLP"
 description='''

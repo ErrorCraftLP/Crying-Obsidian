@@ -1,12 +1,12 @@
 {
     "_comment": "English Language File",
     "_comment": "Block",
-    "block.crying_obsidian_block": "Crying Obsidian",
-    "block.crying_obsidian_block_decoration": "Crying Obsidian (Decoration)",
-    "block.crying_obsidian_block_advanced": "Advanced Crying Obsidian",
+    "block.cryingobsidian.crying_obsidian_block": "Crying Obsidian",
+    "block.cryingobsidian.crying_obsidian_block_decoration": "Crying Obsidian (Decoration)",
+    "block.cryingobsidian.crying_obsidian_block_advanced": "Advanced Crying Obsidian",
 
     "_comment": "Item",
-    "item.crying_obsidian_item": "Crying Obsidian (Item)",
+    "item.cryingobsidian.crying_obsidian_item": "Crying Obsidian (Item)",
 
     "_comment": "Chat messages",
     "message.spawnpoint_set": "Set %s's spawn point to coordinates: x = %d, y = %d, z = %d.",

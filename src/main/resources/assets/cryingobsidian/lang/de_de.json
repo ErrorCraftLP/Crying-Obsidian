@@ -13,6 +13,7 @@
     "message.not_owner": "Dieser Block gehört dir nicht!",
     "message.entity_respawned": "Eine Kreatur, die an einen deiner weinenden Obsidian-Blöcke gebunden ist, ist gestorben. Sie wurde neu gespawnt.",
     "message.entity_linked": "Die ausgewählte Kreatur wurde mit diesem Item verbunden. Rechtsklicke mit diesem Item auf einen fortgeschrittenen weinenden Obsidian-Block, bei dem die Kreatur spawnen soll, wenn sie stirbt.",
+    "message.entity_whitelist": "Die ausgew�hlte Kreatur wurde nicht mit diesem Item verbunden, da sie sich nicht auf der Whitelist befindet.",
     "message.entity_spawn_here": "Die Kreatur wird hier spawnen, wenn sie stirbt.",
     "message.entity_binding_disabled": "Du kannst keine Kreatur an diesen Block binden, weil diese Funktion in den Einstellungen deaktiviert wurde.",
     "message.bed_disabled": "Das Schlafen in Betten wurde in den Crying Obsidian-Einstellungen deaktiviert.",
