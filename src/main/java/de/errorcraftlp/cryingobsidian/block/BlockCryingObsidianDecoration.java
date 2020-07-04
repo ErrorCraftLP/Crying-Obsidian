@@ -22,11 +22,6 @@ public class BlockCryingObsidianDecoration extends Block {
 		setRegistryName(Utils.ID, "crying_obsidian_block_decoration");
 	}
 
-	/*@Override
-	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
-		return Item.getItemFromBlock(CryingObsidian.CRYING_OBSIDIAN_BLOCK_DECORATION);
-	}*/
-
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(final ItemStack stack, @Nullable final IBlockReader world, final List<ITextComponent> tooltip, final ITooltipFlag tooltipFlag) {

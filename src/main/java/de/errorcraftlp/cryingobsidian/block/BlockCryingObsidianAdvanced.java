@@ -36,11 +36,6 @@ public class BlockCryingObsidianAdvanced extends Block {
 		setRegistryName(Utils.ID, "crying_obsidian_block_advanced");
 	}
 
-	/*@Override
-	public Item getItemDropped(final BlockState state, final Random rand, final int fortune) {
-		return Item.getItemFromBlock(CryingObsidian.CRYING_OBSIDIAN_BLOCK_ADVANCED);
-	}*/
-
 	@Override
 	public void onBlockPlacedBy(final World world, final BlockPos pos, final BlockState state, @Nullable final LivingEntity placer, final ItemStack stack) {
 		final UUID owner = placer.getUniqueID();

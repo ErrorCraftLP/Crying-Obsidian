@@ -18,11 +18,6 @@ public class BlockCryingObsidian extends Block {
 		setRegistryName(Utils.ID, "crying_obsidian_block");
 	}
 
-	/*@Override
-	public Item getItemDropped(final IBlockState state, final Random rand, final int fortune) {
-		return Item.getItemFromBlock(CryingObsidian.CRYING_OBSIDIAN_BLOCK);
-	}*/
-
 	@Override
 	public boolean onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
 		if(CryingObsidianConfig.setSpawnPointAtBlock) {
