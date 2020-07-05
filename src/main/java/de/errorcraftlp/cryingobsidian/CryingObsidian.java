@@ -16,16 +16,22 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.ObjectHolder;
 
 @EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 @Mod(Utils.ID)
 public class CryingObsidian {
 	// Blocks/Items/Tile Entities
-	public static final Block CRYING_OBSIDIAN_BLOCK = new BlockCryingObsidian();
-	public static final Block CRYING_OBSIDIAN_BLOCK_ADVANCED = new BlockCryingObsidianAdvanced();
-	public static final Block CRYING_OBSIDIAN_BLOCK_DECORATION = new BlockCryingObsidianDecoration();
-	public static final Item CRYING_OBSIDIAN_ITEM = new ItemCryingObsidian();
-	public static final TileEntityType<?> CRYING_OBSIDIAN_ADVANCED_TILE_ENTITY = TileEntityType.Builder.create(TileEntityCryingObsidianAdvanced::new).build(null).setRegistryName(Utils.ID, "crying_obsidian_advanced_tile_entity");
+	@ObjectHolder(Utils.ID + ":crying_obsidian_block")
+	public static final Block CRYING_OBSIDIAN_BLOCK = null;
+	@ObjectHolder(Utils.ID + ":crying_obsidian_block_advanced")
+	public static final Block CRYING_OBSIDIAN_BLOCK_ADVANCED = null;
+	@ObjectHolder(Utils.ID + ":crying_obsidian_block_decoration")
+	public static final Block CRYING_OBSIDIAN_BLOCK_DECORATION = null;
+	@ObjectHolder(Utils.ID + ":crying_obsidian_item")
+	public static final Item CRYING_OBSIDIAN_ITEM = null;
+	@ObjectHolder(Utils.ID + ":crying_obsidian_advanced_tile_entity")
+	public static final TileEntityType<?> CRYING_OBSIDIAN_ADVANCED_TILE_ENTITY = null;
 
 	public CryingObsidian() {
         // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
@@ -34,7 +40,7 @@ public class CryingObsidian {
 	@SubscribeEvent
 	public static void registerBlocks(final RegistryEvent.Register<Block> event) {
 		final IForgeRegistry<Block> registry = event.getRegistry();
-		registry.registerAll(CRYING_OBSIDIAN_BLOCK, CRYING_OBSIDIAN_BLOCK_ADVANCED, CRYING_OBSIDIAN_BLOCK_DECORATION);
+		registry.registerAll(new BlockCryingObsidian(), new BlockCryingObsidianAdvanced(), new BlockCryingObsidianDecoration());
 	}
 
 	@SubscribeEvent
@@ -47,13 +53,13 @@ public class CryingObsidian {
 		registry.register(new BlockItem(CRYING_OBSIDIAN_BLOCK_DECORATION, new Item.Properties().group(ItemGroup.MISC)).setRegistryName(CRYING_OBSIDIAN_BLOCK_DECORATION.getRegistryName()));
 
 		// Item
-		registry.register(CRYING_OBSIDIAN_ITEM);
+		registry.register(new ItemCryingObsidian());
 	}
 
 	@SubscribeEvent
 	public static void registerTileEntities(final RegistryEvent.Register<TileEntityType<?>> event) {
 		final IForgeRegistry<TileEntityType<?>> registry = event.getRegistry();
-		registry.register(CRYING_OBSIDIAN_ADVANCED_TILE_ENTITY);
+		registry.register(TileEntityType.Builder.create(TileEntityCryingObsidianAdvanced::new, CRYING_OBSIDIAN_BLOCK_ADVANCED).build(null).setRegistryName(Utils.ID, "crying_obsidian_advanced_tile_entity"));
 	}
 
 	/*@EventHandler
