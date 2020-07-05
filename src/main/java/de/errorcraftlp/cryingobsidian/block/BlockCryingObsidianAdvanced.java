@@ -29,6 +29,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.MinecraftForge;
 
 public class BlockCryingObsidianAdvanced extends Block {
 	public BlockCryingObsidianAdvanced() {
@@ -98,7 +99,7 @@ public class BlockCryingObsidianAdvanced extends Block {
 	}
 
 	@Override
-	public boolean hasTileEntity(BlockState state) {
+	public boolean hasTileEntity(final BlockState state) {
 		return true;
 	}
 
@@ -107,22 +108,14 @@ public class BlockCryingObsidianAdvanced extends Block {
 		return new TileEntityCryingObsidianAdvanced();
 	}
 
-	/*@Override
+	@Override
 	@Deprecated
-	public MapColor getMapColor(final IBlockState state, final IBlockAccess world, final BlockPos pos) {
-		return MapColor.BLACK;
-	}*/
-
-	/*@Override
-	public EnumBlockRenderType getRenderType(final IBlockState state) {
-		return EnumBlockRenderType.MODEL;
-	}*/
-
-	/*@Override
-	public void breakBlock(final World world, final BlockPos pos, final BlockState state) {
-		MinecraftForge.EVENT_BUS.unregister(world.getTileEntity(pos)); // Don't respawn the entity after the block was broken
-		super.breakBlock(world, pos, state);
-	}*/
+	public void onReplaced(final BlockState state, final World world, final BlockPos pos, final BlockState newState, final boolean isMoving) {
+		if(state.getBlock() != newState.getBlock()) {
+			MinecraftForge.EVENT_BUS.unregister(world.getTileEntity(pos)); // Don't respawn the entity after the block was broken
+		}
+		super.onReplaced(state, world, pos, newState, isMoving);
+	}
 
 	@Override
 	@OnlyIn(Dist.CLIENT)
