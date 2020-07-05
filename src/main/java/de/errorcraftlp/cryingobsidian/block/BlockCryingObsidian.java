@@ -20,7 +20,7 @@ public class BlockCryingObsidian extends Block {
 
 	@Override
 	public boolean onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
-		if(CryingObsidianConfig.setSpawnPointAtBlock) {
+		if(CryingObsidianConfig.setSpawnPointAtBlock.get()) {
 			Utils.setSpawnPointAtBlock(world, player, pos);
 		} else {
 			Utils.setSpawnPointAtPlayer(world, player);

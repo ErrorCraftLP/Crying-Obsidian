@@ -41,9 +41,9 @@ public class ItemCryingObsidian extends Item {
 	@Override
 	public boolean onLeftClickEntity(final ItemStack stack, final PlayerEntity player, final Entity entity) {
 		if(!player.world.isRemote && entity instanceof MobEntity) {
-			if(CryingObsidianConfig.enableRespawnWhitelist) {
+			if(CryingObsidianConfig.enableRespawnWhitelist.get()) {
 				final EntityType<?> entityType = entity.getType();
-				for(final String whitelistEntry : CryingObsidianConfig.respawnWhitelist) {
+				for(final String whitelistEntry : CryingObsidianConfig.respawnWhitelist.get()) {
 					final EntityType<?> entryType = ForgeRegistries.ENTITIES.getValue(new ResourceLocation(whitelistEntry));
 					if(entryType.equals(entityType)) {
 						final CompoundNBT itemNBT = stack.getOrCreateChildTag(Utils.ID);

@@ -58,11 +58,11 @@ public class BlockCryingObsidianAdvanced extends Block {
 				owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwnerUUID();
 			}
 
-			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner && owner == null) {
+			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner.get() && owner == null) {
 				return true;
 			}
 
-			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner && !player.getUniqueID().equals(owner)) {
+			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner.get() && !player.getUniqueID().equals(owner)) {
 				final TranslationTextComponent message = new TranslationTextComponent("message.not_owner");
 				message.getStyle().setColor(TextFormatting.RED);
 				player.sendMessage(message);
@@ -70,7 +70,7 @@ public class BlockCryingObsidianAdvanced extends Block {
 			}
 
 			if(heldStack.getItem().equals(CryingObsidian.CRYING_OBSIDIAN_ITEM)) {
-				if(CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning) {
+				if(CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning.get()) {
 					final CompoundNBT itemNBT = heldStack.getChildTag(Utils.ID);
 
 					if(itemNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
@@ -88,7 +88,7 @@ public class BlockCryingObsidianAdvanced extends Block {
 				return true;
 			}
 
-			if(CryingObsidianConfig.setSpawnPointAtBlock) {
+			if(CryingObsidianConfig.setSpawnPointAtBlock.get()) {
 				Utils.setSpawnPointAtBlock(world, player, pos);
 			} else {
 				Utils.setSpawnPointAtPlayer(world, player);
@@ -122,11 +122,11 @@ public class BlockCryingObsidianAdvanced extends Block {
 	public void addInformation(final ItemStack stack, @Nullable final IBlockReader world, final List<ITextComponent> tooltip, final ITooltipFlag tooltipFlag) {
 		tooltip.add(new TranslationTextComponent("desc.crying_obsidian_advanced"));
 
-		if(!CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning) {
+		if(!CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning.get()) {
 			tooltip.add(new TranslationTextComponent("desc.entity_feature_disabled", TextFormatting.RED));
 		}
 
-		if(!CryingObsidianConfig.enableAdvancedCryingObsidianOwner) {
+		if(!CryingObsidianConfig.enableAdvancedCryingObsidianOwner.get()) {
 			tooltip.add(new TranslationTextComponent("desc.owner_feature_disabled", TextFormatting.RED));
 		}
 	}

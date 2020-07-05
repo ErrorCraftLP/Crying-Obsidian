@@ -4,6 +4,7 @@ import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianAdvanced;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianDecoration;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
+import de.errorcraftlp.cryingobsidian.misc.CryingObsidianConfig;
 import de.errorcraftlp.cryingobsidian.misc.Utils;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.Block;
@@ -13,8 +14,10 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
 
@@ -34,7 +37,8 @@ public class CryingObsidian {
 	public static final TileEntityType<?> CRYING_OBSIDIAN_ADVANCED_TILE_ENTITY = null;
 
 	public CryingObsidian() {
-        // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
+		// Register configuration
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CryingObsidianConfig.commonSpec);
 	}
 
 	@SubscribeEvent
