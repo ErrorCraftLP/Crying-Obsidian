@@ -4,7 +4,7 @@ issueTrackerURL="https://github.com/ErrorCraftLP/Crying-Obsidian/issues"
 
 [[mods]]
 modId="cryingobsidian"
-version="${file.jarVersion}"
+version="1.2.1"
 displayName="Crying Obsidian"
 updateJSONURL="https://raw.githubusercontent.com/ErrorCraftLP/Crying-Obsidian/master/version.json"
 displayURL="https://minecraft.curseforge.com/projects/crying-obsidian"
