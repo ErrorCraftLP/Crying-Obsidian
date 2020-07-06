@@ -65,12 +65,4 @@ public class CryingObsidian {
 		final IForgeRegistry<TileEntityType<?>> registry = event.getRegistry();
 		registry.register(TileEntityType.Builder.create(TileEntityCryingObsidianAdvanced::new, CRYING_OBSIDIAN_BLOCK_ADVANCED).build(null).setRegistryName(Utils.ID, "crying_obsidian_advanced_tile_entity"));
 	}
-
-	/*@EventHandler
-	public void init(@SuppressWarnings("unused") final FMLInitializationEvent event) {
-		// Register crying obsidian blocks in ore dictionary
-		OreDictionary.registerOre("obsidian", CRYING_OBSIDIAN_BLOCK);
-		OreDictionary.registerOre("obsidian", CRYING_OBSIDIAN_BLOCK_DECORATION);
-		OreDictionary.registerOre("obsidian", CRYING_OBSIDIAN_BLOCK_ADVANCED);
-	}*/
 }
