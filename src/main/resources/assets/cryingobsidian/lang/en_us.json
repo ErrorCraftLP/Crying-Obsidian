@@ -24,7 +24,4 @@
     "desc.crying_obsidian_item": "An entity is linked to this item.",
     "desc.entity_feature_disabled": "You can't bind an entity to this block because that feature was disabled in the config.",
     "desc.owner_feature_disabled": "This block can be used by everyone because the owner feature was disabled in the config.",
-
-    "_comment": "Config",
-    "cryingobsidian.general.respawnwhitelist": "Re-spawn whitelist"
 }

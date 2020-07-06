@@ -1,6 +1,7 @@
 package de.errorcraftlp.cryingobsidian.misc;
 
 import net.minecraft.entity.player.PlayerEntity.SleepResult;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,7 +14,9 @@ public class CryingObsidianEventHandler {
 		// Disable sleeping in beds if the config option is enabled
 		if(CryingObsidianConfig.disableBeds.get()) {
 			event.setResult(SleepResult.OTHER_PROBLEM);
-			event.getPlayer().sendMessage(new TranslationTextComponent("message.bed_disabled"));
+			final TranslationTextComponent message = new TranslationTextComponent("message.bed_disabled");
+			message.getStyle().setColor(TextFormatting.RED);
+			event.getPlayer().sendMessage(message);
 		}
 	}
 }
