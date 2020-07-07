@@ -118,14 +118,20 @@ public class BlockCryingObsidianAdvanced extends Block {
 
 		if(CryingObsidianConfig.enableRespawnWhitelist.get()) {
 			if(CryingObsidianConfig.respawnWhitelist.get().isEmpty()) {
-				tooltip.add(new TranslationTextComponent("desc.entity_whitelist_empty", TextFormatting.RED));
+				final TranslationTextComponent tooltipEntry = new TranslationTextComponent("desc.entity_whitelist_empty");
+				tooltipEntry.getStyle().setColor(TextFormatting.RED);
+				tooltip.add(tooltipEntry);
 			} else {
-				tooltip.add(new TranslationTextComponent("desc.entity_whitelist_enabled", TextFormatting.RED));
+				final TranslationTextComponent tooltipEntry = new TranslationTextComponent("desc.entity_whitelist_enabled");
+				tooltipEntry.getStyle().setColor(TextFormatting.RED);
+				tooltip.add(tooltipEntry);
 			}
 		}
 
 		if(!CryingObsidianConfig.enableOwnerSystem.get()) {
-			tooltip.add(new TranslationTextComponent("desc.owner_system_disabled", TextFormatting.RED));
+			final TranslationTextComponent tooltipEntry = new TranslationTextComponent("desc.owner_system_disabled");
+			tooltipEntry.getStyle().setColor(TextFormatting.RED);
+			tooltip.add(tooltipEntry);
 		}
 	}
 }
