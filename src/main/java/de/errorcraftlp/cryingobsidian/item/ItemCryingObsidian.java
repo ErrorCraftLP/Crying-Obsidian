@@ -53,7 +53,15 @@ public class ItemCryingObsidian extends Item {
 						return true;
 					}
 				}
-				final TranslationTextComponent message = new TranslationTextComponent("message.entity_whitelist");
+
+				final TranslationTextComponent message;
+
+				if(CryingObsidianConfig.respawnWhitelist.get().isEmpty()) {
+					message = new TranslationTextComponent("message.entity_whitelist_empty");
+				} else {
+					message = new TranslationTextComponent("message.entity_whitelist");
+				}
+
 				message.getStyle().setColor(TextFormatting.RED);
 				player.sendMessage(message);
 			} else {

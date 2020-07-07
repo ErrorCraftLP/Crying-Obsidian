@@ -24,12 +24,8 @@ public class Utils {
 				player.setSpawnPoint(playerPos, true, player.dimension);
 			}
 
-			if(CryingObsidianConfig.enableChatMessage.get()) {
-				player.sendMessage(new TranslationTextComponent("message.spawnpoint_set", player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
-			}
-
+			player.sendMessage(new TranslationTextComponent("message.spawnpoint_set", player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
 		}
-
 	}
 
 	// Util method for setting the spawn point at the block's location
@@ -54,10 +50,7 @@ public class Utils {
 			}
 
 			player.setSpawnPoint(correctedPos1, true, player.dimension);
-
-			if(CryingObsidianConfig.enableChatMessage.get()) {
-				player.sendMessage(new TranslationTextComponent("message.spawnpoint_set", player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()));
-			}
+			player.sendMessage(new TranslationTextComponent("message.spawnpoint_set", player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()));
 		}
 	}
 

@@ -14,14 +14,15 @@
     "message.entity_respawned": "Eine Kreatur, die an einen deiner weinenden Obsidian-Blöcke gebunden ist, ist gestorben. Sie wurde neu gespawnt.",
     "message.entity_linked": "Die ausgewählte Kreatur wurde mit diesem Item verbunden. Rechtsklicke mit diesem Item auf einen fortgeschrittenen weinenden Obsidian-Block, bei dem die Kreatur spawnen soll, wenn sie stirbt.",
     "message.entity_whitelist": "Die ausgewählte Kreatur wurde nicht mit diesem Item verbunden, da sie sich nicht auf der Whitelist befindet.",
+    "message.entity_whitelist_empty": "Die ausgewählte Kreatur wurde nicht mit diesem Item verbunden, da diese Funktion in den Einstellungen deaktiviert wurde.",
     "message.entity_spawn_here": "Die Kreatur wird hier spawnen, wenn sie stirbt.",
-    "message.entity_binding_disabled": "Du kannst keine Kreatur an diesen Block binden, weil diese Funktion in den Einstellungen deaktiviert wurde.",
     "message.bed_disabled": "Das Schlafen in Betten wurde in den Crying Obsidian-Einstellungen deaktiviert.",
 
     "_comment": "Description",
     "desc.crying_obsidian_decoration": "Eine Version des weinenden Obsidians, die nichts macht.",
     "desc.crying_obsidian_advanced": "Eine fortgeschrittene Version des weinenden Obsidians. Dieser Block kann nur von seinem Besitzer benutzt werden (dies kann in den Einstellungen deaktiviert werden) und eine Kreatur kann an ihn gebunden werden. Die Kreatur, die an diesen Block gebunden ist, wird an der Position des Blocks neu spawnen, wenn sie stirbt.",
     "desc.crying_obsidian_item": "Eine Kreatur ist mit diesem Item verbunden.",
-    "desc.entity_feature_disabled": "Du kannst keine Kreatur an diesen Block binden, weil diese Funktion in den Einstellungen deaktiviert wurde.",
-    "desc.owner_feature_disabled": "Dieser Block kann von jedem benutzt werden, weil die Besitzer-Funktion in den Einstellungen deaktiviert wurde."
+    "desc.entity_whitelist_enabled": "Die Whitelist ist aktiviert.",
+    "desc.entity_whitelist_empty": "Du kannst keine Kreatur an diesen Block binden, weil diese Funktion in den Einstellungen deaktiviert wurde.",
+    "desc.owner_system_disabled": "Dieser Block kann von jedem benutzt werden, weil die Besitzer-Funktion in den Einstellungen deaktiviert wurde."
 }

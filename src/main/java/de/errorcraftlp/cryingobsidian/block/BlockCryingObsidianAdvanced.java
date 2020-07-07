@@ -58,11 +58,11 @@ public class BlockCryingObsidianAdvanced extends Block {
 				owner = ((TileEntityCryingObsidianAdvanced)tileEntity).getOwnerUUID();
 			}
 
-			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner.get() && owner == null) {
+			if(CryingObsidianConfig.enableOwnerSystem.get() && owner == null) {
 				return true;
 			}
 
-			if(CryingObsidianConfig.enableAdvancedCryingObsidianOwner.get() && !player.getUniqueID().equals(owner)) {
+			if(CryingObsidianConfig.enableOwnerSystem.get() && !player.getUniqueID().equals(owner)) {
 				final TranslationTextComponent message = new TranslationTextComponent("message.not_owner");
 				message.getStyle().setColor(TextFormatting.RED);
 				player.sendMessage(message);
@@ -70,19 +70,13 @@ public class BlockCryingObsidianAdvanced extends Block {
 			}
 
 			if(heldStack.getItem().equals(CryingObsidian.CRYING_OBSIDIAN_ITEM)) {
-				if(CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning.get()) {
-					final CompoundNBT itemNBT = heldStack.getChildTag(Utils.ID);
+				final CompoundNBT itemNBT = heldStack.getChildTag(Utils.ID);
 
-					if(itemNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
-						((TileEntityCryingObsidianAdvanced)tileEntity).setStoredUUID(itemNBT.getUniqueId("EntityUUID"));
-						heldStack.removeChildTag(Utils.ID);
+				if(itemNBT != null && tileEntity instanceof TileEntityCryingObsidianAdvanced) {
+					((TileEntityCryingObsidianAdvanced)tileEntity).setStoredUUID(itemNBT.getUniqueId("EntityUUID"));
+					heldStack.removeChildTag(Utils.ID);
 
-						player.sendMessage(new TranslationTextComponent("message.entity_spawn_here"));
-					}
-				} else {
-					final TranslationTextComponent message = new TranslationTextComponent("message.entity_binding_disabled");
-					message.getStyle().setColor(TextFormatting.RED);
-					player.sendMessage(message);
+					player.sendMessage(new TranslationTextComponent("message.entity_spawn_here"));
 				}
 
 				return true;
@@ -122,12 +116,16 @@ public class BlockCryingObsidianAdvanced extends Block {
 	public void addInformation(final ItemStack stack, @Nullable final IBlockReader world, final List<ITextComponent> tooltip, final ITooltipFlag tooltipFlag) {
 		tooltip.add(new TranslationTextComponent("desc.crying_obsidian_advanced"));
 
-		if(!CryingObsidianConfig.enableAdvancedCryingObsidianEntityRespawning.get()) {
-			tooltip.add(new TranslationTextComponent("desc.entity_feature_disabled", TextFormatting.RED));
+		if(CryingObsidianConfig.enableRespawnWhitelist.get()) {
+			if(CryingObsidianConfig.respawnWhitelist.get().isEmpty()) {
+				tooltip.add(new TranslationTextComponent("desc.entity_whitelist_empty", TextFormatting.RED));
+			} else {
+				tooltip.add(new TranslationTextComponent("desc.entity_whitelist_enabled", TextFormatting.RED));
+			}
 		}
 
-		if(!CryingObsidianConfig.enableAdvancedCryingObsidianOwner.get()) {
-			tooltip.add(new TranslationTextComponent("desc.owner_feature_disabled", TextFormatting.RED));
+		if(!CryingObsidianConfig.enableOwnerSystem.get()) {
+			tooltip.add(new TranslationTextComponent("desc.owner_system_disabled", TextFormatting.RED));
 		}
 	}
 }
