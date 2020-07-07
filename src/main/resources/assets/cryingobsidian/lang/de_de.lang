@@ -19,7 +19,7 @@ message.bed_disabled=Das Schlafen in Betten wurde in den Crying Obsidian-Einstel
 
 # Description
 desc.crying_obsidian_decoration=Eine Version des weinenden Obsidians, die nichts macht.
-desc.crying_obsidian_advanced=Eine fortgeschrittene Version des weinenden Obsidians. Dieser Block kann nur von seinem Besitzer benutzt werden (dies kann in den Einstellungen deaktiviert werden) und eine Kreatur kann an ihn gebunden werden. Die Kreatur, die an diesen Block gebunden ist, wird an der Position des Blocks neu spawnen, wenn sie stirbt.
+desc.crying_obsidian_advanced=Eine fortgeschrittene Version des weinenden Obsidians. Dieser Block kann nur von seinem Besitzer verwendet werden und eine Kreatur kann an ihn gebunden werden. Die Kreatur, die an diesen Block gebunden ist, wird an der Position des Blocks neu spawnen, wenn sie stirbt.
 desc.crying_obsidian_item=Eine Kreatur ist mit diesem Item verbunden.
 desc.entity_feature_disabled=Du kannst keine Kreatur an diesen Block binden, weil diese Funktion in den Einstellungen deaktiviert wurde.
 desc.owner_feature_disabled=Dieser Block kann von jedem benutzt werden, weil die Besitzer-Funktion in den Einstellungen deaktiviert wurde.

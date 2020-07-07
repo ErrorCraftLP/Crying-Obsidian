@@ -34,9 +34,7 @@ public class Utils {
 			if(CryingObsidianConfig.enableChatMessage) {
 				player.sendMessage(new TextComponentTranslation("message.spawnpoint_set", player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
 			}
-
 		}
-
 	}
 
 	// Util method for setting the spawn point at the block's location

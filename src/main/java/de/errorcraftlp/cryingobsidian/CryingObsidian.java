@@ -4,12 +4,17 @@ import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidian;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianAdvanced;
 import de.errorcraftlp.cryingobsidian.block.BlockCryingObsidianDecoration;
 import de.errorcraftlp.cryingobsidian.item.ItemCryingObsidian;
+import de.errorcraftlp.cryingobsidian.misc.CryingObsidianDataFixer;
 import de.errorcraftlp.cryingobsidian.misc.Utils;
 import de.errorcraftlp.cryingobsidian.tileentiy.TileEntityCryingObsidianAdvanced;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.datafix.FixTypes;
+import net.minecraftforge.common.util.CompoundDataFixer;
+import net.minecraftforge.common.util.ModFixs;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -34,7 +39,7 @@ public class CryingObsidian {
 		registry.registerAll(cryingObsidianBlock, cryingObsidianBlockAdvanced, cryingObsidianBlockDecoration);
 
 		// Register tile entity
-		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, "crying_obsidian_advanced_tile_entity");
+		GameRegistry.registerTileEntity(TileEntityCryingObsidianAdvanced.class, Utils.ID + ":crying_obsidian_advanced_tile_entity");
 	}
 
 	@SubscribeEvent
@@ -52,6 +57,11 @@ public class CryingObsidian {
 
 	@EventHandler
 	public void init(@SuppressWarnings("unused") final FMLInitializationEvent event) {
+		// Register data fixer
+		final CompoundDataFixer dataFixer = FMLCommonHandler.instance().getDataFixer();
+		final ModFixs tileEntityFixer = dataFixer.init(Utils.ID, 1);
+		tileEntityFixer.registerFix(FixTypes.BLOCK_ENTITY, new CryingObsidianDataFixer());
+
 		// Register crying obsidian blocks in ore dictionary
 		OreDictionary.registerOre("obsidian", cryingObsidianBlock);
 		OreDictionary.registerOre("obsidian", cryingObsidianBlockDecoration);
