@@ -7,6 +7,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -19,12 +20,12 @@ public class BlockCryingObsidian extends Block {
 	}
 
 	@Override
-	public boolean onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
+	public ActionResultType onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
 		if(CryingObsidianConfig.setSpawnPointAtBlock.get()) {
 			Utils.setSpawnPointAtBlock(world, player, pos);
 		} else {
 			Utils.setSpawnPointAtPlayer(world, player);
 		}
-		return true;
+		return ActionResultType.SUCCESS;
 	}
 }

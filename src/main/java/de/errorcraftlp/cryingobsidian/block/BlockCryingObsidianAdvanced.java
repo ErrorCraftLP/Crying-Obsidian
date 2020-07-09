@@ -19,6 +19,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -48,7 +49,7 @@ public class BlockCryingObsidianAdvanced extends Block {
 	}
 
 	@Override
-	public boolean onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
+	public ActionResultType onBlockActivated(final BlockState state, final World world, final BlockPos pos, final PlayerEntity player, final Hand hand, final BlockRayTraceResult hit) {
 		if(!world.isRemote) {
 			final ItemStack heldStack = player.getHeldItem(hand);
 			final TileEntity tileEntity = world.getTileEntity(pos);
@@ -59,14 +60,14 @@ public class BlockCryingObsidianAdvanced extends Block {
 			}
 
 			if(CryingObsidianConfig.enableOwnerSystem.get() && owner == null) {
-				return true;
+				return ActionResultType.FAIL;
 			}
 
 			if(CryingObsidianConfig.enableOwnerSystem.get() && !player.getUniqueID().equals(owner)) {
 				final TranslationTextComponent message = new TranslationTextComponent("message.not_owner");
 				message.getStyle().setColor(TextFormatting.RED);
 				player.sendMessage(message);
-				return true;
+				return ActionResultType.FAIL;
 			}
 
 			if(heldStack.getItem().equals(CryingObsidian.CRYING_OBSIDIAN_ITEM)) {
@@ -79,7 +80,7 @@ public class BlockCryingObsidianAdvanced extends Block {
 					player.sendMessage(new TranslationTextComponent("message.entity_spawn_here"));
 				}
 
-				return true;
+				return ActionResultType.SUCCESS;
 			}
 
 			if(CryingObsidianConfig.setSpawnPointAtBlock.get()) {
@@ -89,7 +90,7 @@ public class BlockCryingObsidianAdvanced extends Block {
 			}
 		}
 
-		return true;
+		return ActionResultType.SUCCESS;
 	}
 
 	@Override

@@ -19,9 +19,9 @@ public class Utils {
 
 			if(player.isInWater()) {
 				final BlockPos correctedPos = new BlockPos(playerPos.getX(), world.getSeaLevel(), playerPos.getZ());
-				player.setSpawnPoint(correctedPos, true, player.dimension);
+				player.setSpawnPoint(correctedPos, true, false, player.dimension);
 			} else {
-				player.setSpawnPoint(playerPos, true, player.dimension);
+				player.setSpawnPoint(playerPos, true, false, player.dimension);
 			}
 
 			player.sendMessage(new TranslationTextComponent("message.spawnpoint_set", player.getDisplayName(), playerPos.getX(), playerPos.getY(), playerPos.getZ()));
@@ -49,7 +49,7 @@ public class Utils {
 				continue;
 			}
 
-			player.setSpawnPoint(correctedPos1, true, player.dimension);
+			player.setSpawnPoint(correctedPos1, true, false, player.dimension);
 			player.sendMessage(new TranslationTextComponent("message.spawnpoint_set", player.getDisplayName(), correctedPos1.getX(), correctedPos1.getY(), correctedPos1.getZ()));
 		}
 	}
