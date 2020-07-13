@@ -1,5 +1,5 @@
 {
-	"homepage": "https://minecraft.curseforge.com/projects/crying-obsidian",
+	"homepage": "https://www.curseforge.com/minecraft/mc-mods/crying-obsidian",
 	"promos": {
 		"1.9.4-latest": "1.1.2",
 		"1.9.4-recomended": "1.1.2",
@@ -18,7 +18,9 @@
 		"1.12.2-latest": "1.2.1",
 		"1.12.2-recomended": "1.2.1",
 		"1.14.4-latest": "1.2.1",
-		"1.14.4-recomended": "1.2.1"
+		"1.14.4-recomended": "1.2.1",
+		"1.15.2-latest": "1.2.1",
+		"1.15.2-recomended": "1.2.1"
 	},
 	"1.9.4": {
 		"1.1.2": "The current MC 1.10.2 release now works with MC 1.9.4."
@@ -61,5 +63,8 @@
 	},
 	"1.14.4": {
 		"1.2.1": "If you want to use worlds that were created with previous versions of the mod, please open the world using version 1.2.1 for Minecraft 1.12.2 first.\nUpdated to Minecraft 1.14.4.\nSimplified the configuration file.\nAll error messages are now displayed in a red color.\nSome internal improvements."
+	},
+	"1.15.2": {
+		"1.2.1": "If you want to use worlds that were created with previous versions of the mod, please open the world using version 1.2.1 for Minecraft 1.12.2 first.\nUpdated to Minecraft 1.15.2.\nSimplified the configuration file.\nAll error messages are now displayed in a red color.\nSome internal improvements."
 	}
 }
