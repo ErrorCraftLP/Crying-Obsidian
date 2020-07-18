@@ -10,12 +10,18 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
 public class BlockCryingObsidian extends Block {
 	public BlockCryingObsidian() {
 		super(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(50.0F, 2000.0F));
 		setRegistryName(Utils.ID, "crying_obsidian_block");
+	}
+
+	@Override
+	public boolean isPortalFrame(final BlockState state, final IWorldReader world, final BlockPos pos) {
+		return true;
 	}
 
 	@Override
