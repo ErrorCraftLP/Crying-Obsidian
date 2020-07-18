@@ -27,6 +27,7 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -36,6 +37,11 @@ public class BlockCryingObsidianAdvanced extends Block {
 	public BlockCryingObsidianAdvanced() {
 		super(Block.Properties.create(Material.ROCK, MaterialColor.BLACK).hardnessAndResistance(50.0F, 2000.0F));
 		setRegistryName(Utils.ID, "crying_obsidian_block_advanced");
+	}
+
+	@Override
+	public boolean isPortalFrame(final BlockState state, final IWorldReader world, final BlockPos pos) {
+		return true;
 	}
 
 	@Override
