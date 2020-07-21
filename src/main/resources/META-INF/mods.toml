@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[30,)"
+loaderVersion="[31,)"
 issueTrackerURL="https://github.com/ErrorCraftLP/Crying-Obsidian/issues"
 
 [[mods]]
@@ -18,7 +18,7 @@ This mod implements this block and adds an item version of it.
 [[dependencies.cryingobsidian]]
     modId="forge"
     mandatory=true
-    versionRange="[30,)"
+    versionRange="[31,)"
     ordering="NONE"
     side="BOTH"
     
